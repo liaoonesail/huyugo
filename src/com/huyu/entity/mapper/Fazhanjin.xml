@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Fazhanjin" >
+	
+	<update id="update" parameterType="com.huyu.entity.Fazhanjin" >
+		update fazhanjin
+			set 
+			yanglao=#{yanglao},
+			chongzhi=#{chongzhi},
+			shifang=#{shifang},
+			shifangY=#{shifangY},
+			shifangJ=#{shifangJ},
+			dai1=#{dai1},
+			dai2=#{dai2},
+			dai3=#{dai3},
+			guanli=#{guanli},
+			fuwu=#{fuwu},
+			fuwujin=#{fuwujin}
+			where 
+				id=#{id}
+	</update>
+	<select id="list" resultType="com.huyu.entity.Fazhanjin">
+		select * from fazhanjin
+	</select>
+</mapper>

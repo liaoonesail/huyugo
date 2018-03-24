@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台欢迎页</title>
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/public.css" />
+	<link rel="stylesheet" href="../css/content.css" />
+	
+<script type="text/javascript" src="../js/jquery.min.js"></script></head>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">用户信息</a>><a href="">添加会员</a></div>
+		<div class="public-content">
+			<div class="public-content-header">
+				<h3>修改网站配置</h3>
+			</div>
+			<div class="public-content-cont">
+			<form action="" id="addVip">
+				<div class="form-group">
+						<label for="">手机号</label>
+						<input class="form-input-txt" id="phone" type="text" name="phone" value=""/>
+				</div>
+				<div class="form-group">
+						<label for="">密码</label>
+						<input class="form-input-txt" id="password" type="password" name="password" value=""/>
+				</div>
+				<div class="form-group">
+						<label for="">是否vip</label>
+						<input type="radio" name="member" checked="checked" value="1"/>是&nbsp;&nbsp;
+						<input type="radio" name="member" value="0"/>否
+				</div>
+				<div class="form-group" style="margin-left:150px;">
+	                    <input type="button" class="sub-btn submit" value="提  交">
+	                    <input type="reset" class="sub-btn" value="重  置">
+				</div>
+				<script type="text/javascript">
+			        $(".submit").click(function(){
+			        	var phone = $("#phone").val();
+			        	var password = $("#password").val();
+			        	if(phone == ""){
+			        		alert("请输入手机号");
+			        		return false;
+			        	}
+			        	if(password == ""){
+			        		alert("请输入密码");
+			        		return false;
+			        	}
+			        	var data = $("form").serialize();
+			        	var　url = "../../adminuser/add.do";
+			        	$.ajax({
+			        		url:url,type:'post',data:data,success:function(res){
+			        			if(res == "true"){
+		                            alert("会员添加成功");
+		                            window.location.href="article_manage.html";
+		                        }else{
+		                            alert("该会员手机号已被注册,会员添加失败");
+		                        }
+			        		}
+			        	});
+			        	return false;
+			        });
+				</script>
+				
+			</form>
+		</div>
+	</div>
+<script src="../kingediter/kindeditor-all-min.js"></script>
+<script src="../js/laydate.js"></script>
+</body>
+</html>

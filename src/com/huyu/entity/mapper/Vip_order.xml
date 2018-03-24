@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Vip_order" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Vip_order" >
+		insert into Vip_order(order_num,user_id,order_time,payment,total,status) values(#{order_num},#{user_id},#{order_time},#{payment},#{total},#{status})
+	</insert>
+	
+	<delete id="del"  parameterType="int"  >
+		delete  from Vip_order where id=#{id}
+	</delete>
+	<update id="update" parameterType="com.huyu.entity.Vip_order">
+		update
+			Vip_order
+			set
+			status=#{status}
+		where
+			id=#{id} 
+	</update>
+	<update id="updateOrderNumTotal" parameterType="com.huyu.entity.Vip_order">
+		update
+		    vip_order
+		    set
+		   total=#{total},
+		   order_num=#{order_num}
+		   where
+		   	id=#{id}
+	</update>
+	<select  id="getvip_order" parameterType="string" resultType="com.huyu.entity.Vip_order">
+		select * from Vip_order where order_num=#{order_num}
+	</select>
+	<select  id="getid" parameterType="int" resultType="com.huyu.entity.Vip_order">
+		select * from Vip_order where user_id=#{user_id}
+	</select>
+</mapper>

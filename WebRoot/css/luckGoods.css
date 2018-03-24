@@ -1,0 +1,19 @@
+.publicBoxBackgroud{
+	width: 100%;
+	height: 1260px;
+	background: url(../img/xingyuan.png) no-repeat center;
+	background-size:100% 100% ;
+}
+.btnsstrbg a{
+    line-height: 70px;
+    color: #232323;
+    background: #f8f8f8;
+    padding: 13px 260px;
+    border: 1px solid #eee;
+    font-size: 20px;
+    font-weight: bold;
+}
+.removes{
+	background: #fff !important;
+	color: #A440FF !important; 
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>后台欢迎页</title>
+<link rel="stylesheet" href="../css/reset.css" />
+<link rel="stylesheet" href="../css/content.css" />
+<link rel="stylesheet" href="../layui/css/layui.css" />
+<script src="../layui/layui.js"></script>
+</head>
+<body>
+<!--  lay-data="{height:'full-20', page:true, id:'test'}" lay-filter="test" -->
+	<!-- <table class="layui-table" id="test" lay-filter="test">
+		<thead>
+			<tr>
+				<th lay-data="{field:'id', width:80, sort: true}">ID</th>
+				<th lay-data="{field:'username', width:200, sort: true}">时间</th>
+				<th lay-data="{field:'username', width:200}">渠道</th>
+				<th lay-data="{field:'sex', width:200, sort: true}">获得</th>
+			</tr>
+		</thead>
+	</table> -->
+	<table id="demo" lay-filter="test"></table>
+
+	<script>
+		layui.use('table', function(){
+		  var table = layui.table;
+		  
+		  var search = window.location.search;
+		  var id = search.substring(1,search.length).split("=")[1];
+		  console.log("id:"+id);
+		  
+		  table.render({
+		  	  elem: "#demo"
+		  	  , limits: [10,20,30,40,50,70,80,90]
+  			  , limit: 10 //默认采用60
+		  	  , page: true
+		  	  , height: 'full-20'
+		  	  , cols:[[
+		  	  		{ field: 'id',title: 'ID', width: 80, sort: true}
+		  	  		, {field: 'date_time', title: '时间', width: 200, sort: true}
+		  	  		, {field: 'way', title: '渠道', width: 200, templet: "#way"}
+		  	  		, {field: 'receipt', title: '获得', width: 200, sort: true}
+		  	  ]]
+		  	  , url: "/huyugo/payment/showPensionList.do"
+		  	  , where: { userId:id}
+		  });
+		  
+		  
+		});
+	</script>
+	<!-- 表头ID -->
+<script type="text/html" id="ID">
+	{{# 
+		var i = 1;
+		var fn = function(){
+			return i;
+		};
+    }}
+	{{fn()}}
+	{{#
+		i++;
+	}}
+</script>
+<!-- 
+	// 渠道 1会员开通 2商品购买 3下级分利 4抽奖花费 5抽奖获得 6提现 7签到 8分享9完善资料10兑换
+	// 11会员转账 12商品退款 13商品退货
+ -->
+<!-- 渠道 -->
+	<script type="text/html" id="way">
+	{{# if(d.way == 1){ }}会员开通 {{# }else if(d.way == 2){ }}商品购买{{# }else if(d.way == 3){ }}下级分利{{#  }else if(d.way == 4){ }}抽奖花费{{#  }else if(d.way == 5){ }}抽奖获得{{#  }else if(d.way ==6){ }}提现{{#  }else if(d.way == 7){ }}签到{{# }else if(d.way == 8){ }}分享{{# }else if(d.way == 9){ }}完善资料{{# }else if(d.way == 10){ }}兑换{{# }else if(d.way == 11){ }}会员转账{{# }else if(d.way == 12){ }}商品退款{{# }else if(d.way == 13){ }}商品退货{{# }else }} 
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<link href="/huyugo/img/f.png" rel="shortcut icon" type="image/x-icon"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<meta name="keywords" content="互余，互余网、互余购、万州商城，直购商城，休闲娱乐" />
+		<meta name="description" content="互余购-综合网购商城、要网购就来互余购，正品低价、品质保障、新型的网购模式，购物模式多样化等" />
+		<title>互余购-综合网购商城</title>
+		<link rel="stylesheet" href="css/swiper.css" />		
+		<link rel="stylesheet" href="css/bass.css" />
+		<link rel="stylesheet" href="css/header.css" />
+		<!--引入jquery库的jquery-1.10.2.js-->
+		<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+		<!--引入的swiper.min.js特效组件-->
+		<script type="text/javascript" src="js/swiper.min.js"></script>
+		<style>
+			.swiper-pagination-bullet {
+				width: 20px;
+				height: 20px;
+				text-align: center;
+				line-height: 20px;
+				font-size: 12px;
+				color: #fff;
+				opacity: 1;
+				background: rgba(0, 0, 0, 0.8);
+			}
+			
+			.swiper-pagination-bullet-active {
+				color: #fff;
+				background: #db3752;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<!--签到弹窗内容-->
+			<div class="mask">
+				<div class="modal">
+				    <a href="#" class="closeBtn">×</a>
+					<h1 class="title_h1 clearfix"><span></span><em>已签到</em> <i>您已签到1天</i></h1>
+					<h2 class="title_h2">您获得现金<span>0.88元</span></h2>
+			    </div>
+			</div>
+			<!--签到弹窗内容-->
+		<!--主体部分-->
+		<div class="mBodyContent">
+			<!--头部导航部分-->
+			<header class="headerConts">
+				<!--头部顶部内容-->
+				<div class="headerTop">
+					<div class="publicBox clearfix">
+						<ul>
+							<li><img src="img/smallImg/1.png" /><span>您好，欢迎来本网站！</span></li>
+							<!--登录前的样式-->
+							<li class="logoinLx">
+								<a href="login.html">[请登录]</a>
+							</li>
+							<li class="logoinLx">
+								<a href="reg.html">[免费注册]</a>
+							</li>
+							<!--登录前的样式-->
+						</ul>
+						
+						<div class="pull-right">
+							<ol>
+								<!--登录后的样式-->
+								<li class="logoinLx2">
+									<a href="">
+										<img src="img/member.jpg" width="15"  style="margin-top: 4px;"/>
+										<span>188****6210</span>
+									</a>
+								</li>
+								<li class="logoinLx2">
+									<a href="">[退出]</a>&nbsp;&nbsp;&nbsp;
+								</li>
+								
+								<!--登录后的样式-->
+								<li>
+									<a href="">我的收藏&nbsp;</a>|</li>
+								<li>
+									<a href="">在线客服&nbsp;</a>|</li>
+								<li>
+									<a href="">我的购物车&nbsp;</a>|</li>
+								<li>
+									<a href="">我的积分&nbsp;</a>|</li>
+								<li>
+									<a href="">会员中心</a>
+								</li>
+							</ol>
+						</div>
+
+					</div>
+				</div>
+				<!--头部顶部内容-->
+				<!--头部中间内容-->
+				<div class="publicBox logoImg clearfix">
+					<a class="btnIndex" href="index.html">
+						<img src="img/logo/logo.jpg" />
+					</a>
+					<div class="zhongJIan">
+						<div class="zhongJIanBox clearfix">
+							<div class="starxiang"></div>
+							<select>
+								<option>商品</option>
+								<option>儿童用品</option>
+								<option>儿童用品儿童用品</option>
+								<option>营养保健</option>
+							</select>
+							<input type="text" placeholder="请输入搜索商品" /><button>搜索</button>
+						</div>
+						<div class="searchMsi">
+							<!--热门搜索：电子玩具  模型飞机  车模  航模  夏装  眼镜-->
+							<ul class="clearfix">
+								<li>热门搜索：</li>
+								<li>
+									<a href="">电子玩具</a>
+								</li>
+								<li>
+									<a href="">模型飞机</a>
+								</li>
+								<li>
+									<a href="">车模</a>
+								</li>
+								<li>
+									<a href="">航模</a>
+								</li>
+								<li>
+									<a href="">夏装</a>
+								</li>
+								<li>
+									<a href="">眼镜</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="pull-right headerErweimai clearfix">
+						<a href="" class="gowucheBtn clearfix">
+							<img src="img/smallImg/gowuche.png" /> 去购物车结算
+							<div class="Triangle"></div>
+						</a>
+						<div class="weixinbox">
+							<img src="img/smallImg/footerimg.png" />
+							<p>互余官方微信</p>
+						</div>
+					</div>
+				</div>
+				<!--头部中间内容-->
+				<!--nav部分-->
+				<div class="nav">
+					<div class="publicBox">
+						<ul class="clearfix">
+							<li class="clearfix">
+								<span>所有商品分类<img src="img/smallImg/duo.png"/></span>
+								<!--二级导航-->
+								<div class="navigation clearfix" style="display: block;">
+									<dl>
+										<dd>
+											<a href="">清洁日用</a>
+											<a href="">美妆护理</a>
+										</dd>
+										<dd>
+											<a href="">营养保健</a>
+											<a href="">中外名酒</a>
+										</dd>
+										<dd>
+											<a href="">美食特产</a>
+											<a href="">生鲜食品</a>
+										</dd>
+										<dd>
+											<a href="">家纺家饰</a>
+											<a href="">茶疗养生</a>
+										</dd>
+										<dd>
+											<a href="">家电数码</a>
+											<a href="">箱包皮具</a>
+										</dd>
+										<dd>
+											<a href="">汽车用品</a>
+											<a href="">珠宝配饰</a>
+										</dd>
+										<dd>
+											<a href="">服装服饰</a>
+											<a href="">鞋靴袜帽</a>
+										</dd>
+										<dd>
+											<a href="">蒲公英画廊</a>
+											<a href="">母婴玩具</a>
+										</dd>
+										<dd>
+											<a href="">成人用品</a>
+											<a href="">本地服务</a>
+										</dd>
+									</dl>
+									<!--公告-->
+									<div class="noticebox">
+										<div class="navigationTitle clearfix">
+											<a class="navigationTitleHover">促销</a>
+											<a>|</a>
+											<a class="navigationTitleHover">公告</a>
+											<a href="">更多</a>
+										</div>
+										<div class="navigationTitleList">
+											<div>
+												<a href="">万和618 赢5日游/抢免单</a>
+											</div>
+											<div>
+												<a href="">家居家装199减100</a>
+											</div>
+											<div>
+												<a href="">变美丽岂能等到618！</a>
+											</div>
+											<div>
+												<a href="">小熊糖官方入驻全场88折</a>
+											</div>
+										</div>
+										<div class="navigationTitleList">
+											<div>
+												<a href="">首届互余购文学奖获奖作品揭晓</a>
+											</div>
+											<div>
+												<a href="">4.28配送员日2000名五星一线员工获表彰</a>
+											</div>
+											<div>
+												<a href="">变美丽岂能等到618！</a>
+											</div>
+											<div>
+												<a href="">小熊糖官方入驻全场88折</a>
+											</div>
+										</div>
+									</div>
+									<!--公告-->
+								</div>
+								<!--二级导航-->
+							</li>
+							<!--如果是当前页面对应的a标签加navok的class样式-->
+							<li>
+								<a class="ullia" href="index.html">首页</a>
+							</li>
+							<li>
+								<a class="ullia" href="">积分乐园 </a>
+							</li>
+							<li>
+								<a class="ullia" href="">活动商城</a>
+							</li>
+							<li>
+								<a class="ullia" href="">VIP商场</a>
+							</li>
+							<li>
+								<a class="ullia" href="">积分商城</a>
+							</li>						
+							<li>
+								<a class="ullia" href="">峰氏头条</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--nav部分-->
+			</header>
+			<!--头部导航部分-->
+			<!--，轮播，签到部分-->
+			
+			<div class="publicBox banner clearfix">
+				<!--签到-->
+				<div class="signbox">
+					<img class="signboxImg" src="img/smallImg/qitu.png" />
+					<div class="checkin">
+					</div>
+					<!--登录前-->
+					<div class="Logigdd" style="display: block;">
+						<div class="uesImg clearfix">
+							<label>
+							    <div class="ImgKi"><img src="img/smallImg/use.png"/></div>
+							    <input class="useinput" type="text" placeholder="请输入手机号" />
+							</label>
+						</div>
+						<div class="uesPass clearfix">
+							<label>
+							     <div  class="ImgKi"><img src="img/smallImg/pass.png"/></div>
+							     <input class="usepassword" type="password" placeholder="请输入登录密码" />
+							</label>
+						</div>
+						<div class="useBtns">
+							<button>立即登录</button>
+							<a href="reg.html">还没有注册？</a>
+						</div>
+					</div>
+					<!--登录前-->
+					<!--登录后-->
+					<div class="dengluOk" style="display: none;">
+						<div class="UiOkList clearfix">
+							<div class="renLoi"><img src="img/smallImg/re.png"/></div>
+							<div class="renPoic">
+								<p>hi,欢迎登录互余购</p>
+								<a href=""><img src="img/smallImg/qiandao2.png" />注册会员</a>
+								<a href="">[退出]</a>
+								<div class="fuliBOx">
+									<a href="">新人福利</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--登录后-->
+				</div>
+				<!--签到-->
+				<div class="carouselbox">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<a href=""><img src="img/banner/0.jpg" /></a>
+							</div>
+							<div class="swiper-slide">
+								<a href=""><img src="img/banner/1.jpg" /></a>
+							</div>
+							<div class="swiper-slide">
+								<a href=""><img src="img/banner/2.jpg" /></a>
+							</div>
+							<div class="swiper-slide">
+								<a href=""><img src="img/banner/3.jpg" /></a>
+							</div>
+							<div class="swiper-slide">
+								<a href=""><img src="img/banner/4.jpg" /></a>
+							</div>
+							<div class="swiper-slide">
+								<a href=""><img src="img/banner/5.jpg" /></a>
+							</div>
+						</div>
+						<!-- Add Pagination -->
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+			</div>
+			<!--，轮播，签到部分-->
+			<!--赚积分      积分大转盘       今日超值兑换-->
+			<div class="publicBox jifenBox">
+				<div class="jifenBoxTitle">
+					<ul class="clearfix">
+						<li>赚积分</li>
+						<li>积分大转盘</li>
+						<li>今日超值兑换</li>
+					</ul>
+				</div>
+				<div class="jifenBoxContsUi clearfix">
+					<div class="jifenBoxLeft">
+						<div class="jifenBoxLeftnav">
+							<p><img src="img/smallImg/qiandao1.png" />
+								<a href="">每日签到</a>
+							</p>
+							<p><img src="img/smallImg/qiandao2.png" />
+								<a href="">完善信息</a>
+							</p>
+							<p><img src="img/smallImg/qiandao3.png" />
+								<a href="">购买商品</a>
+							</p>
+							<p><img src="img/smallImg/qiandao4.png" />
+								<a href="">评价商品</a>
+							</p>
+							<p><img src="img/smallImg/qiandao5.png" />
+								<a href="">邀请好友</a>
+							</p>
+						</div>
+						<a class="jifenBoxBtns" href="">积分规则详情&gt;</a>
+					</div>
+					<div class="jifenBoxContent">
+						<img src="img/banner/luck.png" />
+					</div>
+					<div class="jifenBoxRight buyList">
+						<ul id="buyList">
+							<li class="clearfix">
+								<img src="img/commodity/1.jpg" />
+								<div class="jifenBoxList">
+									<p>“乐”系列化妆包</p>
+									<dd><span>2100</span>积分兑换</dd>
+									<div><del>原价：¥369.00</del></div>
+									<a href="">立即兑换</a>
+								</div>
+							</li>
+							<li class="clearfix">
+								<img src="img/commodity/2.jpg" />
+								<div class="jifenBoxList">
+									<p>“乐”系列化妆包</p>
+									<dd><span>2100</span>积分兑换</dd>
+									<div><del>原价：¥369.00</del></div>
+									<a href="">立即兑换</a>
+								</div>
+							</li>
+							<li class="clearfix">
+								<img src="img/commodity/a.png" />
+								<div class="jifenBoxList">
+									<p>“乐”系列化妆包</p>
+									<dd><span>2100</span>积分兑换</dd>
+									<div><del>原价：¥369.00</del></div>
+									<a href="">立即兑换</a>
+								</div>
+							</li>
+							<li class="clearfix">
+								<img src="img/commodity/b.png" />
+								<div class="jifenBoxList">
+									<p>“乐”系列化妆包</p>
+									<dd><span>2100</span>积分兑换</dd>
+									<div><del>原价：¥369.00</del></div>
+									<a href="">立即兑换</a>
+								</div>
+							</li>
+							<li class="clearfix">
+								<img src="img/commodity/c.png" />
+								<div class="jifenBoxList">
+									<p>“乐”系列化妆包</p>
+									<dd><span>2100</span>积分兑换</dd>
+									<div><del>原价：¥369.00</del></div>
+									<a href="">立即兑换</a>
+								</div>
+							</li>
+							<li class="clearfix">
+								<img src="img/commodity/d.png" />
+								<div class="jifenBoxList">
+									<p>“乐”系列化妆包</p>
+									<dd><span>2100</span>积分兑换</dd>
+									<div><del>原价：¥369.00</del></div>
+									<a href="">立即兑换</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--赚积分      积分大转盘       今日超值兑换-->
+			<!--淘  实惠  购  新潮  逛  品牌-->
+			<div class="publicBox trendy clearfix">
+				<div class="trendyTitle">
+					<ul>
+						<li>淘 <span>&bull;</span> 实惠</li>
+						<li>购 <span>&bull;</span> 新潮</li>
+						<li>逛 <span> &bull;</span> 品牌</li>
+					</ul>
+				</div>
+				<div class="trendyTitleList">
+					<!--循环的列表-->
+					<div class="trendyList1">
+						<ul class="clearfix">
+							<li>
+								<a href="">
+									<img src="img/commodity/a.png" />
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span>7680积分抵扣+</span><span>18元</span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span>7680积分抵扣+</span><span>18元</span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span>7680积分抵扣+</span><span>18元</span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span>7680积分抵扣+</span><span>18元</span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="trendyList1">
+						<ul class="clearfix">
+							<li>
+								<a href="">
+									<img src="img/commodity/a.png" />
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span>7680积分抵扣+</span><span>18元</span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span>7680积分抵扣+</span><span>18元</span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span>7680积分抵扣+</span><span>18元</span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span>7680积分抵扣+</span><span>18元</span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--淘  实惠  购  新潮  逛  品牌-->
+
+			<div class="publicBox tupIc">
+				<img src="img/commodity/d.png" />
+			</div>
+
+			<!--最热人气     更多-->
+			<div class="publicBox hottestPopularity">
+				<div class="hottestPopularityTitle clearfix">
+					<h5 style="color: orangered;">最热人气</h5>
+					<a href="" style="color: orangered;">更多&gt;&gt;</a>
+				</div>
+				<div class="hottestPopularityList">
+					<!--循环的列表-->
+					<div class="trendyList1 orgred">
+						<ul class="clearfix">
+							<li>
+								<a href="">
+									<img src="img/commodity/a.png" />
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="trendyList1 orgred">
+						<ul class="clearfix">
+							<li>
+								<a href="">
+									<img src="img/commodity/a.png" />
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+			<!--最热人气     更多-->
+
+			<div class="publicBox tupIc">
+				<img src="img/commodity/d.png" />
+			</div>
+
+			<!--推荐商品   更多-->
+			<div class="publicBox toyseries">
+				<div class="hottestPopularityTitle clearfix">
+					<h5 style="color: #75a900;">推荐商品</h5>
+					<a href="" style="color: #75a900;">更多&gt;&gt;</a>
+				</div>
+				<div class="hottestPopularityList">
+					<!--循环的列表-->
+					<div class="trendyList1">
+						<ul class="clearfix">
+							<li>
+								<a href="">
+									<img src="img/commodity/a.png" />
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="trendyList1">
+						<ul class="clearfix">
+							<li>
+								<a href="">
+									<img src="img/commodity/a.png" />
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+			<!--推荐商品   更多-->
+
+			<div class="publicBox tupIc">
+				<img src="img/commodity/c.png" />
+			</div>
+
+			<!--茶疗养生  更多-->
+			<div class="publicBox  clothing">
+				<div class="hottestPopularityTitle clearfix">
+					<h5 style="color: #ff7200;">茶疗养生</h5>
+					<a href="" style="color: #ff7200;">更多&gt;&gt;</a>
+				</div>
+				<div class="hottestPopularityList">
+					<!--循环的列表-->
+					<div class="trendyList1 clothingList1">
+						<ul class="clearfix">
+							<li>
+								<a href="">
+									<img src="img/commodity/a.png" />
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="trendyList1 clothingList1">
+						<ul class="clearfix">
+							<li>
+								<a href="">
+									<img src="img/commodity/a.png" />
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--茶疗养生  更多-->
+
+			<div class="publicBox tupIc">
+				<img src="img/commodity/d.png" />
+			</div>
+
+			<!--营养保健-->
+			<div class="publicBox Nutrition">
+				<div class="hottestPopularityTitle clearfix">
+					<h5 style="color: #59bde0;">营养保健</h5>
+					<a href="" style="color: #59bde0;">更多&gt;&gt;</a>
+				</div>
+				<div class="hottestPopularityList">
+					<!--循环的列表-->
+					<div class="trendyList1 NutritionList1">
+						<ul class="clearfix">
+							<li>
+								<a href="">
+									<img src="img/commodity/a.png" />
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="trendyList1 NutritionList1">
+						<ul class="clearfix">
+							<li>
+								<a href="">
+									<img src="img/commodity/a.png" />
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="img/commodity/b.png" />
+									<p>武夷山正宗天然野茶200g：原生态无公害野茶，高端养胃茶【宏旺】</p>
+									<dt><span></span><span></span></dt>
+									<dd><span>¥369.00</span><del>¥398.00</del></dd>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--营养保健-->
+
+			<div class="publicBox tupIc">
+				<img src="img/commodity/d.png" />
+			</div>
+			<!--底部内容-->
+			<footer>
+				<!--正品保障   8天无条件退换货    精美包装   正规发票-->
+				<div class="packing">
+					<div class="publicBox packingList clearfix">
+						<ul class="clearfix">
+							<li>
+								<img src="img/smallImg/zhengpin1.png" />
+								<p>正品保障</p>
+								<dd>确保所有产品都是原装正品</dd>
+							</li>
+							<li>
+								<img src="img/smallImg/zhengpin2.png" />
+								<p>8天无条件退换货</p>
+								<dd>买的放心，用的开心</dd>
+							</li>
+							<li>
+								<img src="img/smallImg/zhengpin3.png" />
+								<p>精美包装</p>
+								<dd>统一的包装呵护商品</dd>
+							</li>
+							<li>
+								<img src="img/smallImg/zhengpin4.png" />
+								<p>正规发票</p>
+								<dd>机打发票，附箱送达</dd>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--正品保障   8天无条件退换货    精美包装   正规发票-->
+
+				<!--帮助中心    售后服务    技术支持    关于商城      关注我们-->
+				<div class="helpBox">
+					<div class="publicBox helpBoxList clearfix">
+						<ul>
+							<div>帮助中心</div>
+							<li>
+								<a href="">购物指南</a>
+							</li>
+							<li>
+								<a href="">配送方式</a>
+							</li>
+							<li>
+								<a href="">支付方式</a>
+							</li>
+							<li>
+								<a href="">常见问题</a>
+							</li>
+						</ul>
+						<ul>
+							<div>售后服务</div>
+							<li>
+								<a href="">保修政策</a>
+							</li>
+							<li>
+								<a href="">退换货政策</a>
+							</li>
+							<li>
+								<a href="">退换货流程</a>
+							</li>
+							<li>
+								<a href="">手机寄修服务</a>
+							</li>
+						</ul>
+						<ul>
+							<div>技术支持</div>
+							<li>
+								<a href="">售后网点</a>
+							</li>
+							<li>
+								<a href="">常见问题</a>
+							</li>
+							<li>
+								<a href="">产品手册</a>
+							</li>
+							<li>
+								<a href="">软件下载</a>
+							</li>
+						</ul>
+						<ul>
+							<div>关于商城</div>
+							<li>
+								<a href="">公司介绍</a>
+							</li>
+							<li>
+								<a href="">商城简介</a>
+							</li>
+							<li>
+								<a href="">联系客服</a>
+							</li>
+							<li>
+								<a href="">商务合作</a>
+							</li>
+						</ul>
+						<ul>
+							<div>关注我们</div>
+							<li>
+								<a href="">新浪微博</a>
+							</li>
+							<li>
+								<a href="">腾讯微博</a>
+							</li>
+							<li>
+								<a href="">花粉社区</a>
+							</li>
+							<li>
+								<a href="">商城手机版</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--帮助中心    售后服务    技术支持    关于商城      关注我们-->
+				<!--关于我们  |  购物指南  |  支付方式  |  配送说明  |  售后服务  |  联系方式  |  投诉建议  |  诚聘英才  |  友情链接-->
+				<div class="aboutus">
+					<div class="publicBox aboutusList clearfix">
+						<ul>
+							<li><a href="">关于我们</a>|</li>
+							<li><a href="">购物指南</a>|</li>
+							<li><a href="">支付方式</a>|</li>
+							<li><a href="">配送说明</a>|</li>
+							<li><a href="">售后服务</a>|</li>
+							<li><a href="">联系方式</a>|</li>
+							<li><a href="">投诉建议</a>|</li>
+							<li><a href="">诚聘英才</a>|</li>
+							<li><a href="">友情链接</a></li>
+						</ul>
+					</div>
+				</div>
+				<!--关于我们  |  购物指南  |  支付方式  |  配送说明  |  售后服务  |  联系方式  |  投诉建议  |  诚聘英才  |  友情链接-->
+				<div class="publicBox information">
+					<p>Copyright ? 2009-2010 All Rights Reserved. 重庆航凯网络科技有限公司 版权所有 沪ICP备01234567号</p>
+					<p>服务时间：周一至周日 08:30 — 20:00 全国订购及服务热线：023-11111111</p>
+				</div>
+			</footer>
+			<!--底部内容-->
+			
+			<!--主体部分-->
+		</div>
+		<script type="text/javascript" src="js/scroll.js"></script>
+		<script type="text/javascript" src="js/rl.js" ></script>
+		<script>
+			//头部导航
+			var ullia = document.getElementsByClassName("ullia");
+			var num1 = 4;
+			startnav();
+			for(var i = 0; i < ullia.length; i++) {
+				ullia[i].index = i;
+				ullia[i].onclick = function() {
+					for(var i = 0; i < ullia.length; i++) {
+						ullia[num1].style.cssText = 'background:none;';
+					}
+					num1 = this.index;
+					start();
+				}
+			}
+			
+			function startnav() {
+				ullia[num1].style.cssText = 'background: #6213ac;';
+			}
+			//公告
+			var navigationTitle = document.getElementsByClassName("navigationTitle")[0];
+			var navigationTitleHover = navigationTitle.getElementsByClassName("navigationTitleHover");
+			var navigationTitleList = document.getElementsByClassName("navigationTitleList");
+			var num = 0;
+			start();
+			for(var i = 0; i < navigationTitleHover.length; i++) {
+				navigationTitleHover[i].index = i;
+				navigationTitleHover[i].onmouseover = function() {
+					for(var i = 0; i < navigationTitleList.length; i++) {
+						navigationTitleList[i].style.display = 'none';
+						navigationTitleHover[num].style.cssText = 'color: #fff;';
+					}
+					num = this.index;
+					start();
+				}
+			}
+			
+			function start() {
+				navigationTitleList[num].style.display = 'block';
+				navigationTitleHover[num].style.cssText = 'color:#ff4040;';
+			}
+			//轮播图
+			var swiper = new Swiper('.swiper-container', {
+				pagination: '.swiper-pagination',
+				paginationClickable: true,
+				spaceBetween: 30,
+				centeredSlides: true,
+				autoplay: 2500,
+				autoplayDisableOnInteraction: false,
+				paginationBulletRender: function(swiper, index, className) {
+					return '<span class="' + className + '">' + (index + 1) + '</span>';
+				}
+			});
+			//特惠
+			$(function() {
+				$("div.buyList").myScroll({
+					speed: 30, //数值越大，速度越慢
+					rowHeight: 135 //li的高度
+				});
+			});
+			//签到
+			$(".checkin").Checkin();
+			//登录前
+			var phoned = /^1[34578]\d{9}$/; //联系电话正则
+			$(".useBtns button").click(function(){
+				if(phoned.test($(".useinput").val())== false){
+					alert("手机号输入有错")
+					return
+				}
+				if($(".usepassword").val()==null||$(".usepassword").val()==undefined||$(".usepassword").val()==""){
+					alert("请输入登录密码")
+					return
+				}
+				window.location.href="index.html";
+			})
+			
+//			useBtns button
+		</script>
+	</body>
+
+</html>

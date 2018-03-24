@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台欢迎页</title>
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/public.css" />
+	<link rel="stylesheet" href="../css/content.css" />
+	
+<script type="text/javascript" src="../js/jquery.min.js"></script></head>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">图片管理</a>><a href="">官网图片</a>><a href="">添加</a></div>
+		<div class="public-content">
+			<div class="public-content-header">
+				<h3>修改网站配置</h3>
+			</div>
+			<div class="public-content-cont">
+			<form action="../../adminpicture/add.do" method="post">
+			<div class="form-group">
+					<label for="">跳转连接</label>
+					<input class="form-input-txt" type="text" name="url" value="" />
+				</div>
+				<div class="form-group">
+					<label for="">官网轮播图</label>
+					<textarea id="editor_id" name="picture"  class="form-input-textara" style="width:700px;height:300px;">
+						
+					</textarea>
+					<textarea rows="" cols="" name="schtmlnr" id="schtmlnr" style="display:none;"></textarea> 
+				</div>
+				
+				<div class="form-group" style="margin-left:150px;">
+					<input type="submit" class="sub-btn" value="提  交" />
+					<input type="reset" class="sub-btn" value="重  置"></input>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<script src="../kingediter/kindeditor-all-min.js"></script>
+<script src="../js/laydate.js"></script>
+<script>
+var editor;
+	 KindEditor.ready(function(K) {
+		 editor = K.create('textarea[name="picture"]', {
+			 resizeType : 1,width:"50%",
+			 allowPreviewEmoticons : false,
+			 items : ['source','multiimage',
+			 'image'],
+			 });
+        });
+</script>
+</body>
+</html>

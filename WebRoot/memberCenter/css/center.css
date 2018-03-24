@@ -1,0 +1,107 @@
+.actricNva{
+	margin: 10px 0px;
+	height: 35px;
+	line-height: 35px;
+	overflow: hidden;
+	position: relative;
+}
+.actricNva a{
+	float: left;
+	color: #bbb;
+	font-size: 14px;
+	padding-right: 4px;
+}
+.actricNva a:hover{
+	color: #47176D;
+	font-size: 14px;
+	text-decoration: underline;
+}
+.actricNva p{
+	font-size: 14px;
+	color: #bbb;
+	float: left;
+}
+/**/
+.centerleftbox{
+	float: left;
+	width: 202px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-left:1px solid #e6e2de;
+	border-right:1px solid #e6e2de;
+}
+
+.centerleftbox .TitleCenter{
+	width: 100%;
+	text-align: center;
+	height: 45px;
+	color: #fff;
+	font-size: 16px;
+	line-height: 45px;
+	background: #47176d;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+.centerleftbox ul li a img{
+	width: 16px;
+	height: 16px;
+	margin-right: 4px;
+	vertical-align: middle;
+} 
+.centerleftbox ul li{
+	border-bottom: 1px solid #e6e2de;
+	background: #f7f6f4;
+	position: relative;
+}
+.centerleftbox ul li a{
+	font-size: 14px;
+	display: block;
+	width: 100%;
+	padding-left: 35px;
+	height: 45px;
+	line-height: 45px;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+.centerleftbox ul li a.hoverClass{
+	color: #787878;
+}
+.centerleftbox ul li a.hoverClass:hover{
+	color: #7418C6;
+	text-decoration: underline;
+}
+.centerleftbox ul li a.removes{
+	color: #7418C6 !important;
+}
+img.xiala{
+	position: absolute;
+    width: 18px;
+    height: 12px;
+    right: 25px;
+    top: 16px;
+    z-index: 112525;
+    cursor: pointer;
+}
+.centerleftbox ul li  dl {
+	display: block;
+	position: relative;
+	background: #fff;
+}
+.centerleftbox ul li  dl.div1{
+	display: none;
+}
+.centerleftbox ul li  dl dd a{
+	display: block;
+	color: #787878;
+	padding-left: 50px;
+	background: #fff;
+	border-top: 1px solid #e6e2de;
+}
+/**/
+.centerrightbox{
+	float: right;
+	width:1050px;
+	min-height: 600px;
+}

@@ -1,0 +1,19 @@
+.li_bg{
+	background: #fff !important;
+}
+.head_title,.head_title ul {
+	width: 100%;
+	height: auto;
+	
+}
+.head_title ul li {
+	float: left;
+	text-align: center;
+	width: 33.3%;
+	padding: 10px 10px;
+	background: rgba(227, 207, 235, 0.58);
+	cursor: pointer;
+}
+.head_title ul li:HOVER {
+	background: #fff;
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="huyugo"
+  id="myeclipse.1496200209910"
+  context-root="/huyugo"
+  j2ee-spec="5.0"
+  archive="huyugo.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

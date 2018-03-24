@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Tuangou_Details" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Tuangou_Details" >
+		insert into Tuangou_Details(tuangou_id,user_id,date_time,pay_amount,pay_money) values(#{tuangou_id},#{user_id},#{date_time},#{pay_amount},#{pay_money})
+	</insert>
+	
+	<delete id="del"  parameterType="int"  >
+		delete  from Tuangou_Details where id=#{id}
+	</delete>
+	<select  id="list"  resultType="com.huyu.entity.Tuangou_Details">
+		select * from Tuangou_Details where user_id=#{user_id} order by id desc
+	</select>
+	<select  id="amount_total"  resultType="int">
+		select sum(pay_amount) from Tuangou_Details
+	</select>
+	<select id="listBytuangou_id" parameterType="int" resultType="com.huyu.entity.Tuangou_Details">
+		select * from Tuangou_Details where tuangou_id=#{tuangou_id}
+	</select>
+	
+</mapper>

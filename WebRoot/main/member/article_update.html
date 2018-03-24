@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台欢迎页</title>
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/public.css" />
+	<link rel="stylesheet" href="../css/content.css" />
+	
+<script type="text/javascript" src="../js/jquery.min.js"></script></head>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">用户信息</a>><a href="">查看</a></div>
+		<div class="public-content">
+			<div class="public-content-header">
+				<h3>修改网站配置</h3>
+			</div>
+			<div class="public-content-cont">
+			<div class="form-group">
+					<label for="">用户昵称</label>
+					<input class="form-input-txt" id="name" type="text" name="nickname" value="" disabled="disabled"/>
+			</div>
+			<div class="form-group">
+					<label for="">手机号</label>
+					<input class="form-input-txt" id="phone" type="text" name="phone" value="" disabled="disabled"/>
+			</div>
+			<div class="form-group">
+					<label for="">email</label>
+					<input class="form-input-txt" id="email" type="text" name="email" value="" disabled="disabled"/>
+			</div>
+			<div class="form-group">
+					<label for="">微信</label>
+					<input class="form-input-txt" id="wechat" type="text" name="wechat" value="" disabled="disabled"/>
+			</div>
+			<div class="form-group">
+					<label for="">qq</label>
+					<input class="form-input-txt" id="qq" type="text" name="qq" value="" disabled="disabled"/>
+			</div>
+			<div class="form-group">
+					<label for="">银行卡号</label>
+					<input class="form-input-txt" id="bankcard" type="text" name="bankcard" value="" disabled="disabled"/>
+			</div>
+			<div class="form-group">
+					<label for="">开户行</label>
+					<input class="form-input-txt" id="bankname" type="text" name="bankname" value="" disabled="disabled"/>
+			</div>
+			<div class="form-group">
+					<label for="">真实姓名</label>
+					<input class="form-input-txt" id="realname" type="text" name="realname" value="" disabled="disabled"/>
+			</div>
+			<div class="form-group">
+					<label for="">身份证</label>
+					<input class="form-input-txt" id="idcard" type="text" name="idcard" value="" disabled="disabled"/>
+			</div>
+			<div class="form-group">
+					<label for="">生日</label>
+					<input class="form-input-txt" id="birthday" type="text" name="birthday" value="" disabled="disabled"/>
+			</div>
+			<div class="form-group">
+					<label for="">积分</label>
+					<input class="form-input-txt" id="integral" type="text" name="integral" value="" disabled="disabled"/>
+			</div>
+			<div class="form-group">
+					<label for="">抵现金</label>
+					<input class="form-input-txt" id="dixianjin" type="text" name="dixianjin" value="" disabled="disabled"/>
+			</div>
+			<div class="form-group">
+					<label for="">会员等级</label>
+					<select name="member_grade" class="form-input-txt" disabled="disabled">
+					   <option value="0">0</option>
+					   <option value="1">1</option>
+					   <option value="2">2</option>
+					   <option value="3">3</option>
+					</select>
+			</div>
+			<div class="form-group">
+					<label for="">互余币</label>
+					<input class="form-input-txt" id="huyubi" type="text" name="huyibi" value="" disabled="disabled"/>
+			</div>
+			<div class="form-group">
+					<label for="">账户</label>
+					<input class="form-input-txt" id="account" type="text" name="account" value="" disabled="disabled"/>
+			</div>
+			<div class="form-group">
+					<label for="">养老金账户</label>
+					<input class="form-input-txt" id="pension" type="text" name="pension" value="" disabled="disabled"/>
+			</div>
+				<div class="form-group">
+					<label for="">发展服务奖</label>
+					<input class="form-input-txt" id="isfuwu" type="text" name="isfuwu" value="" disabled="disabled" placeholder="默认0，关闭1，开通2"/>
+				</div>
+			<div class="form-group member">
+					<label for="">是否vip</label>
+                        <input type="radio" name="member"  value="1" disabled="disabled"/>是&nbsp;&nbsp;
+                        <input type="radio" name="member" value="0" disabled="disabled"/>否
+			</div>
+				<div class="form-group free">
+					<label for="">赠送券领取</label>
+					<input type="radio" name="free"  value="1" disabled="disabled"/>是&nbsp;&nbsp;
+					<input type="radio" name="free" value="0" disabled="disabled"/>否
+				</div>
+			<div class="form-group sex">
+					<label for="">性别</label>
+                        <input type="radio" name="sex"  value="男" disabled="disabled"/>男&nbsp;&nbsp;
+                        <input type="radio" name="sex" value="女" disabled="disabled"/>女
+			</div>
+			<div class="form-group">
+			     <a href="javascript:;" class="modify" style="color:#0073bd;margin-left: 75px;margin-top: 12px;">修改会员资料</a>
+			</div>
+			<div class="form-group btn" style="margin-left:150px;display:none;">
+                        <input type="button" class="sub-btn submit" value="修  改">
+                        <a href="javascript:;" class="esc" style="color:#0073bd;">取消修改</a>
+            </div>
+				<div class="form-group" style="margin-left:150px;">
+					<input type="hidden" id="id" name="id">
+					<input type="hidden" id="password" name="id">
+					<input type="hidden" id="fazhanjin" name="id">
+					<input type="hidden" id="fazhanStatus" name="fazhanStatus">
+					<input type="hidden" id="uiID" name="uiID">
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+/*修改会员资料*/
+$(".modify").click(function(){
+	$("input").removeAttr("disabled");
+	$("#phone").attr("disabled","disabled");
+	$("select[name=member_grade]").removeAttr("disabled");
+	$(this).css("display","none");
+	$(".btn").css("display","block");
+	
+}); 
+$(document).on("click",".esc",function(){
+	$("input").attr("disabled","disabled");
+	$(".btn").css("display","none");
+	$(".modify").css("display","block");
+});
+/*提价修改*/
+$(document).on("click",".submit",function(){
+    var fazhanStatus=$("#fazhanStatus").val();
+    var fazhanjin=$("#fazhanjin").val();
+    var password=$("#password").val();
+	var name = $("#name").val();
+	var phone = $("#phone").val();
+	var email = $("#email").val();
+	var integral = $("#integral").val();
+	var dixianjin = $("#dixianjin").val();
+	var huyubi = $("#huyubi").val();
+	var account = $("#account").val();
+	var pension = $("#pension").val();
+	var isfuwu = $("#isfuwu").val();
+	var id = $("input[name=id]").val();
+	var member = $(".member").find("input:checked").val();
+    var free = $(".free").find("input:checked").val();
+	var member_grade = $("select[name=member_grade]").find("option:selected").val();
+	if(!integral.match(/^\d+(\.\d+)?$/)){
+        alert("请正确输入积分！");
+        return false;
+     }
+    if(!dixianjin.match(/^\d+(\.\d+)?$/)){
+        alert("请正确输入抵现金！");
+        return false;
+     }
+	if(!huyubi.match(/^\d+(\.\d+)?$/)){
+        alert("请正确输入互余币！");
+        return false;
+     }
+	if(!account.match(/^\d+(\.\d+)?$/)){
+        alert("请正确输入余额！");
+        return false;
+     }
+    if(!isfuwu.match(/^\d+(\.\d+)?$/)){
+        alert("请正确服务状态！");
+        return false;
+    }
+     //ui
+     var qq = $("#qq").val();
+     var wechat = $("#wechat").val();
+     var idcard = $("#idcard").val();
+     var bankcard = $("#bankcard").val();
+     var bankname = $("#bankname").val();
+     var birthday = $("#birthday").val();
+     var realname = $("#realname").val();
+     var sex = $(".sex").find("input:checked").val();
+     var uiID = $("#uiID").val();
+     
+     
+	$.ajax({
+		url:'../../adminuser/update.do',
+		type:'post',
+		data:{
+			"id":id,
+			"name":name,
+			"phone":phone,
+			"email":email,
+			"integral":integral,
+			"dixianjin":dixianjin,
+			"huyubi":huyubi,
+			"account":account,
+			"member":member,
+			"member_grade":member_grade,
+			"nickname":name,
+			"qq":qq,
+			"wechat":wechat,
+			"idcard":idcard,
+			"bankcard":bankcard,
+			"bankname":bankname,
+			"birthday":birthday,
+			"sex":sex,
+			"realname":realname,
+			"pension":pension,
+			"isfuwu":isfuwu,
+			"fazhanStatus":fazhanStatus,
+			"fazhanjin":fazhanjin,
+			"password":password,
+			"uiID":uiID,
+			"free":free
+		},success:function(res){
+			if(res == "true"){
+				alert("会员资料修改成功！");
+				window.location.reload();
+			}else{
+				alert("会员资料修改失败！");
+			}
+		}
+	});
+}); 
+</script>
+<script src="../kingediter/kindeditor-all-min.js"></script>
+<script src="../js/laydate.js"></script>
+<script>
+  var thisURL = document.URL;    
+  var getval =thisURL.split('?')[1];  
+  var id= getval.split("=")[1];  
+   $.post(
+   "../../adminuser/getid.do",
+   {"id":id},
+   function(data){
+   $("#id").attr("value",data.id);
+   $("#password").attr("value",data.password);
+   $("#fazhanjin").attr("value",data.fazhanjin);
+   $("#fazhanStatus").attr("value",data.fazhanStatus);
+   $("#name").attr("value",data.name);
+   $("#phone").attr("value",data.phone);
+   $("#email").attr("value",data.email);
+   $("#integral").attr("value",data.integral);
+   $("#dixianjin").attr("value",data.dixianjin);
+   $("#huyubi").attr("value",data.huyubi);
+   $("#account").attr("value",data.account);
+   $("#pension").attr("value",data.pension);
+   $("#isfuwu").attr("value",data.isfuwu);
+   $("#uiID").attr("value",data.userInfo.id);
+   $("#wechat").attr("value",data.userInfo.wechat);
+   $("#qq").attr("value",data.userInfo.qq);
+   $("#bankcard").attr("value",data.userInfo.bankcard);
+   $("#bankname").attr("value",data.userInfo.bankname);
+   $("#realname").attr("value",data.userInfo.realname);
+   $("#idcard").attr("value",data.userInfo.idcard);
+   $("#birthday").attr("value",data.userInfo.birthday);
+   $("input[name=member][value="+data.member+"]").attr("checked",true);
+   $("input[name=free][value="+data.free+"]").attr("checked",true);
+   $("input[name=sex][value="+data.userInfo.sex+"]").attr("checked",true);
+   $("select[name=member_grade] option").each(function(index,obj){
+	   if($(obj).val() == data.member_grade){
+		   $(obj).attr("selected","selected");
+	   }else{
+		   $(obj).removeAttr("selected");
+	   }
+   });
+   },
+   "json"
+   );
+</script>
+</body>
+</html>

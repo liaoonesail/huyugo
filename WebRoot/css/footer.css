@@ -1,0 +1,120 @@
+/*正品保障   8天无条件退换货    精美包装   正规发票*/
+.packing{
+	width: 100%;
+	height: 55px;
+	background: #f0f0f0;
+	margin-top: 30px;
+}
+.packingList ul li{
+	float: left;
+	width: 25%;
+}
+.packingList ul li img{
+	width: 42px;
+	vertical-align: middle;
+	float: left;
+	margin-top: 5px;
+	margin-right: 4px;
+	margin-left: 60px;
+}
+.packingList ul li p{
+	color: #039fce;
+	padding: 2px;
+	font-size: 14px;
+	margin-top: 5px;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.packingList ul li dd{
+	color: #666666;
+	font-size: 13px;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/*帮助中心    售后服务    技术支持    关于商城      关注我们*/
+.helpBox{
+	width: 100%;
+	background: #f0f0f0;
+	margin-top: 1px;
+	padding: 20px 0px;
+}
+.helpBoxList ul{
+	float: left;
+	width: 20%;
+	padding-left: 60px;
+	text-align: center;
+}
+.helpBoxList ul  div{
+	color: #333;
+	font-size: 16px;
+	line-height: 22px;
+	padding: 4px 0px;
+}
+.helpBoxList ul li a{
+	color: #666666;
+	font-size: 13px;
+	line-height: 20px;
+	padding: 4px 0px;
+}
+.helpBoxList ul li a:hover{
+	color: #47176D;
+}
+
+/*关于我们  |  购物指南  |  支付方式  |  配送说明  |  售后服务  |  联系方式  |  投诉建议  |  诚聘英才  |  友情链接*/
+.aboutus{
+	height: 35px;
+	width: 100%;
+	background: #DA3838;
+	overflow: hidden;
+	margin: 15px auto;
+	text-align: center;
+}
+.aboutusList ul li{
+	display: inline-block;
+	color: #fff;
+	line-height: 35px;
+	font-size: 16px;
+}
+.aboutusList ul li a{
+	display: inline-block;
+	color: #fff;
+	font-size: 13px;
+	line-height: 35px;
+	text-align: center;
+	padding: 0px 4px;
+}
+.information p{
+	text-align: center;
+	font-size: 13px;
+	padding: 4px 0px;
+	color: #333333;
+}
+.information{
+	padding-bottom: 11px;
+}
+.orange{
+	font-size: 24px !important;
+	font-weight: bold;
+	color: orangered !important;
+}
+.ft-qqicon{
+	display: block;
+}
+.ft-qqicon a{
+	font-size: 13px;
+	color: #666666 !important;
+}
+.ft-qqicon em{
+	font-style: normal;
+	font-size: 12px !important;
+	color: orangered !important;
+
+}
+.ft-qqicon {
+    height: 20px;
+    display: block;
+    background: url(../img/topqun.gif) 0 4px no-repeat;
+}

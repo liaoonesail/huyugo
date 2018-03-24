@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台欢迎页</title>
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/public.css" />
+	<link rel="stylesheet" href="../css/content.css" />
+	
+<script type="text/javascript" src="../js/jquery.min.js"></script></head>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">图片管理</a>><a href="">商品图片</a>><a href="">修改</a></div>
+		<div class="public-content">
+			<div class="public-content-header">
+				<h3>修改网站配置</h3>
+			</div>
+			<div class="public-content-cont">
+			<form action="../../picture/update.do" method="post">
+				<div class="form-group">
+					<label for="">请选择分类</label>
+					<select name="type" class="form-select" name="type" id="type">
+						<option value="首页LOGO">首页LOGO</option>
+						<option value="人物图轮播">人物图轮播</option>
+						<option value="下载二维码">下载二维码</option>
+						<option value="微信二维码">微信二维码</option>
+						<option value="微博二维码">微博二维码</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="">添加图片</label>
+					<textarea id="editor_id" name="content"  class="form-input-textara" style="width:700px;height:300px;">
+						
+					</textarea>
+					<textarea rows="" cols="" name="schtmlnr" id="schtmlnr" style="display:none;"></textarea> 
+				</div>
+				
+				<div class="form-group" style="margin-left:150px;">
+					<input type="submit" class="sub-btn" value="提  交" />
+					<input type="reset" class="sub-btn" value="重  置"></input>
+					<input type="hidden" id="id" name="id">
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<script src="../kingediter/kindeditor-all-min.js"></script>
+<script src="../js/laydate.js"></script>
+<script>
+var editor;
+	 KindEditor.ready(function(K) {
+		 editor = K.create('textarea[name="content"]', {
+			 resizeType : 1,
+			 allowPreviewEmoticons : false,
+			 items : [
+			 'source', 'image'],
+			 });
+        });
+		
+  var thisURL = document.URL;    
+  var getval =thisURL.split('?')[1];  
+  var id= getval.split("=")[1];  
+   $.post(
+   "../../picture/getid.do",
+   {"id":id},
+   function(data){
+   $("#id").attr("value",data.id);
+   $("#type").val(data.type);
+   editor.html("");
+  editor.insertHtml("<img src="+data.src+" alt=''"+">");
+   },
+   "json"
+   );
+</script>
+</body>
+</html>

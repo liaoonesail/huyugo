@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>后台欢迎页</title>
+<link rel="stylesheet" href="../css/reset.css" />
+<link rel="stylesheet" href="../css/public.css" />
+<link rel="stylesheet" href="../css/content.css" />
+
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+</head>
+<script type="text/javascript">
+	$(function(){
+		getPension();
+		
+	});
+	
+	function update(){
+		var data = $("#form").serialize();
+		var result = Ajax("/huyugo/adminMember/updatePension.do",data);
+		if(result){
+			alert("更新养老金参数成功");
+			window.location.reload();
+		}else{
+			alert("更新养老金参数失败");
+		}
+	}
+	
+	function reset(){
+		$("#form")[0].reset();
+	}
+	
+	/* 获取养老金数据并还原表单数据 */
+	function getPension(){
+		var result = Ajax("/huyugo/adminMember/getPension.do",{});
+		result = JSON.parse(result);
+		if(result){
+			console.log(result);
+			toVal("y_dai1",result.y_dai1);
+			toVal("y_dai2",result.y_dai2);
+			toVal("y_dai3",result.y_dai3);
+			toVal("y_v1",result.y_v1);
+			toVal("y_v1_1",result.y_v1_1);
+			toVal("y_v2",result.y_v2);
+			toVal("y_v2_1",result.y_v2_1);
+			toVal("y_v2_2",result.y_v2_2);
+			toVal("y_v3",result.y_v3);
+			toVal("y_v3_1",result.y_v3_1);
+			toVal("y_v3_2",result.y_v3_2);
+			toVal("y_v3_3",result.y_v3_3);
+		}
+	}
+	function toVal(name,val){
+		$("input[name="+name+"]").val(val);
+	}
+	function Ajax(url, data) {
+	    var result = "";
+	    $.ajax({
+	        url:url,
+	        type:"post",
+	        data:data,
+	        async:false,
+	        cache:false,
+	        success:function (data) {
+	            result = data;
+	        }
+   		 });
+    	return result;
+    }
+</script>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">
+			您当前的位置：<a href="">管理首页</a>><a href="">用户信息</a>><a href="">养老金管理(百分比)</a>
+		</div>
+		<div class="public-content">
+			<div class="public-content-header">
+				<h3>养老金管理(百分比)</h3>
+			</div>
+			<div class="public-content-cont">
+				<form method="post" id="form">
+					<div class="form-group">
+						<label for="">消费养老金</label> <br>
+					</div>
+					<div class="form-group">
+						<label for="">一代</label> <input class="form-input-txt" type="text"
+							name="y_dai1" value="" />
+					</div>
+					<div class="form-group">
+						<label for="">二代</label> <input class="form-input-txt" type="text"
+							name="y_dai2" value="" />
+					</div>
+					<div class="form-group">
+						<label for="">三代</label> <input class="form-input-txt" type="text"
+							name="y_dai3" value="" />
+					</div>
+					<div class="form-group">
+						<br>
+						<div for="">团队复消养老金</div>
+					</div>
+					<br>
+					<p>V1</p>
+					<div class="form-group">
+						<label for="">v1直推</label> <input class="form-input-txt"
+							type="text" name="y_v1" value="" />
+					</div>
+					<div class="form-group">
+						<label for="">v1下级团队</label> <input class="form-input-txt"
+							type="text" name="y_v1_1" value="" />
+					</div>
+					<br>
+					<p>V2</p>
+					<div class="form-group">
+						<label for="">v2直推</label> <input class="form-input-txt"
+							type="text" name="y_v2" value="" />
+					</div>
+					<div class="form-group">
+						<label for="">v1下级团队</label> <input class="form-input-txt"
+							type="text" name="y_v2_1" value="" />
+					</div>
+					<div class="form-group">
+						<label for="">v2下级团队</label> <input class="form-input-txt"
+							type="text" name="y_v2_2" value="" />
+					</div>
+					<br>
+					<p>V3</p>
+					<div class="form-group">
+						<label for="">v3直推</label> <input class="form-input-txt"
+							type="text" name="y_v3" value="" />
+					</div>
+					<div class="form-group">
+						<label for="">v1下级团队</label> <input class="form-input-txt"
+							type="text" name="y_v3_1" value="" />
+					</div>
+					<div class="form-group">
+						<label for="">v2下级团队</label> <input class="form-input-txt"
+							type="text" name="y_v3_2" value="" />
+					</div>
+					<div class="form-group">
+						<label for="">v3下级团队</label> <input class="form-input-txt"
+							type="text" name="y_v3_3" value="" />
+					</div>
+
+					<div class="form-group" style="margin-left:150px;">
+						<input type="button" onclick="update()" class="sub-btn" value="提  交" /> <input
+							type="reset" class="sub-btn" onclick="reset()" value="重  置"></input>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

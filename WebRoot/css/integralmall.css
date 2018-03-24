@@ -1,0 +1,307 @@
+.btnStrList{
+	display: block;
+	width: 130px;
+	height: 35px;
+	font-size: 16px;
+	border: 1px solid #cacaca;
+	color: #323232;
+	text-align: center;
+	line-height: 34px;
+	margin: 20px  auto;
+}
+a.btnStrList:hover{
+	color: #6213AC;
+	border: 1px solid #6213AC;
+}
+
+.SeckillboxConts{
+	overflow: hidden;
+}
+.ddKm0{
+	font-size: 13px !important;
+	color: orangered !important;
+	font-weight: bold !important;
+	display: none;
+}
+.Seckillbox{
+	width: 1210px;
+	margin: 20px auto 0px  auto;
+	height: 80px;
+	background: #f0f0f0;
+	transform: skew(-22deg,0deg);
+	-webkit-transform:skew(-22deg,0deg);
+	-moz-transform: skew(-22deg,0deg);
+	overflow: hidden;
+}
+.SeckillboxConts .hottestPopularityList .trendyList1{
+	margin: 4px 0px;
+}
+.Seckillbox ul li{
+	float: left;
+	width: 20%;
+	height: 80px;
+	cursor: pointer;
+}
+.SeckillboxConts .hottestPopularityList{
+	display: none;
+}
+/*没有到时间的样式*/
+.noTime{
+	display: block;
+}
+.noTime h3{
+	float: left;
+	line-height: 80px;
+	text-align: center;
+	font-size: 28px;
+	color: #000000;
+	font-weight: normal;
+	transform: skew(22deg,0deg);
+	-webkit-transform:skew(22deg,0deg);
+	-moz-transform: skew(22deg,0deg);
+	margin-left: 35px;
+}
+.Seckillbox ul li:hover .noTime h3{
+	color: orangered;
+}
+.noTime button{
+	outline: none;
+	height: 35px;
+	color: #000000;
+	font-size: 16px;
+	border: none;
+	border: 1px solid #919191;
+	background: #f0f0f0;
+	padding: 4px;
+	border-radius:10px;
+	transform: skew(22deg,0deg);
+	-webkit-transform:skew(22deg,0deg);
+	-moz-transform: skew(22deg,0deg);
+	margin-top: 20px;
+	margin-left:15px;
+	cursor: pointer;
+}
+/*在时间范围的样式*/
+.okTime{
+	height: 80px;
+	display: block;
+}
+.okTime h3{
+	float: left;
+	text-align: center;
+	font-size: 28px;
+	transform: skew(22deg,0deg);
+	-webkit-transform:skew(22deg,0deg);
+	-moz-transform: skew(22deg,0deg);
+	margin-left: 30px;
+	margin-top: 10px;
+	color: #000;
+}
+.okTime p{
+	float: left;
+    height: 35px;
+    color: #000;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 4px;
+    width: 130px;
+    transform: skew(22deg,0deg);
+    -webkit-transform: skew(22deg,0deg);
+    -moz-transform: skew(22deg,0deg);
+    margin-top: 14px;
+    margin-left: 2px;
+    cursor: pointer;
+}
+.okTime dt{
+	float: left;
+    color: #000;
+    font-size: 14px;
+    transform: skew(22deg,0deg);
+    -webkit-transform: skew(22deg,0deg);
+    -moz-transform: skew(22deg,0deg);
+    margin-left: 30px;
+    cursor: pointer;
+}
+.LIokTime{
+	background: #ff1717 !important;
+}
+.LIokTime .okTime p{
+	color: #fff !important;
+}
+.LIokTime .okTime h3{
+	color: #fff !important;
+}
+.LIokTime .okTime dt{
+	color: #fff !important;
+}
+.groupPurchase{
+	position: relative;
+}
+.groupPurchaseList1{
+	margin: 30px 0px;
+}
+.groupPurchaseList1 ul{
+	border-top: 2px solid #7cad0d;
+}
+.groupPurchaseList1 ul li{
+	float: left;
+    width: 227px;
+    margin: 10px;
+    height: 312px;
+    border: 1px solid #cfcfcf;
+    border-top: none;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 4px 4px 10px 4px;
+}
+
+.groupPurchaseList1 ul li a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.groupPurchaseList1 ul li a img{
+	display: block;
+	width: 100%;
+	height: 210px;
+	-webkit-transition: -webkit-transform .4s;
+    transition: -webkit-transform .4s;
+    -moz-transition: transform .4s,-moz-transform .4s;
+    transition: transform .4s;
+    transition: transform .4s,-webkit-transform .4s,-moz-transform .4s;
+}
+.groupPurchaseList1 ul li a:hover img{	
+	-webkit-transform: translateX(-10px);
+    -moz-transform: translateX(-10px);
+    -ms-transform: translateX(-10px);
+    transform: translateX(-10px);		
+}
+.groupPurchaseList1 ul li a:hover p{
+	color: #47176D;
+	text-decoration: underline;
+}
+.groupPurchaseList1 ul li a p{
+	color: #212121;
+	padding: 4px 0px;
+	font-size: 13px;
+	text-align: justify;
+	display: -webkit-box;
+	overflow: hidden;
+	white-space: normal !important;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.groupPurchaseList1 ul li dt{
+	font-size: 13px;
+	height: 17px;
+	color: #da3838;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.groupPurchaseList1 ul li a dd b{
+	font-weight: normal;
+	color: #919191;
+	font-size: 14px;
+	padding-left: 10px;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.groupPurchaseList1 ul li a dd em{
+	text-align: center;
+    float: right;
+    font-size: 13px;
+    color: #fff;
+    padding: 6px 10px;
+    background: #a0242d;
+    margin-top: -18px;
+}
+
+/*现金券*/
+.cashCoupon{
+	position: relative;
+	margin: 20px 0px;
+}
+.cashCoupon ul li{
+	float: left;
+    width: 225px;
+    height: 83px;
+    overflow: hidden;
+    margin-right: 12px;
+    background: #f6de34;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+.cashCoupon ul li:nth-last-of-type(1){
+	margin-right: 0%;
+}
+.cashCouponList1{
+	width: 100%;
+	background: #f6de34;
+}
+.couponist{
+	padding: 10px;
+	float: left;
+	width: 140px;
+	background: #fc2660;
+	position: relative;
+}
+.cashCoupon ul li:nth-last-of-type(even) .couponist{
+	background: #a10630;
+}
+.cashCoupon ul li:nth-last-of-type(odd) .couponist{
+	background: #fc2660;
+}
+.couponist h3{
+	text-align: center;
+	color: #fff;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.couponist p{
+	color: #fff;
+	width: 80px;
+	display:block;
+	border: 1px solid #fff;
+	padding: 2px 6px;
+	font-size: 15px;
+	text-align: center;
+	margin: 6px auto;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.couponist dd{
+	width: 1px;
+	height: 83px;
+	border-left: 1px dashed #fff;
+	position: absolute;
+	right: 4px;
+	top: 0px;
+}
+.couponist2{
+	float: left;
+	width: 85px;
+	height: 83px;
+	overflow: hidden;
+}
+.couponist2 p{
+	text-indent: 25px;
+}
+.couponist2 dd{
+	font-size: 14px;
+	text-align: center;
+	padding: 4px 0px;
+	color: #3f3301;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.couponist2 p:nth-of-type(1){
+	margin-top: 10px;
+}

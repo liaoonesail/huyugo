@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台欢迎页</title>
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/content.css" />
+<script  src="../js/jquery.min.js"></script></head>
+	<script >
+/* 	 $.ajaxSetup (
+    {
+     	async: false
+    }); */
+     /*1：代发货*/
+	$(function(){
+		/*文档加载*/
+		getTableData("",6,1);
+		
+		/*上一页*/
+        $(".prev").click(function(){
+            var currPage = $(".currPage").html().trim();
+            currPage = Number(currPage);
+            if(currPage == 1){
+                alert("当前已是第一页");
+                return false;
+            }
+            getTableData("",6,currPage-1);
+        });		
+		/*下一页*/
+		$(".next").click(function(){
+            var currPage = $(".currPage").html().trim();
+            var pageCount = $(".countPage").html().trim();
+            currPage = Number(currPage);
+            pageCount = Number(pageCount);
+            if(currPage == pageCount){
+                alert("当前已是最后一页");
+                return false;
+            }
+            getTableData("",6,currPage+1);
+        }); 
+		
+	});
+	
+	function del(id){
+	$.post(
+	"../../adminorder/del.do",
+	{"id":id},
+	function(data){
+	if(data>0){
+	alert("删除成功");
+	window.location.reload(); 
+	}
+	},
+	"text"
+	);
+	}
+	function getTableData(name,status,curpage){
+	   $.post(
+        "../../adminorder/listpage.do",
+        {"name":name,"status":status,"curpage":curpage},
+        function(data){
+         $("#head").html("");
+            var html="";
+            var order=0;
+            console.log(data);
+            //$.each(data.list,function(){
+            
+            $(data).each(function(index,obj){
+               // var item = this;
+                //console.log(obj);
+                $(obj.list).each(function(i,object){
+	                $.ajax({
+	                    type:"post",
+	                    url:"../../adminaddress/getid.do",
+	                    data:{"id":object.address_id},
+	                    dataType:"json",
+	                    async: false,
+	                    success:function(data){
+	                      order+=1;
+	                      //console.log(Number(object.total)+Number(object.yu_total));
+	                      html+="<tr data-id='"+object.id+"'><td><input type='checkbox' /></td><td>"+order+"</td><td>"+object.user.phone+"</td><td>"+object.order_num+"</td><td>"+data.name+"</td><td>"+data.phone+"</td><td>"+data.province+data.city+data.county+data.address+"</td><td>"+object.order_time+"</td><td>"+object.freight+"</td><td>"+(Number(object.total)+Number(object.yu_total)).toFixed(2)+"</td><td><div class='table-fun'><a onclick='del("+object.id+")' style='cursor:pointer;width:50px;'>删除记录</a></td></div></tr>";
+	                   }
+	               });
+	            });
+            });
+             //console.log("pageSize:"+data.page.pageSize);
+            $("#head").html(html);
+            
+            $(".countPage").html(data[0].page.pageCount);
+            $(".currPage").html(data[0].page.currentPage);
+            $(".pageSize").html(data[0].page.pageSize);
+            $(".countNum").html(data[0].count);
+        },
+        "json"
+        );
+	}
+	
+	</script>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">订单管理</a>><a href="">已退款订单</a></div>
+		<div class="public-content">
+			<div class="public-content-header">
+				<h3 style="display: inline-block;">修改网站配置</h3>
+				<div class="public-content-right add">
+					<a href="article_add.html" style="height: 24px; width: 60px;border: 1px solid #ccc;font-size: 12px;text-align:center">添加信息</a>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="public-content-cont two-col">
+				<div class="public-cont-left col-1">
+					<div class="public-cont-title">
+						<h3>订单分类</h3>
+					</div>
+					<ul class="public-cate-list">
+						<li class="public-cate-item"><a href="article_manage1.html">已退款</a></li>
+					</ul>
+				</div>
+				<table class="public-cont-table col-2" id="table">
+					<tr >
+						<th style="width:5%">选择</th>
+						<th style="width:5%">ID</th>
+						<th style="width:8%">购买人</th>
+						<th style="width:10%">订单号</th>
+						<th style="width:5%">收货人</th>
+						<th style="width:8%">收货人手机号</th>
+						<th style="width:20%">收货地址</th>					
+						<th style="width:10%">下单时间</th>	
+						<th style="width:5%">运费</th>				
+						<th style="width:5%">订单总价</th>					
+						<th style="width:12%">操作</th>
+					</tr>
+					<tbody id="head"></tbody>
+				</table>
+				<style>
+				    .page p{
+				         float: left;
+                         margin-left: 182px;
+				    }
+				    
+				    p a.box{
+			            border: 1px solid #ddd;
+				        color: red;
+				        padding: 0px 10px;
+				    }
+				    .countPage{
+				        color:red;
+				    }
+				    .currPage{
+				        color:red;
+				    }
+				    .pageSize,.countNum{
+				        color:red;
+				    }
+				    
+				</style>
+				<div class="page">
+				    <p>
+				        <a class="box prev" href="javascript:;">上一页</a>
+				        <a class="box next" href="javascript:;">下一页</a>
+				        <span>总共&nbsp;<span class="countPage">1</span>&nbsp;页,当前第&nbsp;<span class="currPage">0</span>&nbsp;页</span>
+				        <span class="right">每页显示&nbsp;<span class="pageSize">10</span>&nbsp;条数据,总共&nbsp;<span class="countNum">0</span>&nbsp;条数据</span>
+				    </p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

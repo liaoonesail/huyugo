@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<link href="/huyugo/img/f.png" rel="shortcut icon" type="image/x-icon"/>
+</head>
+<style type="text/css">
+	ul, ol, li {
+	    list-style: outside none none;
+	}
+	input, img, button {
+	    vertical-align: middle;
+	    border: 0 none;
+	    outline: none;
+	} 
+	.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+	.logistics-box{
+		padding: 20px;
+	}
+	.logistics-table{
+		border-top: 1px solid #e9e9e9;
+	    border-collapse: collapse;
+	    border-spacing: 0;
+	    width: 99%;
+	}
+	.logistics-table > tbody > tr:nth-of-type(2n+1) {
+    	background-color: #f9f9f9;
+	}
+	.logistics-table th{
+		padding: 15px;
+		text-align: left;
+		border-bottom:1px solid #e9e9e9;
+		color: #666;
+		font-size: 14px;
+		font-weight: 700;
+	}
+	.logistics-table td{
+		padding: 15px;
+		text-align: left;
+		border-bottom:1px solid #e9e9e9;
+		color: #666;
+		font-size: 14px;
+	}
+	.logistics-images{
+		width: 70px;
+		height: 70px;
+		border-radius: 4px;
+	}
+	.logistics-info{
+		margin-top: 20px;
+	}
+	.logistics-info-title{
+		display:block;
+		width: 70px;
+		padding-right: 20px;
+	    height: 34px;
+	    line-height: 30px;
+		float: left;
+		text-align: right;
+		font-size: 14px;
+		color: #333;
+		font-weight: 700;
+	}
+	.logistics-info-sel{
+		display: block;
+		width: 200px;
+		float: left;
+		padding-left: 5px;
+		background-color: #fff;
+	    background-image: none;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	    color: #555;
+	    display: block;
+	    font-size: 14px;
+	    height: 34px;
+	    line-height: 1.42857;
+	}
+	.logistics-info-number{
+		display: block;
+		width: 300px;
+		padding-left: 5px;
+		float: left;
+		background-color: #fff;
+	    background-image: none;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	    color: #555;
+	    display: block;
+	    font-size: 14px;
+	    height: 34px;
+	    line-height: 1.42857;
+	}
+	.log-m-t15{
+		margin-bottom: 15px;
+	}
+	.logistics-info-button{
+		margin-left: 130px;
+		background-color: #337ab7;
+		border-color: #2e6da4;
+		color: #fff;
+		border-radius: 4px;
+	    cursor: pointer;
+	    display: inline-block;
+	    font-size: 14px;
+	    font-weight: 400;
+	    line-height: 1.42857;
+	    margin-bottom: 0;
+	    padding: 6px 12px;
+	    text-align: center;
+	    touch-action: manipulation;
+	    vertical-align: middle;
+	    white-space: nowrap;
+	}
+</style>
+<body>
+	<div class="logistics-box">
+		<table class="logistics-table">
+			<thead>
+				<tr>
+                    <th>编号</th>
+                    <th>商品名称</th>
+                    <th>商品图片</th>
+                    <th>商品单价</th>
+                    <th>购买数量</th>
+                    <th>商品总价</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+                    <td>01</td>
+                    <td>唐顿庄园 Downton Abbey月光石淡水珍珠双层项链</td>
+                    <td>
+                        <img src="goods1.jpg" class="logistics-images" alt="">
+                    </td>
+                    <td>188元</td>
+                    <td>10</td>
+                    <td>1880元</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="logistics-info">
+			<ul>
+				<li class="clearfix log-m-t15">
+					<span class="logistics-info-title">物流公司</span>
+					<select class="logistics-info-sel">
+						<option value="">顺丰</option>
+					</select>
+				</li>
+				<li class="clearfix">
+					<span class="logistics-info-title">物流编号</span>
+					<input type="text" class="logistics-info-number" name="" id="" />
+				</li>
+			</ul>
+			<button class="logistics-info-button" type="button">确定</button>
+		</div>
+	</div>
+</body>
+</html>

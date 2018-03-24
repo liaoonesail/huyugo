@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Affiche" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Affiche" >
+		insert into Affiche(title,content,date_time) values(#{title},#{content},#{date_time})
+	</insert>
+	
+	<delete id="del"  parameterType="int"  >
+		delete  from Affiche where id=#{id}
+	</delete>
+	<update id="update" parameterType="com.huyu.entity.Affiche">
+		update
+			Affiche
+			set
+			title=#{title},
+			content=#{content},
+			date_time=#{date_time}
+		where
+			id=#{id} 
+	</update>
+	<select  id="list"  resultType="com.huyu.entity.Affiche">
+		select * from Affiche order by date_time desc
+	</select>
+	<select id="getid" parameterType="int" resultType="com.huyu.entity.Affiche" >
+		select * from Affiche where id=#{id}
+	</select>
+</mapper>

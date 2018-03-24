@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta name="keywords" content="互余，互余网、互余购、万州商城，直购商城，休闲娱乐" />
+		<meta name="description" content="互余购-综合网购商城、要网购就来互余购，正品低价、品质保障、新型的网购模式，购物模式多样化等" />
+		<title>互余购-综合网购商城</title>
+<link rel="stylesheet" href="/huyugo/memberCenter/css/address.css" />
+<link rel="stylesheet" href="/huyugo/memberCenter/css/getcash.css" />
+<link rel="stylesheet" href="/huyugo/main/css/content.css" />
+<script type="text/javascript" src="/huyugo/js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="/huyugo/memberCenter/js/getcash.js"></script>
+<style>
+.tixiangLa {
+	color: #323232;
+	font-size: 14px;
+	text-align: justify;
+	line-height: 35px;
+	margin: 20px 20px 0px 20px;
+}
+
+.erwmKLog {
+	width: 145px;
+	height: 145px;
+	margin: 5px 20px;
+}
+
+.erwmKLog img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+#table {
+	width: 95%;
+}
+
+tr {
+	border-bottom: 1px solid #ccc;
+}
+
+.aa {
+	color: rgb(102, 115, 121);
+	padding: 2px 5px;
+	border: 1px solid #c486ff;
+}
+
+.aa:HOVER {
+	background: #c486ff;
+	color: #fff;
+}
+
+span.ing {
+	color: rgba(243, 92, 92, 0.74);
+	font-size: 13px;
+}
+
+span.ed {
+	color: rgba(28, 165, 34, 0.62);
+	font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+	<div class="publicBox2">
+
+		<div class="right1Title clearfix">
+			<img src="/huyugo/memberCenter/jiantou/14.png" /> <span>申请提现</span>
+		</div>
+
+		<div class="head_title">
+			<ul>
+				<li class="li_bg">银行卡提现</li>
+				<li>微信提现</li>
+				<li>支付宝提现</li>
+			</ul>
+		</div>
+		<ul class="content">
+			<li style="display:block;"><div>
+					<p class="tixiangLa">申请提现金额</p>
+					<input type="text" name="price" placeholder="输入申请提现金额" class="in">
+					<button id="getCash">提现</button>
+
+					<p class="tixiangLa tixian" curpage='1' countpage="">提现记录</p>
+					<table class="public-cont-table col-2" id="table">
+						<tr>
+							<td class="dd" style="">金额(元)</td>
+							<td class="dd" style="">扣除手续费后</td>
+							<td class="dd" style="">时间</td>
+							<td class="dd" style="">状态</td>
+						</tr>
+						<tbody id="head">
+						</tbody>
+					</table>
+			</li>
+			<li style="display:none;"><p class="tixiangLa">请关注微信公众号，在上面提现!!!</p>
+				<div class="erwmKLog">
+					<img src="/huyugo/img/okok.png" />
+				</div></li>
+			<li style="display:none;"></li>
+		</ul>
+		<!-- 
+		<div>
+			<p class="tixiangLa">申请提现金额</p>
+			<input type="text" name="price" placeholder="输入申请提现金额" class="in">
+			<button id="getCash">提现</button>
+
+			<p class="tixiangLa">提现记录</p>
+			<table class="public-cont-table col-2" id="table">
+				<tr>
+					<td class="dd" style="">金额(元)</td>
+					<td class="dd" style="">时间</td>
+					<td class="dd" style="">状态</td>
+				</tr>
+				<tbody id="head">
+				</tbody>
+			</table>
+ -->
+		<script type="text/javascript">
+			$(function() {
+				$(document)
+						.ready(
+								function() {
+									ajaxLoadTabel(1);
+								});
+			function ajaxLoadTabel(curpage){
+					$.ajax({
+						url : '../../user/getCashByUserId.do',
+						type : 'post',
+						data : {
+							curpage : curpage
+						},
+						dataType : 'json',
+						success : function(res) {
+							console.log(res);
+							var html = "";
+							var status = "";
+							$(res).each(function(index,object){
+								$(object.list).each(function(index,obj){
+									btn = "<a href='javascript:;' class='aa'>已完成</a>";
+									status = "<span class='ed'>已完成</span>";
+									var btn = "";
+									if (obj.status == 0) {
+										status = "<span class='ing'>提现中</span>";
+										btn = "<a href='javascript:;' class='aa' onclick='cexiao("+ obj.id+ ")'>取消</a>";
+									}
+									var p = parseInt(obj.price) * 0.97;
+									html += "<tr><td class='dd'>"+ obj.price+ "</td><td class='dd'>"+p+"</td><td class='dd'>"+ obj.time+ "</td><td class='dd'>"+ status+ " "+ btn+ "</td></tr>";
+								});
+							});
+							$(".tixian").attr("curpage",res[0].curpage);
+							$(".tixian").attr("countpage",res[0].countPage);
+							var footerHtml = html+"<tr style='height:35px;cursor:default;'><td></td><td style='text-align:center;'><a href='' class='prev'>上一页</a></td><td></td><td style='text-align:center;'><a href='' class='next'>下一页</a></td></tr>";
+							$("#head").html(footerHtml);
+						}
+					});
+				}
+				
+				$(document).on("click",".prev",function(){
+					var curpage = $(".tixian").attr("curpage");
+					var countpage = $(".tixian").attr("countpage");
+					if(curpage=="1"){
+						alert("当前已是第一页");
+						return false;
+					}
+					ajaxLoadTabel(Number(curpage)-1);
+					return false;
+				});
+				
+				$(document).on("click",".next",function(){
+					var curpage = $(".tixian").attr("curpage");
+					var countpage = $(".tixian").attr("countpage");
+					if(curpage==countpage){
+						alert("当前已是最后一页");
+						return false;
+					}
+					ajaxLoadTabel(Number(curpage)+1);
+					return false;
+				});
+				
+				$("#getCash").click(function() {
+					var price = $("input[name=price]").val();
+					if (price < 100) {
+						alert("提现金额不能小于100元");
+						return false;
+					}
+					if (confirm("确定提现 " + price + " 元?")) {
+						$.ajax({
+							url : '../../user/add.do',
+							type : 'post',
+							data : {
+								price : price
+							},
+							success : function(res) {
+								if (res == "true") {
+									alert("申请提现成功！");
+									window.location.reload();
+								}
+							}
+						});
+					}
+					return false;
+				});
+			});
+			function cexiao(id) {
+				if (confirm("您确定撤销该提现？")) {
+					$.ajax({
+						url : "../../user/cexiao.do",
+						type : 'post',
+						data : {
+							id : id
+						},
+						success : function(res) {
+							if (res == "true") {
+								alert("操作成功！");
+								window.location.reload();
+							} else {
+								alert("操作失败！");
+								window.location.reload();
+							}
+						}
+					});
+				} else {
+					alert("操作已取消");
+				}
+			}
+		</script>
+
+
+
+		<style>
+table {
+	margin-left: 20px;
+	font-size: medium;
+	color: rgb(77, 80, 82);
+	border: 1px solid rgba(196, 134, 255, 0.64);
+}
+
+.dd {
+	padding: 5px 15px;
+	text-align: center;
+	font-size: 14px;
+	color: rgb(53, 83, 97);
+	border: 1px solid rgb(238, 238, 238);
+}
+
+tr:HOVER {
+	background: #eee;
+	cursor: pointer;
+}
+
+.in {
+	margin-left: 20px;
+	height: 34px;
+	border-radius: 4px;
+	border: olive;
+	border: 1px solid #c486ff;
+	padding-left: 14px;
+}
+
+button {
+	display: inline-block;
+	border: none;
+	outline: none;
+	padding: 4px;
+	margin-left: 2px;
+	background: rgba(140, 43, 232, 0.91) !important;
+	color: #fff !important;
+	cursor: pointer;
+}
+</style>
+	</div>
+
+	</div>
+
+
+</body>
+
+</html>

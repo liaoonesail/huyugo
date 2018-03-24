@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台欢迎页</title>
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/content.css" />
+<script  src="../js/jquery.min.js"></script></head>
+	<script >
+	
+	$(function(){
+	$.post(
+	"../../admingoods_type/list.do",
+	{},
+	function(data){
+	var html="";
+	var order=0;
+       $.each(data,function(){
+   		var item = this;
+   		order+=1;
+           html+="<tr><td><input type='checkbox' /></td><td>"+order+"</td><td><span style='color:#27828A'>"+item.type+"</span></td><td><div class='table-fun'><a href='article_update.html?id="+item.id+"'>修改</a><a onclick='del("+item.id+")' style='cursor:pointer'>删除</a></td></div></tr>";
+        }); 
+	$("#head").after(html);
+	},
+	"json"
+	);
+	});
+	
+	function del(id){
+	if(confirm("确认要删除吗？")){
+	$.post(
+	"../../admingoods_type/del.do",
+	{"id":id},
+	function(data){
+	alert(data);
+	window.location.reload(); 
+	},
+	"text"
+	);
+	}
+	}
+	</script>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">类别管理</a>><a href="">总类别</a></div>
+		<div class="public-content">
+			<div class="public-content-header">
+				<h3 style="display: inline-block;">修改网站配置</h3>
+				<div class="public-content-right add">
+					<a href="article_add.html" style="height: 24px; width: 60px;border: 1px solid #ccc;font-size: 12px;text-align:center">添加信息</a>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="public-content-cont two-col">
+				<div class="public-cont-left col-1">
+					<div class="public-cont-title">
+						<h3>分类</h3>
+					</div>
+					<ul class="public-cate-list">
+						<li class="public-cate-item"><a href="article_manage.html">HUYUGO</a></li>
+					</ul>
+				</div>
+				<table class="public-cont-table col-2" id="table">
+					<tr id="head">
+						<th style="width:5%">标记</th>
+						<th style="width:10%">ID</th>
+						<th style="width:40%">总分类名</th>					
+						<th style="width:25%">操作</th>
+					</tr>
+					
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

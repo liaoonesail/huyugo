@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Picture" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Picture" >
+		insert into Picture(picture,goods_id,url) values(#{picture},#{goods_id},#{url})
+	</insert>
+	
+	<delete id="del"  parameterType="int"  >
+		delete  from Picture where id=#{id}
+	</delete>
+	
+	<update id="update" parameterType="com.huyu.entity.Picture" >
+		update Picture 
+			set 
+			picture=#{picture},
+			goods_id=#{goods_id},
+			url=#{url}
+			where 
+				id=#{id}
+	</update>
+	<select id="listByid" parameterType="int" resultType="com.huyu.entity.Picture">
+		select * from Picture where goods_id=#{goods_id}
+	</select>
+	<select  id="getList" parameterType="map" resultType="com.huyu.entity.Picture">
+		select * from Picture
+		<where>
+		  <if test="order!=null">
+		     and goods_id like '%${goods_id}%'
+		  </if>
+		</where>
+		limit #{startRecord},#{pageSize}
+	</select>
+	<select  id="getList2" parameterType="map" resultType="com.huyu.entity.Picture">
+		select * from (
+			select id,name,age,birthday,sex,hobbies,photopath,rownum r from(
+			select * from student
+			)where name like '%${name}%' and rownum &lt;=#{startRecord}+#{pageSize} order by id) where r &gt; #{startRecord}
+	</select>
+	<select  id="getById" parameterType="int"  resultType="com.huyu.entity.Picture">
+		select * from Picture where id=#{id}
+	</select>
+	
+	<select  id="getCount" parameterType="string"  resultType="int"  >
+		select count(*) from Picture where   goods_id like '%${goods_id}%' 
+	</select>
+	
+</mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Shop" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Shop" >
+		insert into Shop(name,phone) values(#{name},#{phone})
+	</insert>
+	
+	<delete id="del"  parameterType="int">
+		delete from Shop where id=#{id}
+	</delete>
+	
+	<update id="update" parameterType="com.huyu.entity.Shop" >
+		update Shop 
+			set 
+			name=#{name},
+			phone=#{phone}
+			where 
+				id=#{id}
+	</update>
+	
+	<select id="list" resultType="com.huyu.entity.Shop">
+		select * from Shop
+	</select>
+	
+	<select id="getById" parameterType="int"  resultType="com.huyu.entity.Shop">
+		select * from Shop where id=#{id}
+	</select>
+	
+	<select id="getByName" parameterType="string" resultType="com.huyu.entity.Shop">
+		select * from Shop where name=#{name}
+	</select>
+	
+</mapper>

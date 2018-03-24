@@ -1,0 +1,277 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+img {
+	border: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+html,
+body {
+	width: 100%;
+	height: auto;
+	background: #fff;
+	min-width: 1030px;
+	position: relative;
+}
+
+ul li,
+ol li,
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #999;
+}
+
+a {
+	border: none;
+	outline: none;
+}
+
+::-webkit-scrollbar-track-piece {
+	width: 6px;
+	background-color: #f8f8f8
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+	background-color: #fff
+}
+
+::-webkit-scrollbar-thumb {
+	width: 6px;
+	background-color: #fff
+}
+
+::-webkit-scrollbar-thumb:hover {
+	width: 6px;
+	background-color: #fff
+}
+
+input {
+	outline: none;
+}
+
+.ellipsis {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.ellipsis2 {
+	display: -webkit-box;
+	overflow: hidden;
+	white-space: normal !important;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}
+
+.clearfix:after {
+	content: '.';
+	display: block;
+	clear: both;
+	height: 0px;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+.publicBox2 {
+	width: 1030px;
+	position: relative;
+	overflow: hidden;
+}
+
+.right1Title {
+	width: 100%;
+	height: 45px;
+	position: relative;
+	background: #f7f6f4;
+}
+
+.right1Title img {
+	float: left;
+	width: 39px;
+	height: 45px;
+}
+
+.right1Title span {
+	float: left;
+	line-height: 45px;
+	padding-left: 2px;
+}
+
+
+/**/
+
+.addressList ul li {
+	margin: 20px 0px;
+	border: 1px solid #cf6881;
+	position: relative;
+}
+
+.addressList ul li .addressListconts {
+	height: 45px;
+	background: #E2E2E2;
+	line-height: 45px;
+}
+
+.addressList ul li .addressListconts h3 {
+	float: left;
+	margin-left: 20px;
+	cursor: pointer;
+}
+
+.addressList ul li .addressListconts img {
+	float: left;
+	margin-left: 9px;
+	margin-top: 14px;
+}
+
+.addressList ul li .addressListconts img.moreng {
+	display: none;
+}
+
+.addressList ul li .addressListconts button {
+	float: right;
+	font-size: 15px;
+	color: #a91a4a;
+	border: none;
+	background: none;
+	margin-left: 5px;
+	line-height: 45px;
+	cursor: pointer;
+	outline: none;
+}
+
+.addressList ul li .addressListconts button:nth-of-type(1) {
+	margin-right: 40px;
+}
+
+.addressList ul li .addressListconts22 {
+	padding: 10px 40px;
+	color: #ABABAB;
+	font-size: 14px;
+}
+
+.addressList ul li .addressListconts22 p span {
+	color: #646464 !important;
+}
+
+a.btnsdhover {
+	display: block;
+	margin: 20px 0px;
+	cursor: pointer;
+	color: #323232;
+	text-align: center;
+	display: none;
+}
+
+
+/**/
+
+.addxinBtns {
+	display: block;
+	position: relative;
+	margin: 20px 0px;
+	width: 130px;
+	color: #fff;
+	text-align: center;
+	line-height: 45px;
+	font-size: 14px;
+	background: #cf6881;
+	cursor: pointer;
+}
+
+
+/**/
+.addressList input{
+	color: #949191;
+}
+.addressList .addxinWang {
+	height: 35px;
+	line-height: 35px;
+	padding-left: 60px;
+}
+
+.addressList .addxinWang span {
+	float: left;
+}
+
+.addressList .addxinWang span:nth-of-type(1) {
+	font-size: 28px;
+	color: #cf6881;
+	margin-right: 4px;
+	line-height: 45px;
+}
+
+.addressList .addxinWang span:nth-of-type(2) {
+	font-size: 14px;
+	color: #949191;
+}
+
+.useIputYou {
+	float: left;
+	width: 200px;
+	height: 35px;
+	border: 1px solid #949191;
+	padding-left: 4px;
+}
+.top {
+	margin: 5px 0px;
+	color: #990000;
+	text-align: left;
+}
+
+.info select {
+	border: 1px #949191 solid;
+	background: #FFFFFF;
+	outline: none;
+	height: 30px;
+	color: #949191;
+	line-height: 30px;
+}
+
+.info #show {
+	color: #3399FF;
+}
+
+.bottom {
+	text-align: right;
+	font-size: 12px;
+	color: #CCCCCC;
+	width: 1000px;
+}
+.btnsaddssse{
+	display: block;
+	position: relative;
+	margin: 20px 80px;
+	width: 130px;
+	color: #fff;
+	text-align: center;
+	line-height: 45px;
+	font-size: 14px;
+	background: #cf6881;
+	cursor: pointer;
+}

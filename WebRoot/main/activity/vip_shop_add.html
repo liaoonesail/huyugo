@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台欢迎页</title>
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/public.css" />
+	<link rel="stylesheet" href="../css/content.css" />
+	
+<script type="text/javascript" src="../js/jquery.min.js"></script></head>
+<script type="text/javascript">
+	$(function(){
+		$.post(
+				"../../admingoods_type/list.do",
+				{},
+				function(data){
+				var option="";
+			       $.each(data,function(){
+			   		var item = this;
+			           option+="<option value='"+item.id+"'>"+item.type+"</option>";
+			        }); 
+				$("#option").append(option);
+				gettype();
+				},
+				"json"
+				);
+		
+	});
+	
+	function gettype(){
+		var goods_type_id=$("#option").val();
+		$("#nextoption").empty();
+		$.post(
+			 "../../admingoods_type_type/listByid.do",
+		 	{"goods_type_id":goods_type_id},
+		 	function(data){
+				var option="";
+			       $.each(data,function(){
+			   		var item = this;
+			           option+="<option value='"+item.id+"'>"+item.type+"</option>";
+			        }); 
+				$("#nextoption").append(option);
+				gettype_type();
+				},
+			"json"
+				);
+	}
+	function gettype_type(){
+		var goods_type_type_id=$("#nextoption").val();
+		$("#goodsname").empty();
+		$.post(
+		"../../admingoods/list.do",
+		{"goods_type_type_id":goods_type_type_id,"curpage":1},
+		function(data){
+			var option="";
+		       $.each(data.list,function(){
+		   		var item = this;
+		           option+="<option value='"+item.id+"'>"+item.name+"</option>";
+		        }); 
+			$("#goodsname").append(option);
+			getname();
+		},
+		"json"
+		);
+	}
+	function getname(){
+		
+		var id=$("#goodsname").val();
+		if(id!=null){
+			$.post(
+					"../../admingoods/getid.do",
+					{"id":id},
+					function(data){
+						$("#name").val(data.name);
+						$("#cost_price").val(data.cost_price);
+						$("#price").val(data.price);
+					},
+					"json"
+					);
+		}else{
+			$("#name").val("");
+			$("#cost_price").val("");
+			$("#price").val("");
+		}
+		
+	
+	}
+	function toVaild(){
+		var id=$("#goodsname").val();
+		$("#goods_id").val(id);
+		if(id==null){
+			alert("商品名不能为空！");
+			return false;
+		}else{
+			return true;
+		}
+	}
+</script>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">活动类别</a>><a href="">vip商城</a>><a href="">添加</a></div>
+		<div class="public-content">
+			<div class="public-content-header">
+				<h3>修改网站配置</h3>
+			</div>
+			<div class="public-content-cont">
+			<form action="../../adminVip_shop/add.do" method="post" onsubmit="return toVaild()">
+				<div class="form-group">
+					<label for="">请选择分类</label>
+					<select  class="form-select"  id="option" onchange="gettype()">
+					</select>
+					<select  class="form-select"  id="nextoption"  onchange="gettype_type()">
+					</select>
+					<select  class="form-select"  id="goodsname"  onchange="getname()">
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="">商品名</label>
+					<input class="form-input-txt" type="text" id="name" value="" disabled="disabled"/>
+				</div>
+				<div class="form-group">
+					<label for="">原计价</label>
+					<input class="form-input-txt" type="text" id="cost_price" value="" disabled="disabled"/>
+				</div>
+				<div class="form-group">
+					<label for="">现价</label>
+					<input class="form-input-txt" type="text" id="price" value="" disabled="disabled"/>
+				</div>
+				<div class="form-group">
+					<label for="">vip价</label>
+					<input class="form-input-txt" type="text" name="real_price" value="" />
+				</div>
+				<div class="form-group" style="margin-left:150px;">
+					<input type="hidden" name="goods_id" id="goods_id">
+					<input type="submit" class="sub-btn" value="提  交" />
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<script src="../kingediter/kindeditor-all-min.js"></script>
+<script src="../js/laydate.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Goods_comment" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Goods_comment" >
+		insert into Goods_comment(comment,goods_id,user_id,time,goods_grade,service_grade,deliver_grade) values(#{comment},#{goods_id},#{user_id},#{time},#{goods_grade},#{service_grade},#{deliver_grade})
+	</insert>
+	
+	<delete id="del"  parameterType="map"  >
+		delete  from Goods_comment where id=#{id} and user_id=#{user_id}
+	</delete>
+	<select  id="listBygoods_id" parameterType="int"  resultType="com.huyu.entity.Goods_comment">
+		select * from Goods_comment where goods_id=#{goods_id}
+	</select>
+	
+</mapper>

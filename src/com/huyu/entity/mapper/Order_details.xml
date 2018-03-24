@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Order_details" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Order_details" useGeneratedKeys="true" keyProperty="id">
+		insert into Goods_order_details(goods_id,amount,order_id,real_price,state,color_norms,type,integral) values(#{goods_id},#{amount},#{order_id},#{real_price},#{state},#{color_norms},#{type},#{integral})
+	</insert>
+	<select id="listByorder_id" parameterType="int" resultType="com.huyu.entity.Order_details">
+		select * from Goods_order_details where order_id=#{order_id}
+	</select>
+	<select id="getid" parameterType="int" resultType="com.huyu.entity.Order_details">
+		select * from Goods_order_details where id=#{id}
+	</select>
+	<delete id="delByorder_id" parameterType="int">
+		delete from Goods_order_details where order_id=#{order_id}
+	</delete>
+	<update id="update" parameterType="com.huyu.entity.Order_details">
+		update Goods_order_details 
+			set 
+			state=#{state},
+			real_price=#{real_price}
+			where 
+				id=#{id}
+	</update>
+</mapper>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Logistics" >
+
+    <insert id="add" parameterType="com.huyu.entity.Logistics">
+        insert into Logistics(order_id,goods_id,logistics_name,logistics_num,time) values(#{order_id},#{goods_id},#{logistics_name},#{logistics_num},#{time})
+    </insert>
+	
+	<delete id="del" parameterType="int">
+	   delete from Logistics where id=#{id}
+	</delete>
+	
+	<delete id="delByOrder" parameterType="int">
+	   delete from Logistics where order_id=#{order_id}
+	</delete>
+	
+	<update id="update" parameterType="com.huyu.entity.Logistics">
+	   update Logistics
+	       set 
+	       logistics_name=#{logistics_name},
+	       logistics_num=#{logistics_num},
+	       time=#{time}
+	       where order_id=#{order_id} and goods_id=#{goods_id}
+	</update>
+	
+	<!-- <select id="getAllLogistics" resultType="com.huyu.entity.Logistics">
+	   select * from Logistics
+	</select> -->
+	
+	<select id="getid" parameterType="map" resultType="com.huyu.entity.Logistics">
+	   select * from Logistics where id=#{id} and goods_id=#{goods_id}
+	</select>
+	
+	<select id="getByOrderId" parameterType="map" resultType="com.huyu.entity.Logistics">
+	   select * from Logistics where order_id=#{order_id} and goods_id=#{goods_id}
+	</select>
+	
+	<!-- <select id="count" parameterType="string" resultType="int">
+	   select count(*) from Logistics 
+	   where order_id like '%${order_id}%' or logistics_name like '%${logistics_name}%' or logistics_num like '%${logistics_num}%'
+	</select> -->
+	
+	<!-- <select id="getLogisticsByPage" parameterMap="map" resultType="com.huyu.entity.Logistics">
+	   select * from Logistics 
+	   where order_id like '%${order_id}%' or logistics_name like '%${logistics_name}%' or logistics_num like '%${logistics_num}%'
+       order by id desc limit #{startRecord},#{pageSize}
+	</select> -->
+	
+</mapper>

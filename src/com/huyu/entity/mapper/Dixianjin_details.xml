@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Dixianjin_details" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Dixianjin_details" >
+		insert into Dixianjin_details(user_id,order_id,goods_id,status) values(#{user_id},#{order_id},#{goods_id},#{status})
+	</insert>
+	
+	<delete id="del"  parameterType="int"  >
+		delete  from Dixianjin_details where id=#{id}
+	</delete>
+	<update id="update" parameterType="com.huyu.entity.Dixianjin_details">
+		update
+			Dixianjin_details
+			set
+			status=#{status}
+		where
+			id=#{id} 
+	</update>
+	<select id="getid" parameterType="map" resultType="com.huyu.entity.Dixianjin_details">
+		select * from Dixianjin_details where user_id=#{user_id} and order_id=#{order_id} and goods_id=#{goods_id}
+	</select>
+</mapper>

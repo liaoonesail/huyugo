@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.TransferAccounts">
+	
+	<insert id="add" parameterType="com.huyu.entity.TransferAccounts">
+		insert into transfer_accounts(shiftTo,rollOut,type,time,money) values(#{shiftTo},#{rollOut},#{type},#{time},#{money})
+	</insert>
+	
+	<delete id="del" parameterType="int">
+		delete from transfer_accounts where id=#{id}
+	</delete>
+	
+	<select id="getid" parameterType="int">
+		select * from transfer_accounts where id=#{id}
+	</select>
+	<select id="getByShiftTo" parameterType="int">
+		select * from transfer_accounts where shiftTo=#{shiftTo}
+	</select>
+
+</mapper>

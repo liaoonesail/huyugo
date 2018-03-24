@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台欢迎页</title>
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/public.css" />
+	<link rel="stylesheet" href="../css/content.css" />
+	
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script src="../kingediter/kindeditor-all-min.js"></script>
+<script src="../js/laydate.js"></script>
+</head>
+<script type="text/javascript">
+
+var editor1;
+	 KindEditor.ready(function(K) {
+		 editor1 = K.create('textarea[name="picture_address"]', {
+			 resizeType : 1,
+			 allowPreviewEmoticons : false,
+			 items : [
+			'source','image','preview'],
+			 });
+        });
+
+var editor2;
+	 KindEditor.ready(function(K) {
+		 editor2 = K.create('textarea[name="details"]', {
+			 resizeType : 1,
+			 allowPreviewEmoticons : false,
+			 items : [
+			 'source','undo','redo','|','formatblock','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline','strikethrough','removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist','insertunorderedlist','insertorderedlist','insertunorderedlist', '|', 'emoticons', 'image', 'link','table','hr','preview'],
+			 });
+        });
+
+
+
+
+
+
+
+
+
+var thisURL = document.URL;
+var goods_id="";
+var goods_type_type_id="";
+  if(thisURL.indexOf("?")>0){
+  var getval =thisURL.split('?')[1];  
+  goods_id= getval.split("=")[1];
+  }
+	$(function(){
+		$.ajax({
+			url:"../../adminshop/list.do",
+			type:'post',
+			dataType:'json',
+			async:false,
+			success:function(res){
+				if(res.length != 0){
+					console.log("获取到list");
+					var html = "";
+					$(res).each(function(index,obj){
+						console.log(obj.name);
+						html +="<option value='"+obj.id+"'>"+obj.name+"</option>";
+					});
+					$("#shop").html(html);
+					console.log(html);
+				}
+			}
+		});
+	
+		$.post(
+				"../../admingoods_type/list.do",
+				{},
+				function(data){
+				var option="";
+			       $.each(data,function(){
+			   		var item = this;
+			           option+="<option value='"+item.id+"'>"+item.type+"</option>";
+			        }); 
+				$("#option").append(option);
+				
+				$.post(
+				"../../admingoods/getid.do",
+				{"id":goods_id},
+				function(data){
+				goods_type_type_id=data.goods_type_type_id;
+				$.post(
+				"../../admingoods_type_type/getid.do",
+				{"id":data.goods_type_type_id},
+				function(data){
+				$("#option").val(data.goods_type_id);
+				gettype();
+				},
+				"json"
+				);
+				
+				
+				$("#goods_id").val(data.id);
+				$("#name").val(data.name);
+				$("#color").val(data.color);
+				$("#norms").val(data.norms);
+				$("#freight").val(data.freight);
+				$("#goods_describe").val(data.goods_describe);
+				$("#price").val(data.price);
+				$("#cost_price").val(data.cost_price);
+				$("#amount").val(data.amount);
+				$("#hot").val(data.hot);
+				$(".display").find("input[value='"+data.display+"']").attr("checked","checked");
+				$("#common_integral").val(data.common_integral);
+				$("#member_integral").val(data.member_integral);
+				$("#common_huyubi").val(data.common_huyubi);
+				$("#member_huyubi").val(data.member_huyubi);
+				$("#common_dixianjin").val(data.common_dixianjin);
+				$("#member_dixianjin").val(data.member_dixianjin);
+				if(data.shopId != ""){
+					$("#shop option").each(function(index,obj){
+						if($(obj).val() == data.shopId){
+							$(obj).attr("selected","selected");
+						}else{
+							$(obj).removeAttr("selected");
+						}
+					});
+				}
+				 editor1.html("");
+  					editor1.insertHtml("<img src="+data.picture_address+" alt=''"+">");
+				 editor2.html("");
+  					editor2.insertHtml(data.details);
+				},
+				"json"
+				);
+				},
+				"json"
+				);
+		
+	});
+	
+	function gettype(){
+		var goods_type_id=$("#option").val();
+		$("#nextoption").empty();
+		$.post(
+			 "../../admingoods_type_type/listByid.do",
+		 	{"goods_type_id":goods_type_id},
+		 	function(data){
+				var option="";
+			       $.each(data,function(){
+			   		var item = this;
+			           option+="<option value='"+item.id+"'>"+item.type+"</option>";
+			        }); 
+				$("#nextoption").append(option);
+				$("#nextoption").val(goods_type_type_id);
+				},
+			"json"
+				);
+	}
+
+	function toVaild(){
+		var price=$("#price").val();
+		var common_dixianjin=$("#common_dixianjin").val();
+		var member_dixianjin=$("#member_dixianjin").val();
+		console.log("抵现金:"+common_dixianjin);
+		console.log("vip抵现金:"+member_dixianjin);
+		if(common_dixianjin>price||member_dixianjin>price){
+			alert("抵现金不能大于商品现价！");
+			return false;
+		}else{
+			return true;
+		}
+	}
+</script>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">商品类别</a>><a href="">商品管理</a>><a href="">添加</a></div>
+		<div class="public-content">
+			<div class="public-content-header">
+				<h3>修改网站配置</h3>
+			</div>
+			<div class="public-content-cont">
+			<form action="../../admingoods/update.do" method="post">
+				<div class="form-group">
+					<label for="">请选择分类</label>
+					<select  class="form-select"  id="option" onchange="gettype()">
+					</select>
+					<select  class="form-select"  id="nextoption" name="goods_type_type_id">
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="">供应商</label>
+					<select class="form-select" id="shop" name='shopId'></select>
+				</div>
+				<div class="form-group">
+					<label for="">商品名</label>
+					<input class="form-input-txt" type="text" name="name" value=""  id="name"/>
+				</div>
+				<div class="form-group">
+					<label for="">颜色种类</label>
+					<input class="form-input-txt" type="text" name="color" value="" id="color"/>
+				</div>
+				<label for="" style="color: red">颜色之间'#'隔开如：黑色#白色#蓝色(没有颜色不用填写)</label>
+				<div class="form-group">
+					<label for="">商品规格</label>
+					<input class="form-input-txt" type="text" name="norms" value="" id="norms" />
+				</div>
+				<label for="" style="color: red">规格之间'#'隔开如：	S#M#L#XL(没有规格不用填写)</label>
+				<div class="form-group">
+					<label for="">商品运费</label>
+					<input class="form-input-txt" type="text" name="freight" value="" id="freight"/>
+				</div>
+				<div class="form-group">
+					<label for="">商品简介</label>
+					<input class="form-input-txt" type="text" name="goods_describe" value="" id="goods_describe"/>
+				</div>
+				<div class="form-group">
+					<label for="">商品现价</label>
+					<input class="form-input-txt" type="text" name="price" value="" id="price"/>
+				</div>
+				<div class="form-group">
+					<label for="">商品原价</label>
+					<input class="form-input-txt" type="text" name="cost_price" value="" id="cost_price"/>
+				</div>
+				<div class="form-group">
+					<label for="">商品数量</label>
+					<input class="form-input-txt" type="text" name="amount" value="" id="amount"/>
+				</div>
+				<div class="form-group">
+					<label for="">商品热度</label>
+					<input class="form-input-txt" type="text" name="hot" value="" id="hot"/>
+				</div><div class="form-group">
+					<label for="">是否推荐</label>
+					<input type="radio" id="radio1" checked="checked" name="recommend" value="0"/>否
+					<input type="radio" id="radio2" name="recommend" value="1"/>是
+				</div>
+				<div class="form-group display">
+					<label for="">是否下架</label>
+					<input type="radio" id="radio3" checked="checked" name="display" value="0"/>否
+					<input type="radio" id="radio4" name="display" value="1"/>是
+				</div>
+				<div class="form-group">
+					<label for="">会员积分</label>
+					<input class="form-input-txt" type="text" name="common_integral" value="" id="common_integral"/>
+				</div>
+				<div class="form-group">
+					<label for="">VIP积分</label>
+					<input class="form-input-txt" type="text" name="member_integral" value="" id="member_integral"/>
+				</div>
+				<div class="form-group">
+					<label for="">会员互余币</label>
+					<input class="form-input-txt" type="text" name="common_huyubi" value="" id="common_huyubi"/>
+				</div>
+				<div class="form-group">
+					<label for="">VIP互余币</label>
+					<input class="form-input-txt" type="text" name="member_huyubi" value="" id="member_huyubi"/>
+				</div>
+				<div class="form-group">
+					<label for="">会员抵现金</label>
+					<input class="form-input-txt" type="text" name="common_dixianjin" value="" id="common_dixianjin"/>
+				</div>
+				<div class="form-group">
+					<label for="">VIP抵现金</label>
+					<input class="form-input-txt" type="text" name="member_dixianjin" value="" id="member_dixianjin"/>
+				</div>
+				<div class="form-group">
+					<label for="">商品图片</label>
+					<textarea id="picture_id" name="picture_address"  class="form-input-textara" style="width:700px;height:300px;">
+					</textarea>
+				</div>
+				<div class="form-group">
+					<label for="">商品详情</label>
+					<textarea id="details_id" name="details"  class="form-input-textara" style="width:700px;height:300px;">
+					</textarea>
+				</div>
+				
+				<div class="form-group" style="margin-left:150px;">
+					<input type="submit" class="sub-btn" value="提  交" />
+					<input type="reset" class="sub-btn" value="重  置"></input>
+					<input type="hidden" name="id" id="goods_id"> 
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

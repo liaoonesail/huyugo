@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Goods_type" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Goods_type" >
+		insert into Goods_type(type) values(#{type})
+	</insert>
+	
+	<delete id="del"  parameterType="int"  >
+		delete  from Goods_type where id=#{id}
+	</delete>
+	
+	<update id="update" parameterType="com.huyu.entity.Goods_type" >
+		update Goods_type 
+			set 
+			type=#{type}
+			where 
+				id=#{id}
+	</update>
+	<select  id="getList"  resultType="com.huyu.entity.Goods_type">
+		select * from Goods_type
+	</select>
+	<select  id="getList2" parameterType="map" resultType="com.huyu.entity.Goods_type">
+		select * from (
+			select id,name,age,birthday,sex,hobbies,photopath,rownum r from(
+			select * from student
+			)where name like '%${name}%' and rownum &lt;=#{startRecord}+#{pageSize} order by id) where r &gt; #{startRecord}
+	</select>
+	<select  id="getById" parameterType="int"  resultType="com.huyu.entity.Goods_type">
+		select * from Goods_type where id=#{id}
+	</select>
+	
+	<select  id="getCount" parameterType="string"  resultType="int"  >
+		select count(*) from Goods_type where   type like '%${type}%' 
+	</select>
+	
+</mapper>

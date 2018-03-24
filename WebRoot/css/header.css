@@ -1,0 +1,401 @@
+/*头部导航部分*/
+
+.headerConts {
+	position: relative;
+	width: 100%;
+}
+
+.headerTop {
+	background: #f6f6f6;
+	height: 45px;
+	box-shadow: 0 0 10px #e1e1e1;
+	overflow: hidden;
+}
+
+.headerTop .publicBox ul li {
+	float: left;
+	line-height: 45px;
+}
+
+.headerTop .publicBox ul li span {
+	font-size: 13px;
+	padding-left: 4px;
+	padding-right: 4px;
+	color: #666;
+}
+
+.headerTop .publicBox ul li img {
+	vertical-align: middle;
+}
+
+.headerTop .publicBox ul li a {
+	display: block;
+	color: #3399ff;
+	font-size: 14px;
+	padding: 0px 4px;
+}
+
+.headerTop .publicBox ul li a:hover {
+	text-decoration: underline;
+}
+
+.headerTop .publicBox ol li {
+	float: left;
+	color: #666;
+	font-size: 14px;
+	line-height: 45px;
+}
+
+.headerTop .publicBox ol li a {
+	float: left;
+	color: #666;
+	font-size: 14px;
+	padding: 0px 4px;
+}
+
+.headerTop .publicBox ol li a:hover {
+	color: #3399ff;
+}
+
+.logoImg {
+	position: relative;
+	height: 130px;
+	overflow: hidden;
+	padding: 20px 0px;
+}
+
+.btnIndex {
+	width: 225px;
+	float: left;
+	margin-left: 25px;
+}
+
+.btnIndex img {
+	display: block;
+	width: 225px;
+	vertical-align: middle;
+	height: 66px;
+	margin-top: 11px;
+}
+
+.headerErweimai {
+	width: 275px;
+}
+
+.headerErweimai .weixinbox{
+	float: right;
+	width: 90px;
+	text-align: center;
+}
+.headerErweimai .weixinbox img{
+	display: block;
+	width: 100%;
+	height: 85px;
+}
+.headerErweimai .weixinbox  p{
+	font-size: 13px;
+	text-align: center;
+	color: #919191;
+}
+.gowucheBtn {
+	float: left;
+	margin-right: 50px;
+	background: #f5f6f6;
+	border: 1px solid #dadada;
+	border-radius: 4px;
+	font-size: 14px;
+	color: #333333;
+	height: 45px;
+	line-height: 40px;
+	padding: 2px;
+	padding-right: 20px;
+	position: relative;
+	margin-top: 15px;
+}
+
+.gowucheBtn img {
+	float: left;
+	width: 24px;
+	height: 24px;
+	margin-top: 8px;
+}
+
+.Triangle {
+	position: absolute;
+	top: 18px;
+	right: 9px;
+	width: 0;
+	height: 0;
+	border-top: 4px solid transparent;
+	border-left: 7px solid #9d9d9d;
+	border-bottom: 4px solid transparent;
+	margin-left: -1px;
+}
+
+.zhongJIan {
+	float: left;
+	width: 600px;
+	height: 100%;
+	margin-left: 60px;
+	position: relative;
+}
+
+.zhongJIanBox {
+	height: 45px;
+	font-size: 16px;
+	border: 1px solid #d4adf9;
+	width: 378px;
+	margin-left: 20%;
+	border-right: none;
+	overflow: hidden;
+	position: relative;
+	margin-top: 13px;
+}
+
+.zhongJIanBox select {
+	float: left;
+	width: 57px;
+	padding-left: 8px;
+	overflow: hidden;
+	border: none;
+	height: 43px;
+	outline: none;
+	line-height: 43px;
+	text-align: center;
+}
+
+.zhongJIanBox select option {
+	display: block;
+	text-align: center;
+}
+
+.zhongJIanBox input {
+	border: none;
+	height: 40px;
+	width: 260px;
+	line-height: 40px;
+	text-align: left;
+	padding-left: 5px;
+	outline: none;
+}
+
+.zhongJIanBox button {
+	outline: none;
+	border: none;
+	height: 43px;
+	line-height: 42px;
+	padding: 0px 4px;
+	color: #fff;
+	background: #d4adf9;
+	width: 60px;
+	font-size: 18px;
+	letter-spacing: 4px;
+	cursor: pointer;
+}
+
+.zhongJIanBox:before {
+	position: absolute;
+	content: "";
+	width: 2px;
+	height: 43px;
+	background: #5f5f5f;
+	left: 52px;
+	top: 0px;
+	z-index: 112;
+}
+
+.starxiang {
+	width: 8px;
+	height: 43px;
+	position: absolute;
+	background: #FFFFFF;
+	left: 44px;
+	top: 0px;
+	z-index: 112;
+}
+
+.searchMsi {
+	position: relative;
+	width: 380px;
+	height: 30px;
+	margin-left: 20%;
+	margin-top: 10px;
+	overflow: hidden;
+}
+
+.searchMsi ul li {
+	float: left;
+	padding: 0px 4px;
+	color: #999999;
+	font-size: 15px;
+	line-height: 30px;
+}
+
+.searchMsi ul li a {
+	display: block;
+	color: #999999;
+	font-size: 15px;
+	text-align: justify;
+}
+
+.searchMsi ul li a:hover {
+	color: #6213ac;
+}
+
+.nav {
+	width: 100%;
+	min-width: 1250px;
+	height: 45px;
+	background: rgba(0, 0, 0, 0.6);
+	position: relative;
+}
+
+.nav ul li {
+	float: left;
+	line-height: 45px;
+	width: 10%;
+	height: 45px;
+	text-align: center;
+}
+
+.nav .ullia {
+	width: 100%;
+	display: block;
+	color: #fff;
+}
+
+.nav .ullia:hover {
+	width: 100%;
+	display: block;
+	background: #6213ac;
+}
+
+.nav ul li:nth-of-type(1) {
+	color: #fff;
+	width: 16%;
+	text-align: left;
+	cursor: pointer;
+	position: relative;
+}
+
+.nav ul li:nth-of-type(1) span {
+	display: block;
+	background: #47176d;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.nav ul li:nth-of-type(1) img {
+	position: absolute;
+	right: 20px;
+	top: 13px;
+	width: 21px;
+}
+
+.navok {
+	width: 100%;
+	display: block;
+	color: #fff;
+	background: #6213ac;
+}
+
+.navigation {
+	width: 100%;
+	background: rgba(165, 64, 255, 0.8);
+	display: none;
+	position: absolute;
+	top: 45px;
+	left: 0;
+	z-index: 1125;
+}
+
+.nav ul li:nth-of-type(1):hover .navigation {
+	display: block;
+}
+
+.navigation dl {
+	width: 100%;
+}
+
+.navigation dl dd {
+	width: 100%;
+	height: 30px;
+	background: rgba(211, 173, 248, 0.88);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.11);
+}
+
+.navigation dl dd a {
+	float: left;
+	width: 50%;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	font-size: 13px;
+	color: #fff;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.navigation dl dd a:hover {
+	color: #47176d;
+	text-decoration: underline;
+}
+
+.noticebox {
+	position: relative;
+	width: 100%;
+	background: #a440ff;
+	padding-bottom: 6px;
+	height: 141px;
+	overflow: hidden;
+}
+
+.noticebox .navigationTitle a {
+	float: left;
+	color: #fff;
+	font-size: 13px;
+	cursor: pointer;
+	margin-left: 4px;
+}
+
+.navigationTitle {
+	height: 35px;
+	line-height: 35px;
+}
+
+.noticebox .navigationTitle a:nth-last-child(1) {
+	float: right;
+	margin-right: 4px;
+}
+.noticebox .navigationTitle a:nth-last-child(1):hover{
+	color: #ff4040;
+}
+.navigationTitleList {
+	width: 100%;
+	position: relative;
+	display: none;
+}
+
+.navigationTitleList div {
+	height: 25px;
+	line-height: 25px;
+	overflow: hidden;
+}
+
+.navigationTitleList div a {
+	display: block;
+	width: 100%;
+	line-height: 25px;
+	font-size: 13px;
+	color: #fff;
+	text-align: left;
+	padding-left: 6px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.navigationTitleList div a:hover{
+	text-decoration: underline;
+	color: #ff6702;
+}

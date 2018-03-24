@@ -1,0 +1,90 @@
+.personalBox {
+	position: relative;
+	width: 100%;
+	margin: 20px 0px;
+}
+
+ul.personalBoxNav {
+	float: left;
+	margin-left: 193px;
+	margin-top: -53px;
+}
+
+ul.personalBoxNav li {
+	float: left;
+	line-height: 40px;
+	margin-right: 2px;
+	padding: 0px 8px;
+	background: #f8f8f8;
+	font-size: 14px;
+	border: 1px solid #f4f4f4;
+	cursor: pointer;
+}
+
+ul.personalBoxNav li:hover {
+	color: #7418C6;
+	background: #ffffff;
+	text-decoration: underline;
+}
+
+.Mmok {
+	color: #7418C6;
+	background: #ffffff !important;
+}
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}
+#pic {
+	display: block;
+	width: 100px;
+	height: 100px;
+	border: 1px solid #999;
+	border-radius: 50%;
+	margin: 0px 0px;
+	cursor: pointer;
+	font-size: 13px;
+	text-align: center;
+	color: #323232;
+	line-height: 100px;
+}
+.personalBoxTouxiaNg{
+	padding-top: 20px;
+	padding-left: 80px;
+	color: #323232;
+	font-size: 14px;
+	display: none;
+}
+.touAdnList{
+	margin: 20px 0px;
+}
+.touAdnList select{
+	outline: none;
+	padding: 4px 10px;
+}
+.touAdnList input{
+	outline: none;
+	padding: 4px 10px;
+}
+.dfhg{
+  margin-right: 30px;
+}
+.Okbtsdg{
+	display: block;
+	color: #fff;
+	line-height: 35px;
+	height: 35px;
+	width: 100px;
+	text-align: center;
+	font-size: 16px;
+	background: #47176d;
+	border-radius: 8px;
+	margin: 30px 10px;
+	cursor: pointer;
+}
+.dfhg2{
+	margin-right: 14px;
+}

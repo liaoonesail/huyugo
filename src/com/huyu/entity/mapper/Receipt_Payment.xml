@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Receipt_Payment" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Receipt_Payment" >
+		insert into Receipt_Payment(receipt,payment,user_id,date_time,type,way,goods_id,share_way,orderId) values(#{receipt},#{payment},#{user_id},#{date_time},#{type},#{way},#{goods_id},#{share_way},#{orderId})
+	</insert>
+	
+	<delete id="del"  parameterType="int"  >
+		delete  from Receipt_Payment where id=#{id}
+	</delete>
+	<select  id="list"  resultType="com.huyu.entity.Receipt_Payment">
+		select * from Receipt_Payment where user_id=#{user_id} order by id desc
+	</select>
+	
+	<select id="listBytype_1_5" parameterType="int" resultType="com.huyu.entity.Receipt_Payment">
+		select * from Receipt_Payment where user_id=#{user_id} and type in (1,5) order by id desc
+	</select>
+	<select id="share" parameterType="map" resultType="com.huyu.entity.Receipt_Payment">
+		select * from receipt_payment 
+		where 
+		user_id=#{user_id}
+		and (select count(*) from receipt_payment where user_id=#{user_id} and type=3 and STR_TO_DATE(date_time,'%Y-%m-%d')=STR_TO_DATE(#{date_time},'%Y-%m-%d') GROUP BY user_id )>=10
+	</select>
+	<select id="count" parameterType="map" resultType="int">
+		select count(*) from Receipt_Payment where user_id=#{user_id} 
+		<if test="type!=null and type!=-1">
+			and type=#{type}
+		</if>
+		<if test="type!=null and type==1">
+			and way=3
+		</if>
+	</select>
+	<select  id="listBytype" parameterType="map" resultType="com.huyu.entity.Receipt_Payment">
+		select * from Receipt_Payment where user_id=#{user_id} 
+		<if test="type!=null and type!=-1">
+			and type=#{type}
+		</if>
+		<if test="type!=null and type==1">
+			and way=3
+		</if>
+		 order by id desc limit #{startRecord},#{pageSize}
+	</select>
+	
+	<select id="listByLayuiAndType" parameterType="map" resultType="com.huyu.entity.Receipt_Payment">
+		select * from Receipt_Payment where user_id=#{user_id} and type=#{type} limit #{start},#{limit}
+	</select>
+	
+	<select id="listByOrderTimeAndUserId" parameterType="map" resultType="com.huyu.entity.Receipt_Payment">
+		select * from Receipt_Payment where date_time=#{date_time} and user_id=#{user_id}
+	</select>
+	<select id="countf" parameterType="string" resultType="int">
+		select count(*)  from receipt_payment where way>13 and 18>way
+	</select>
+	<select id="listPage" parameterType="map" resultType="com.huyu.entity.Receipt_Payment">
+		select * from receipt_payment where way>13 and 18>way order by id DESC  limit #{startRecord},#{pageSize}
+	</select>
+	<select id="getRpdetails" parameterType="map" resultType="string">
+		select phone from user,
+		(select user_id from receipt_payment where date_time=#{date_time} and type=#{type} and way=#{way} and user_id!=#{user_id}) a
+		where id=a.user_id
+	</select>
+	
+</mapper>

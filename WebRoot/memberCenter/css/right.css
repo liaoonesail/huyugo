@@ -1,0 +1,407 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+img {
+	border: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+html,
+body {
+	width: 100%;
+	height: auto;
+	background: #fff;
+	min-width: 1030px;
+	position: relative;
+}
+ul li,
+ol li,
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #999;
+}
+
+a {
+	border: none;
+	outline: none;
+}
+::-webkit-scrollbar-track-piece {
+	width: 6px;
+	background-color: #f8f8f8
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+	background-color: #fff
+}
+
+::-webkit-scrollbar-thumb {
+	width: 6px;
+	background-color: #fff
+}
+
+::-webkit-scrollbar-thumb:hover {
+	width: 6px;
+	background-color: #fff
+}
+input {
+	outline: none;
+}
+.ellipsis {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.ellipsis2 {
+	display: -webkit-box;
+	overflow: hidden;
+	white-space: normal !important;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}
+
+.clearfix:after {
+	content: '.';
+	display: block;
+	clear: both;
+	height: 0px;
+	overflow: hidden;
+	visibility: hidden;
+}
+.publicBox2 {
+	width: 1030px;
+	position: relative;
+	overflow: hidden;
+}
+/**/
+.right1Title{
+	width: 100%;
+	height: 45px;
+	position: relative;
+	background: #f7f6f4;
+}
+.right1Title img{
+	float: left;
+	width: 39px;
+	height: 45px;
+}
+.right1Title span{
+	float: left;
+	line-height: 45px;
+	padding-left: 2px;
+}
+.right2BoxList{
+	width: 100%;
+	padding: 20px 10px;
+	margin: 20px 0px;
+	border: 1px solid #e2e2e2;
+}
+.leftNavtouxiang{
+	float: left;
+	width: 50%;
+	border-right: 1px solid #e2e2e2;
+}
+.touxiangrightList{
+	float: right;
+	width: 47%;
+}
+.xiangxiangPic{
+	float: left;
+	margin-left: 60px;
+	margin-right: 30px;
+}
+.xiangxiangPic11{
+	width: 85px;
+	height: 85px;
+	border-radius: 85px;
+	float: left;
+	overflow: hidden;
+}
+.xiangxiangPic11 img{
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+.xiangxiangPic p{
+	margin: 4px 0px;
+	text-align: center;
+	line-height: 25px;
+	font-size: 14px;
+	color: #098fd5;
+	cursor: pointer;
+}
+.righyouLk{
+	float: right;
+	width: 328px;
+	overflow: hidden;
+}
+.righyouLk p{
+	color: #666666;
+}
+.righyouLk p span:nth-of-type(1){
+	font-size: 22px;
+	color: #040000;
+}
+.righyouLk p span:nth-of-type(2){
+	font-size: 13px;
+	color: #969696;
+}
+.righyouLk p span:nth-of-type(2) img{
+	width: 15px;
+	height: 15px;
+	vertical-align: middle;
+}
+.righyouLk ul{
+	float: left;
+    margin: 12px 0px;
+    border-right: 1px solid #eb4646;
+}
+.righyouLk ul li{
+	float: left;
+	height: 25px;
+	text-align: center;
+	font-size: 13px;
+	padding: 4px 13px;
+	color: #eb4646;
+	border: 1px solid #eb4646;
+	border-right:none;
+	cursor: pointer;
+}
+.ouLiy{
+	background: #eb4646 !important;
+	color: #fff !important;
+}
+.meimeiYouLove{
+	float: right;
+	width: 315px;
+	overflow: hidden;
+	position: relative;
+}
+.meimeiYouLove p {
+	color: #666666;
+	font-size: 13px;
+}
+.meimeiYouLove p  span:nth-of-type(1){
+	color: #eb4646;
+	font-size: 13px;
+}
+.meimeiYouLove p  button:nth-of-type(1){
+	margin-left: 6px;
+}
+.meimeiYouLove p  button{
+	display: inline-block;
+	border: none;
+	outline: none;
+	padding: 4px;
+	margin-left: 2px;
+	background: #eb4646 !important;
+	color: #fff !important;
+	cursor: pointer;
+}
+.meimeiYouLove p:nth-of-type(2){
+	color: #9b9a9a;
+	padding-top: 6px;
+}
+.meimeiYouLove p  span:nth-of-type(1){
+	color: #666666 !important;
+}
+.meimeiYouLove p  a{
+	display: inline-block;
+	border: none;
+	outline: none;
+	padding: 4px;
+	margin-left: 24px;
+	background: #d4adf9 !important;
+	color: #fff !important;
+	cursor: pointer;
+}
+/**/
+.touxiangrightList h2{
+	font-size: 16px;
+	position: relative;
+	padding-left: 6px;
+	margin-left: 18px;
+}
+.touxiangrightList h2:before{
+	position: absolute;
+    width: 3px;
+    height: 16px;
+    content: "";
+    left: 0px;
+    top: 4px;
+    background: #a74bff;
+}
+.touxiangrightList  ul{
+	padding: 20px 0px 0px 0px;
+}
+.touxiangrightList  ul li{
+	padding: 4px 0px;
+	border-bottom:1px dashed #e2e2e2 ;
+}
+.touxiangrightList  ul li a{
+	color: #969696;
+	font-size: 14px;
+}
+.touxiangrightList  ul li a {
+	display: inline-block;
+	margin-left: 20px;
+}
+.touxiangrightList  ul li a:hover{
+	color: #47176D;
+	text-decoration: underline;
+}
+/**/
+.baobaokula{
+	width: 100%;
+	padding: 20px 10px;
+	margin: 20px 0px;
+	border: 1px solid #e2e2e2;
+}
+.baobaokula h4{
+	float: left;
+	color: #323232;
+	font-size: 16px;
+	padding-left: 8px;
+	position: relative;
+}
+.baobaokula h4:before{
+	position: absolute;
+    width: 3px;
+    height: 16px;
+    content: "";
+    left: 0px;
+    top: 4px;
+    background: #fe9900;
+}
+.baobaokula ul li{
+	float: left;
+	margin-left: 80px;
+	color: #323232;
+	font-size: 13px;
+}
+.baobaokula ul li span{
+	padding: 0px 4px;
+	cursor: pointer;
+}
+.baobaokula ul li span i{
+	color: #FE9900;
+	font-style: normal;
+}
+.ddContsBox{
+	width: 100%;
+	margin: 15px 0px;
+}
+.ddContsBox .ddContsBox1{
+	width: 100%;
+	margin-top: 8px;
+	background: #fafafa;
+	padding: 6px;
+}
+.Picdoutr{
+	float: left;
+	width: 130px;
+	height: 120px;
+	overflow: hidden;
+}
+.Picdoutr img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.Picdoutr2{
+	float: left;
+	margin-left: 20px;
+	position: relative;
+}
+.Picdoutr2 img{
+	position: absolute;
+	top: 60px;
+	left: 10px;
+	width: 27px;
+	height: 25px;
+}
+.Picdoutr2 p{
+	position: absolute;
+    left: 32px;
+    top: 33px;
+    background: #eb4646;
+    padding: 4px;
+    font-size: 12px;
+    width: 70px;
+    color: #fff;
+    overflow: hidden;
+}
+.doutryLh{
+	float: left;
+	margin-left: 150px;
+}
+.doutryLh p:nth-of-type(1){
+	color: #666666;
+	font-size: 14px;
+	margin-top: 30px;
+	
+}
+.doutryLh p:nth-of-type(2){
+	color: #666666;
+	font-size: 14px;
+	margin-top: 30px;
+	
+}
+.doutryLh p:nth-of-type(2) span{
+	margin-left: 20px;
+	color: #fe9900;
+	cursor: pointer;
+	
+}
+.ddContsBox1 button{
+	float: right;
+    color: #fff;
+    background: #d6affc;
+    padding: 4px 10px;
+    font-size: 15px;
+    border: none;
+    width: 80px;
+    text-align: center;
+    overflow: hidden;
+    outline: none;
+    margin-top: 52px;
+    margin-right: 54px;
+    cursor: pointer;
+}
+.ddContsBox  a.btnsdhover{
+	display: block;
+	margin: 20px 0px;
+	cursor: pointer;
+	color: #323232;
+	text-align: center;
+	display: none;
+}
+.spannavLocalOk{
+	color: #7418C6 !important;
+	text-decoration: underline;
+}

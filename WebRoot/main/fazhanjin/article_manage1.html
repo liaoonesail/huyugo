@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台欢迎页</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/content.css" />
+    <link rel="stylesheet" href="../layui/css/layui.css" />
+    <script  src="../js/jquery.min.js"></script></head>
+<script  src="../layui/layui.js"></script></head>
+<script >
+    $(function(){
+
+        /* 回车搜索事件*/
+        $("#search").bind("keypress",function(e){
+            if(e.keyCode == "13"){
+                var name = $("#search").val();
+                getTableData(1);
+            }
+        });
+        /*文档加载*/
+        getTableData(1);
+
+        /*上一页*/
+        $(".prev").click(function(){
+            var curpage = $(".currPage").html().trim();
+            curpage = Number(curpage);
+            if(curpage == 1){
+                alert("当前已是第一页");
+                return false;
+            }
+            getTableData(curpage-1);
+        });
+        /*下一页*/
+        $(".next").click(function(){
+            var curpage = $(".currPage").html().trim();
+            var pageCount = $(".countPage").html().trim();
+            curpage = Number(curpage);
+            pageCount = Number(pageCount);
+            if(curpage == pageCount){
+                alert("当前已是最后一页");
+                return false;
+            }
+            getTableData(curpage+1);
+        });
+
+        /*注销用户*/
+        $(document).on("click",".logout",function(){
+            var id = $(this).attr("data-id");
+            deleteUser(id);
+        });
+    });
+
+    function getTableData(curpage){
+        var name = $("#search").val();
+        $.post("../../adminFazhanOrder/listPage.do",{"name":name,"curpage":curpage},function(data){
+                var html="";
+                $(data).each(function(i,obj){
+                    $(obj.list).each(function(index,item){
+                        html+="<tr data-id='"+item.id+"'><td><input type='checkbox' /></td><td>"+(index+1)+"</td><td>"+item.name+"</td><td>"+item.phone+"</td>"+
+                            "<td><span style='color:#999'>"+item.orderTime+"</span></td>"+
+                            "<td><span style='color:#999'>"+item.days+"</span></td>"+
+                            "<td><span style='color:#999'>"+item.fazhanjin+"</span></td>"+
+                            "<td><span style='color:#999'>"+item.payMoney+"</span></td></tr>";
+
+                    });
+                    $("#head").html(html);
+                    $(".countPage").html(obj.page.pageCount);
+                    $(".currPage").html(obj.page.currentPage);
+                    $(".pageSize").html(obj.page.pageSize);
+                    $(".countNum").html(obj.count);
+                });
+            },
+            "json"
+        );
+    }
+
+    function deleteUser(id){
+        if(confirm("确定注销该用户？")){
+            $.post("../../adminuser/del.do",{"id":id},function(res){
+                if(res == "true"){
+                    alert("用户注销成功！");
+                    window.location.reload();
+                }else{
+                    alert("操作失败！");
+                }
+            });
+        }else{
+            alert("操作已取消");
+        }
+    }
+</script>
+<style>
+    tr:hover{
+        background: #f2f2f2!important;
+        cursor: pointer;
+    }
+</style>
+<body marginwidth="0" marginheight="0">
+<div class="container">
+    <div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">会员管理</a>><a href="">vip会员</a></div>
+    <div class="public-content">
+        <div class="public-content-header">
+            <style>
+                .searchBox{
+                    position: absolute;
+                    top: -21px;
+                    right: 110px;
+                    width: 280px;
+                }
+                .form-input-txt {
+                    width: 100%;
+                    height: 23px;
+                    /* line-height: 6px; */
+                    border-radius: 8px;
+                    border: 1px solid #ccc;
+                    padding-left: 10px;
+                    outline: none;
+                }
+            </style>
+            <h3 style="display: inline-block;">修改网站配置</h3>
+            <div class="public-content-right add" style="position: relative;">
+              <!--  <div class="searchBox form-group"><input style="width:100%;" type="text" name="name" id="search" placeholder="回车搜索用户" class="form-input-txt" /></div>-->
+                <a href="article_add.html" style="height: 24px; width: 60px;border: 1px solid #ccc;font-size: 12px;text-align:center">添加信息</a>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="public-content-cont two-col">
+            <div class="public-cont-left col-1">
+                <ul class="public-cate-list">
+                    <li class="public-cate-item"><a href="article_manage1.html">加盟明细</a></li>
+                </ul>
+            </div>
+            <table class="public-cont-table col-2" id="table">
+                <tr>
+                    <th style="width:5%">选择</th>
+                    <th style="width:3%">ID</th>
+                    <th style="width:6%">用户名</th>
+                    <th style="width:6%">手机号</th>
+                    <th style="width:6%">购买时间</th>
+                    <th style="width:6%">剩余天数</th>
+                    <th style="width:6%">发展金</th>
+                    <th style="width:6%">加盟金额</th>
+                </tr>
+                <tbody id="head"></tbody>
+            </table>
+
+            <style>
+                .page p{
+                    float: left;
+                    margin-left: 182px;
+                }
+
+                p a.box{
+                    border: 1px solid #ddd;
+                    color: red;
+                    padding: 0px 10px;
+                }
+                .countPage{
+                    color:red;
+                }
+                .currPage{
+                    color:red;
+                }
+                .pageSize,.countNum{
+                    color:red;
+                }
+
+            </style>
+            <div class="page">
+                <p>
+                    <a class="box prev" href="javascript:;">上一页</a>
+                    <a class="box next" href="javascript:;">下一页</a>
+                    <span>总共&nbsp;<span class="countPage">1</span>&nbsp;页,当前第&nbsp;<span class="currPage">0</span>&nbsp;页</span>
+                    <span class="right">每页显示&nbsp;<span class="pageSize">10</span>&nbsp;条数据,总共&nbsp;<span class="countNum">0</span>&nbsp;条数据</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+   /* layui.use("layer",function(){
+
+        layer.tips('养老金在这啦！', '#pension_head');
+        $(document).on("click","td",function(){
+            var userId = $(this).parent().attr("data-id");
+
+            layer.open({
+                type: 2,
+                title: '养老金详情',
+                shadeClose: true,
+                shade: false,
+                maxmin: true, //开启最大化最小化按钮
+                area: ['893px', '600px'],
+                shade: 0.3,
+                content: 'pension.html?id='+userId
+            });
+        });
+
+    });*/
+</script>
+</body>
+</html>

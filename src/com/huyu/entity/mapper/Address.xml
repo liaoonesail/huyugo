@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Address" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Address" >
+		insert into Address(province,city,county,address,name,phone,user_id,status) values(#{province},#{city},#{county},#{address},#{name},#{phone},#{user_id},#{status})
+	</insert>
+	
+	<delete id="del"  parameterType="int"  >
+		delete  from Address where id=#{id}
+	</delete>
+	
+	<update id="update" parameterType="com.huyu.entity.Address" >
+		update Address 
+			set 
+			province=#{province},
+			city=#{city},
+			county=#{county},
+			address=#{address},
+			name=#{name},
+			address=#{address},
+			status=#{status},
+			phone=#{phone}
+			where 
+				id=#{id}
+	</update>
+	<update id="updateAll">
+		update Address set status=0 where user_id=#{user_id}
+	</update>
+	<select id="getListBy_user_id" parameterType="int" resultType="com.huyu.entity.Address">
+		select * from Address where user_id=#{user_id}
+	</select>
+	
+	<select  id="getList" parameterType="map" resultType="com.huyu.entity.Address">
+		select * from Address
+		<where>
+		  <if test="address!=null">
+		     and address like '%${address}%'
+		  </if>
+		</where>
+		limit #{startRecord},#{pageSize}
+	</select>
+	<select  id="getList2" parameterType="map" resultType="com.huyu.entity.Address">
+		select * from (
+			select id,name,age,birthday,sex,hobbies,photopath,rownum r from(
+			select * from student
+			)where name like '%${name}%' and rownum &lt;=#{startRecord}+#{pageSize} order by id) where r &gt; #{startRecord}
+	</select>
+	<select  id="getById" parameterType="int"  resultType="com.huyu.entity.Address">
+		select * from Address where id=#{id}
+	</select>
+	
+	<select  id="getCount" parameterType="string"  resultType="int"  >
+		select count(*) from Address where   address like '%${address}%' 
+	</select>
+	<select id="getAddress" parameterType="int" resultType="com.huyu.entity.Address">
+		select * from Address where status=1 and user_id=#{user_id}
+	</select>
+</mapper>

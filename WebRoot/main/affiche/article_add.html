@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台欢迎页</title>
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/public.css" />
+	<link rel="stylesheet" href="../css/content.css" />
+	
+<script type="text/javascript" src="../js/jquery.min.js"></script></head>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">信息管理</a>><a href="">官网公告</a>><a href="">添加</a></div>
+		<div class="public-content">
+			<div class="public-content-header">
+				<h3>修改网站配置</h3>
+			</div>
+			<div class="public-content-cont">
+			<form action="../../adminaffiche/add.do" method="post">
+				<div class="form-group">
+					<label for="">公告标题</label>
+					<input class="form-input-txt" type="text" name="title" value="" />
+				</div>
+				<div class="form-group">
+					<label for="">发布时间</label>
+					<input class="form-input-txt" name="date_time" onclick="laydate({istime: true, format: 'YYYY/MM/DD'})">
+				</div>
+				<div class="form-group">
+					<label for="">公告详情</label>
+					<textarea id="editor_id" name="content"  class="form-input-textara" style="width:700px;height:300px;">
+						
+					</textarea>
+				</div>
+				
+				<div class="form-group" style="margin-left:150px;">
+					<input type="submit" class="sub-btn" value="提  交" />
+					<input type="reset" class="sub-btn" value="重  置"></input>
+					<input type="button" class="sub-btn" value="二维码" onclick="wechatpay()"/>
+				</div>
+				<img alt="" src="" id="img">
+				</form>
+			</div>
+		</div>
+	</div>
+<script src="../kingediter/kindeditor-all-min.js"></script>
+<script src="../js/laydate.js"></script>
+<script>
+var editor;
+	 KindEditor.ready(function(K) {
+		 editor = K.create('textarea[name="content"]', {
+			 resizeType : 1,width:"50%",
+			 allowPreviewEmoticons : false,
+			 items : [
+						 'source','undo','redo','|','formatblock','fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline','strikethrough','removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist','insertunorderedlist','insertorderedlist','insertunorderedlist', '|', 'emoticons','link','table','hr','preview'],
+						 });
+        });
+	 function wechatpay(){
+		 var xhr=new XMLHttpRequest();
+		 xhr.open("POST","../../wechatpay/pc_pay.do?attach=1&detail=飞机杯&desc=大号飞机杯&goodSn=1&orderSn=vip8297217315221010&amount=0.01",true);
+		 xhr.responseType="blob";
+		 xhr.onload=function(){
+			if(this.status==200){
+				var blob=this.response;
+				var img=document.createElement("img");
+				img.onload=function(e){
+					window.URL.revokeObjectURL(img.src);
+				};
+					img.src=window.URL.createObjectURL(blob);
+					$("#img").html(img);
+			} 
+		 };xhr.send();
+		 
+	 }
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Member" >
+
+	
+	<update id="update" parameterType="com.huyu.entity.Member">
+	   update member
+	       set 
+	       m_dai1=#{m_dai1},
+	       m_dai2=#{m_dai2},
+	       m_dai3=#{m_dai3},
+	       
+	       m_v1=#{m_v1},
+	       m_v1_1=#{m_v1_1},
+	       
+	       m_v2=#{m_v2},
+	       m_v2_1=#{m_v2_1},
+	       m_v2_2=#{m_v2_2},
+	       
+	       m_v3=#{m_v3},
+	       m_v3_1=#{m_v3_1},
+	       m_v3_2=#{m_v3_2},
+	       m_v3_3=#{m_v3_3},
+	       
+	       m_v2_service=#{m_v2_service},
+	       
+	       b_dai1=#{b_dai1},
+	       b_dai2=#{b_dai2},
+	       b_dai3=#{b_dai3},
+	       
+	       b_v1=#{b_v1},
+	       b_v1_1=#{b_v1_1},
+	       
+	       b_v2=#{b_v2},
+	       b_v2_1=#{b_v2_1},
+	       b_v2_2=#{b_v2_2},
+	       
+	       b_v3=#{b_v3},
+	       b_v3_1=#{b_v3_1},
+	       b_v3_2=#{b_v3_2},
+	       b_v3_3=#{b_v3_3}
+	       where id=1
+	</update>
+
+	<select id="getMember" resultType="com.huyu.entity.Member">
+	   select * from member
+	</select>
+	<select id="getPension" resultType="com.huyu.entity.Pension">
+	   select * from pension
+	</select>
+	
+	<update id="updatePension" parameterType="com.huyu.entity.Pension">
+		update pension
+			set 
+			y_dai1=#{y_dai1},
+			y_dai2=#{y_dai2},
+			y_dai3=#{y_dai3},
+			
+			y_v1=#{y_v1},
+			y_v1_1=#{y_v1_1},
+			
+			y_v2=#{y_v2},
+			y_v2_1=#{y_v2_1},
+			y_v2_2=#{y_v2_2},
+			
+			y_v3=#{y_v3},
+			y_v3_1=#{y_v3_1},
+			y_v3_2=#{y_v3_2},
+			y_v3_3=#{y_v3_3}
+			where id=1
+	</update>
+</mapper>

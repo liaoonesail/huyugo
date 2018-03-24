@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Userinfo" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Userinfo" useGeneratedKeys="true" keyProperty="id">
+		insert into userinfo(head_picture,nickname,email,phone,qq,wechat,idcard,bankcard,bankname,birthday,sex,realname,user_id) 
+		values(#{head_picture},#{nickname},#{email},#{phone},#{qq},#{wechat},#{idcard},#{bankcard},#{bankname},#{birthday},#{sex},#{realname},#{user_id})
+	</insert>
+	
+	<delete id="del"  parameterType="int"  >
+		delete  from userinfo where id=#{id}
+	</delete>
+	<update id="update" parameterType="com.huyu.entity.Userinfo">
+		update
+			userinfo
+			set
+			head_picture=#{head_picture},
+			nickname=#{nickname},
+			email=#{email},
+			phone=#{phone},
+			qq=#{qq},
+			wechat=#{wechat},
+			idcard=#{idcard},
+			bankcard=#{bankcard},
+			bankname=#{bankname},
+			birthday=#{birthday},
+			sex=#{sex},
+			realname=#{realname},
+			user_id=#{user_id}
+		where
+			id=#{id} 
+	</update>
+	<select  id="getById" parameterType="int" resultType="com.huyu.entity.Userinfo">
+		select * from userinfo where id=#{id}
+	</select>
+	<select id="getByUser_id" parameterType="int" resultType="com.huyu.entity.Userinfo">
+		select * from userinfo where user_id=#{user_id}
+	</select>
+</mapper>

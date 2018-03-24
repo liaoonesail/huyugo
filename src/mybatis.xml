@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- <typeAliases>
+		<typeAlias alias="user" type="com.entity.User"/>
+	</typeAliases> -->
+	<mappers>
+		<mapper resource="com/huyu/entity/mapper/Address.xml" />
+		<mapper resource="com/huyu/entity/mapper/Car.xml" />
+		<mapper resource="com/huyu/entity/mapper/Goods_type_type.xml" />
+		<mapper resource="com/huyu/entity/mapper/Goods_type.xml" />
+		<mapper resource="com/huyu/entity/mapper/Goods.xml" />
+		<mapper resource="com/huyu/entity/mapper/Order.xml" />
+		<mapper resource="com/huyu/entity/mapper/Order_details.xml" />
+		<mapper resource="com/huyu/entity/mapper/Picture.xml" />
+		<mapper resource="com/huyu/entity/mapper/Poster.xml" />
+		<mapper resource="com/huyu/entity/mapper/Shop.xml" />
+		<mapper resource="com/huyu/entity/mapper/User.xml" />
+		<mapper resource="com/huyu/entity/mapper/Egg.xml" />
+		<mapper resource="com/huyu/entity/mapper/Sign.xml" />
+		<mapper resource="com/huyu/entity/mapper/Goods_comment.xml" />
+		<mapper resource="com/huyu/entity/mapper/Miaosha.xml" />
+		<mapper resource="com/huyu/entity/mapper/Qianggou.xml" />
+		<mapper resource="com/huyu/entity/mapper/Temai.xml" />
+		<mapper resource="com/huyu/entity/mapper/Tuangou.xml" />
+		<mapper resource="com/huyu/entity/mapper/Cuxiao.xml" />
+		<mapper resource="com/huyu/entity/mapper/Receipt_Payment.xml" />
+		<mapper resource="com/huyu/entity/mapper/Tuangou_Details.xml" />
+		<mapper resource="com/huyu/entity/mapper/Prize.xml" />
+		<mapper resource="com/huyu/entity/mapper/PrizeInkind.xml" />
+		<mapper resource="com/huyu/entity/mapper/Affiche.xml" />
+		<mapper resource="com/huyu/entity/mapper/Article.xml" />
+		<mapper resource="com/huyu/entity/mapper/Prize_record.xml" />
+		<mapper resource="com/huyu/entity/mapper/Admin.xml" />
+		<mapper resource="com/huyu/entity/mapper/Vip_order.xml" />
+		<mapper resource="com/huyu/entity/mapper/Dixianjin_details.xml" />
+		<mapper resource="com/huyu/entity/mapper/Userinfo.xml" />
+		<mapper resource="com/huyu/entity/mapper/Logistics.xml" />
+		<mapper resource="com/huyu/entity/mapper/Search.xml" />
+		<mapper resource="com/huyu/entity/mapper/Link.xml" />
+		<mapper resource="com/huyu/entity/mapper/Getcash.xml" />
+		<mapper resource="com/huyu/entity/mapper/TransferAccounts.xml" />
+		<mapper resource="com/huyu/entity/mapper/Member.xml" />
+		<mapper resource="com/huyu/entity/mapper/FazhanOrder.xml" />
+		<mapper resource="com/huyu/entity/mapper/Fazhanjin.xml" />
+		<mapper resource="com/huyu/entity/mapper/Integral_shop.xml" />
+		<mapper resource="com/huyu/entity/mapper/Vip_shop.xml" />
+		<mapper resource="com/huyu/entity/mapper/Ticket_shop.xml" />
+	</mappers>
+	
+</configuration>	

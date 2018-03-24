@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Temai" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Temai" >
+		insert into Temai(activity_time,real_price,goods_id) values(#{activity_time},#{real_price},#{goods_id})
+	</insert>
+	<select id="getid" parameterType="int" resultType="com.huyu.entity.Temai">
+		select * from Temai where id=#{id}
+	</select>
+	
+	<delete id="del"  parameterType="int"  >
+		delete  from Temai where id=#{id}
+	</delete>
+	<update id="update" parameterType="com.huyu.entity.Temai">
+		update
+			Temai
+			set
+			activity_time=#{activity_time},
+			real_price=#{real_price},
+			goods_id=#{goods_id}
+		where
+			id=#{id} 
+	</update>
+	<select  id="list"  resultType="com.huyu.entity.Temai">
+		select * from Temai
+	</select>
+	<!-- <select id="listBytoday" resultType="com.huyu.entity.Temai">
+		select * from Temai where TO_DAYS(activity_time)=TO_DAYS(NOW())
+	</select> -->
+	<select id="listBytoday" resultType="com.huyu.entity.Temai">
+		select * from Temai
+	</select>
+	<select id="getgoods_id" parameterType="int" resultType="com.huyu.entity.Temai">
+		select * from Temai where goods_id=#{goods_id}
+	</select>
+<!-- 	<select id="getgoods_id" parameterType="int" resultType="com.huyu.entity.Temai">
+		select * from Temai where TO_DAYS(activity_time)=TO_DAYS(NOW()) and goods_id=#{goods_id}
+	</select> -->
+</mapper>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Goods" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Goods" >
+		insert into Goods
+		(name,color,picture_address,goods_describe,details,price,cost_price,amount,goods_type_type_id,hot,recommend,common_integral,common_dixianjin,common_huyubi,member_integral,member_dixianjin,member_huyubi,norms,freight,display,shopId) 
+		values
+		(#{name},#{color},#{picture_address},#{goods_describe},#{details},#{price},#{cost_price},#{amount},#{goods_type_type_id},#{hot},#{recommend},#{common_integral},#{common_dixianjin},#{common_huyubi},#{member_integral},#{member_dixianjin},#{member_huyubi},#{norms},#{freight},#{display},#{shopId})
+	</insert>
+	
+	<delete id="del"  parameterType="int"  >
+		delete  from Goods where id=#{id}
+	</delete>
+	
+	<update id="update" parameterType="com.huyu.entity.Goods" >
+		update Goods 
+			set 
+			name=#{name},
+			color=#{color},
+			picture_address=#{picture_address},
+			goods_describe=#{goods_describe},
+			details=#{details},
+			price=#{price},
+			cost_price=#{cost_price},
+			amount=#{amount},
+			goods_type_type_id=#{goods_type_type_id},
+			hot=#{hot},
+			recommend=#{recommend},
+			common_integral=#{common_integral},
+			common_dixianjin=#{common_dixianjin},
+			common_huyubi=#{common_huyubi},
+			member_integral=#{member_integral},
+			member_dixianjin=#{member_dixianjin},
+			member_huyubi=#{member_huyubi},
+			norms=#{norms},
+			freight=#{freight},
+			display=#{display},
+			shopId=#{shopId}
+			where 
+				id=#{id}
+	</update>
+	<select id="listByhot" resultType="com.huyu.entity.Goods">
+	select * from goods where display!=1 order by hot desc limit 0,8
+	</select>
+	<select id="listBynew" resultType="com.huyu.entity.Goods">
+	select * from goods where display!=1 order by id desc limit 0,8
+	</select>
+	<select id="listByrecommend" resultType="com.huyu.entity.Goods">
+	select * from goods where display!=1 and recommend=1 order by id desc limit 0,8
+	</select>
+	<select  id="getList" parameterType="map" resultType="com.huyu.entity.Goods">
+		select * from goods
+		<where>
+		   name like '%${name}%'
+		  <if test="goods_type_type_id!=0">
+		  	and goods_type_type_id=#{goods_type_type_id}
+		  </if>
+		</where>
+		limit #{startRecord},#{pageSize}
+	</select>
+	<select id="listByname" parameterType="string" resultType="com.huyu.entity.Goods">
+		select * from Goods where name like CONCAT(CONCAT('%',#{goods_name}),'%')
+	</select>
+	<select  id="getList2" parameterType="map" resultType="com.huyu.entity.Goods">
+		select * from (
+			select id,name,age,birthday,sex,hobbies,photopath,rownum r from(
+			select * from student
+			)where name like '%${name}%' and rownum &lt;=#{startRecord}+#{pageSize} order by id) where r &gt; #{startRecord}
+	</select>
+	<select  id="getById" parameterType="int"  resultType="com.huyu.entity.Goods">
+		select * from Goods where id=#{id}
+	</select>
+	<select  id="getByName" parameterType="string"  resultType="com.huyu.entity.Goods">
+		select * from Goods where name=#{name}
+	</select>
+	<select id="listByid" parameterType="int" resultType="com.huyu.entity.Goods">
+		select * from Goods where goods_type_type_id=#{goods_type_type_id}
+	</select>
+	<select  id="getCount" parameterType="string"  resultType="int"  >
+		select count(*) from Goods where name like '%${value}%' 
+	</select>
+	<select id="listbytypeid" parameterType="map" resultType="com.huyu.entity.Goods">
+	select * from goods where goods_type_type_id in(select id from goods_type_type 
+	<where>
+		display=0
+		<if test="id!=null and id!='' and id==0" >
+			 and  1=1
+		</if>
+		<if test="id!=null and id!='' and id!=0">
+		  and goods_type_id=#{id}
+		</if>
+	</where>
+	)
+	<if test="status!=null and status!='' and status==0"></if>
+	<if test="status!=null and status!='' and status==1">
+	order by id desc
+	</if>
+	<if test="status!=null and status!='' and status==2">
+	order by price
+	</if>
+	<if test="status!=null and status!='' and status==3">
+	order by price desc
+	</if>
+	<if test="status!=null and status!='' and status==4">
+	order by hot desc
+	</if>
+	</select>
+	<select id="listbytype_type_id" parameterType="map" resultType="com.huyu.entity.Goods">
+		select * from goods where 1=1
+		<if test="type_type_id!=0">
+		and goods_type_type_id=#{type_type_id}
+		</if>
+		<if test="status!=null and status!='' and status==0"></if>
+	<if test="status!=null and status!='' and status==1">
+	order by id desc
+	</if>
+	<if test="status!=null and status!='' and status==2">
+	order by price
+	</if>
+	<if test="status!=null and status!='' and status==3">
+	order by price desc
+	</if>
+	<if test="status!=null and status!='' and status==4">
+	order by hot desc
+	</if>
+	</select>
+	<select id="goodsByTuiJian" parameterType="map" resultType="com.huyu.entity.Goods">
+		select * from goods where recommend=1
+		<if test="type_type_id!=0">
+		and goods_type_type_id=#{type_type_id}
+		</if>
+		<if test="status!=null and status!='' and status==0"></if>
+	<if test="status!=null and status!='' and status==1">
+	order by id desc
+	</if>
+	<if test="status!=null and status!='' and status==2">
+	order by price
+	</if>
+	<if test="status!=null and status!='' and status==3">
+	order by price desc
+	</if>
+	<if test="status!=null and status!='' and status==4">
+	order by hot desc
+	</if>
+	</select>
+	
+	<select id="getGoodsByDisplay" parameterType="int" resultType="com.huyu.entity.Goods">
+		select * from goods where display=#{display}
+	</select>
+	
+	<select id="getGoodsByStockout" resultType="com.huyu.entity.Goods">
+		select * from goods where amount&lt;1
+	</select>
+	
+	<update id="updateClickNum" parameterType="com.huyu.entity.Goods">
+		update goods set
+			clickNum=#{clickNum}
+			where id=#{id}
+	</update>
+	
+	<select id="getGoodsByClickNum" resultType="com.huyu.entity.Goods">
+		select * from goods where display!=1 order by clickNum desc
+	</select>
+	<select id="listByShopId" parameterType="int" resultType="com.huyu.entity.Goods">
+		select * from goods where shopid=#{shopid} order by id desc
+	</select>
+</mapper>
+

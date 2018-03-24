@@ -1,0 +1,229 @@
+.Luck1_1{
+	position: absolute;
+    width: 135px;
+    height: 90px;
+    z-index: 100;
+    top: 58px;
+    left: 163px;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+.Luck1_1 p{
+	text-indent: inherit;
+	font-size: 12px;
+	text-align: center;
+	overflow: hidden;
+	color: #982a08;
+	margin-bottom: 0px;
+	line-height: 25px;
+	font-weight: bold;
+}
+.Luck1_1 p:nth-of-type(1){
+	font-size: 20px;
+}
+.Luck1_1 dt{
+	position: relative;
+	height: 40px;
+	width: 40px;
+	margin: 0 auto;
+}
+.Luck1_1 dt img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.Luck1_2{
+	position: absolute;
+    width: 125px;
+    height: 90px;
+    z-index: 100;
+    top: 118px;
+    left: 280px;
+    transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    -moz-transform: rotate(60deg);
+    -webkit-transform: rotate(60deg);
+    -o-transform: rotate(60deg);
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+.Luck1_2 p{
+	text-indent: inherit;
+	font-size: 12px;
+	text-align: center;
+	overflow: hidden;
+	color: #982a08;
+	margin-bottom: 0px;
+	line-height: 25px;
+	font-weight: bold;
+}
+.Luck1_2 p:nth-of-type(1){
+	font-size: 20px;
+}
+.Luck1_2 dt{
+	position: relative;
+	height: 40px;
+	width: 40px;
+	margin: 0 auto;
+}
+.Luck1_2 dt img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.Luck1_3{
+	    position: absolute;
+    width: 125px;
+    height: 90px;
+    z-index: 100;
+    bottom: 138px;
+    right: 59px;
+    transform: rotate(-60deg);
+    -ms-transform: rotate(-60deg);
+    -moz-transform: rotate(-60deg);
+    -webkit-transform: rotate(-66deg);
+    -o-transform: rotate(-60deg);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+.Luck1_3 p{
+	text-indent: inherit;
+	font-size: 12px;
+	text-align: center;
+	overflow: hidden;
+	color: #982a08;
+	margin-bottom: 0px;
+	line-height: 25px;
+	font-weight: bold;
+}
+.Luck1_3 p:nth-of-type(1){
+	font-size: 20px;
+}
+.Luck1_3 dt{
+	position: relative;
+	height: 40px;
+	width: 40px;
+	margin: 0 auto;
+}
+.Luck1_3 dt img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.Luck1_4{
+	position: absolute;
+    width: 125px;
+    height: 90px;
+    z-index: 100;
+    bottom: 70px;
+    right: 176px;
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+.Luck1_4 p{
+	text-indent: inherit;
+	font-size: 12px;
+	text-align: center;
+	overflow: hidden;
+	color: #982a08;
+	margin-bottom: 0px;
+	line-height: 25px;
+	font-weight: bold;
+}
+.Luck1_4 p:nth-of-type(1){
+	font-size: 20px;
+}
+.Luck1_4 dt{
+	position: relative;
+	height: 40px;
+	width: 40px;
+	margin: 0 auto;
+}
+.Luck1_4 dt img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.Luck1_5{
+	position: absolute;
+    width: 125px;
+    height: 90px;
+    z-index: 100;
+    bottom: 133px;
+    left: 55px;
+    transform: rotate(65deg);
+    -ms-transform: rotate(65deg);
+    -moz-transform: rotate(65deg);
+    -webkit-transform: rotate(65deg);
+    -o-transform: rotate(65deg);
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+.Luck1_5 p{
+	text-indent: inherit;
+	font-size: 12px;
+	text-align: center;
+	overflow: hidden;
+	color: #982a08;
+	margin-bottom: 0px;
+	line-height: 25px;
+	font-weight: bold;
+}
+.Luck1_5 p:nth-of-type(1){
+	font-size: 20px;
+}
+.Luck1_5 dt{
+	position: relative;
+	height: 40px;
+	width: 40px;
+	margin: 0 auto;
+}
+.Luck1_5 dt img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.Luck1_6{
+	position: absolute;
+    width: 125px;
+    height: 90px;
+    z-index: 100;
+    top: 132px;
+    left: 51px;
+    transform: rotate(-68deg);
+    -ms-transform: rotate(-68deg);
+    -moz-transform: rotate(-68deg);
+    -webkit-transform: rotate(-68deg);
+    -o-transform: rotate(-68deg);
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+.Luck1_6 p{
+	text-indent: inherit;
+	font-size: 12px;
+	text-align: center;
+	overflow: hidden;
+	color: #982a08;
+	margin-bottom: 0px;
+	line-height: 25px;
+	font-weight: bold;
+}
+.Luck1_6 p:nth-of-type(1){
+	font-size: 20px;
+}
+.Luck1_6 dt{
+	position: relative;
+	height: 40px;
+	width: 40px;
+	margin: 0 auto;
+}
+.Luck1_6 dt img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}

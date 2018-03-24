@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>后台欢迎页</title>
+<link rel="stylesheet" href="../css/reset.css" />
+<link rel="stylesheet" href="../css/content.css" />
+<script src="../js/jquery.min.js"></script>
+</head>
+<script>
+	var thisURL = document.URL;
+         var id = "";
+         if(thisURL.indexOf("?")>0){
+             var getval =thisURL.split('?')[1];  
+             id= getval.split("=")[1];
+             ordere_num = getval.split("=")[2];
+         }
+	$(function(){
+	     
+	     $(document).ready(function(){
+	           /*设置订单编号*/
+	           $(".orderNum").html(ordere_num);
+	           $("input[name=order_num]").val(ordere_num);
+	           $("input[name=order_id]").val(id);
+	           /*加载时查询该笔订单有多少种商品*/
+	           $.post("../../adminorder_details/list.do",{order_id:id},function(res){
+	           		console.log(res);
+	           		var optionHtml = "<option value='0'>请选择您需要操作的商品</option>";
+	           		$(res).each(function(index,obj){
+	           			var goods_ = ajaxSubmit("../../admingoods/getid.do",{id:obj.goods_id},false);
+	           			optionHtml += "<option value='"+goods_.id+"'>"+goods_.name+"</option>";
+	           		});
+	           		$("select[name=goods_id]").html(optionHtml);
+	           },"json");
+	           
+	           /*加载时查询物流信息*/
+	           
+	          /* $.post("../../adminlogistics/getByOrderId.do",{"orderId":id},function(res){
+	               //res = eval("("+res+")");
+	               console.log(res);
+	               if(res != null ){
+	                   $("input[name=logistics_name]").val(res.logistics_name);
+	                   $("input[name=logistics_num]").val(res.logistics_num);
+	                   $("input[name=logistics_num]").attr("disabled","disabled");
+	                   $(".label").css("display","none");
+	                   //移除操作按钮
+	                   $("form").find("div").eq(3).css("display","none");
+	                   $("form").after("<a href='javascript:;' class='modify' style='color:#6CB98F;text-decoration:underline;margin-top:100px;'>修改物流信息</a>");
+	               }
+	           },"json");*/
+	           
+	     });
+	     
+	     /**
+ * ajax方法
+ */
+function ajaxSubmit(url,data,asycn){
+	var result = "";
+	async = asycn==true?true:false;
+	$.ajax({
+		type : "POST",
+		url : url,
+		data:data,
+		async:async,
+		dataType:'json',
+		success : function(data) {
+			result = data;
+		}
+	});
+	return result;
+}
+	     /*对商品选择进行监听*/
+	     $(document).on("change","select[name=goods_id]",function(){
+	     	var goods_id = $(this).val();
+	     	//清空物流公司和物流编号
+	     	$("input[name=logistics_name]").val("");
+	     	$("input[name=logistics_num]").val("");
+	     	if(goods_id != "0"){
+	     		var res = ajaxSubmit("../../adminlogistics/getByOrderId.do",{"orderId":id,goodsId:goods_id},false);
+	     		console.log(res);
+               if(res){
+                   $("input[name=logistics_name]").val(res.logistics_name);
+                   $("input[name=logistics_num]").val(res.logistics_num);
+                   $("input[name=logistics_num]").attr("disabled","disabled");
+                   $(".label").css("display","none");
+                   //移除操作按钮
+                   $("form").find("div").eq(4).css("display","none");
+                   $(".a").css("display","block");
+               }else{
+               		 $(".b").find("input").eq(0).removeClass("update").addClass("submitLogistics");
+               		 $("form").find("div").eq(4).css("display","block");
+               		 $(".a").css("display","none");
+               }
+	     	}
+	     	
+	     	$("input[type=text]").each(function(index,obj){
+		     		if($(this).val() == ""){
+		     			$(this).removeAttr("disabled");
+		     		}else{
+		     			$(this).attr("disabled","disabled");
+		     		}
+		    	 });
+		    
+	     });
+	     
+	     /*点击修改*/
+	     $(document).on("click",".modify",function(){
+	           $(".a").css("display","none");
+	           $("input[name=logistics_name]").removeAttr("disabled");
+	           $("input[name=logistics_num]").removeAttr("disabled");
+	           $("form").find("div").eq(4).css("display","block");
+	           $(".label").css("display","block");
+	           $(".submitLogistics").addClass("update");
+	           $(".submitLogistics").removeClass("submitLogistics");
+	     });
+	     
+	     /*提交物流信息*/
+	     $(document).on("click",".submitLogistics",function(){
+	           var id = "";
+		       var order_id = $("input[name=order_id]").val();
+		       var goods_id = $("select[name=goods_id]").find("option:selected").val();
+	           //var logistics_name = $("select[name=logistics_name]").find("option:selected").val();
+	           var logistics_name = $("input[name=logistics_name]").val();
+	           var logistics_num = $("input[name=logistics_num]").val();
+	           var url = "../../adminlogistics/add.do";
+	           addOrUpdateLogistics(id,order_id,goods_id,logistics_name,logistics_num,url);
+	     });
+	     /*更新物流信息*/
+	     $(document).on("click",".update",function(){
+	     		console.log("dddddddddddd");
+	           var id = $("input[name=order_id]").val();
+		       var order_id = $("input[name=order_id]").val();
+		       var goods_id = $("select[name=goods_id]").find("option:selected").val();
+	           //var logistics_name = $("select[name=logistics_name]").find("option:selected").val();
+	           var logistics_name = $("input[name=logistics_name]").val();
+	           var logistics_num = $("input[name=logistics_num]").val();
+	           var url = "../../adminlogistics/update.do";
+	           addOrUpdateLogistics(id,order_id,goods_id,logistics_name,logistics_num,url);
+	     });
+	     
+	     /*重置物流编号*/
+	     $(document).on("click",".reset",function(){
+	           $("input[name=logistics_num]").val("");
+	           return false;
+	     });
+	     
+	     /*添加物流信息*/
+	     function addOrUpdateLogistics(id,order_id,goods_id,logistics_name,logistics_num,url){
+	       if(logistics_num == ""){
+	           alert("物流单号不能为空！");
+	           return false;
+	       }
+	       var data = "";
+	       if(id == ""){
+	           data = "order_id="+order_id+"&logistics_name="+logistics_name+"&logistics_num="+logistics_num+"&goods_id="+goods_id;
+	       }else{
+	           data = "id="+id+"&order_id="+order_id+"&logistics_name="+logistics_name+"&logistics_num="+logistics_num+"&goods_id="+goods_id;
+	       }
+	       
+	       $.ajax({
+	           url:url,type:'post',data:data,success:function(res){
+	               if(res == "true"){
+	                   alert("物流信息操作成功！");
+	                   window.location.reload();
+	               }else{
+	               	  alert("该订单正申请退款中,发货失败");
+	               	  window.location.reload();
+	               }
+	           },error:function(){alert("网络连接错误,操作物流信息失败");}
+	       });
+	       
+	     }
+	    
+	});
+	function details(){
+           window.location.href="order_details.html?id="+id;
+        }
+	</script>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">
+			您当前的位置：<a href="">订单管理</a>><a href="">未付款</a>><a href="">订单发货</a>&nbsp;&nbsp;--&nbsp;&nbsp;物流信息
+		</div>
+		<div class="public-content">
+			<div class="public-content-header">
+				<h3 style="display: inline-block;"></h3>
+			</div>
+			<div class="clearfix"></div>
+			<div class="public-cont-left col-1">
+				<div class="public-cont-title">
+					<h3>订单编号</h3>
+				</div>
+				<ul class="public-cate-list">
+					<li class="public-cate-item"><a href="javascript:;"
+						class="orderNum" onclick="details()"></a>
+					</li>
+				</ul>
+			</div>
+
+			<style>
+form {
+	margin-top: 50px;
+}
+
+p {
+	margin: 10px 0;
+}
+</style>
+
+			<div
+				style="background: rgba(220,220,220,.5);width:1000px;height: 500px;display: inline-block;text-align: center;">
+				<form action="" style="margin-top: 100px;">
+					<h3
+						style="font-size: 38px;font-weight: 600;margin-bottom: 30px;color: rgba(51, 51, 51, 0.67);">物流信息</h3>
+					<input type="hidden" name="order_id" />
+					<p>
+					<div class="form-group">
+						<span>发货商品:</span>
+						<select name="goods_id" class="form-input-txt"></select>
+					</div>
+					<div class="form-group">
+						<span>订单编号:</span><input type="text" name="order_num"
+							class="form-input-txt" disabled="disabled" />
+					</div>
+					</p>
+					<p>
+					<div class="form-group">
+						<span>物流公司:</span> <input name="logistics_name" type="text"
+							class="form-input-txt">
+						<!-- <select name="logistics_name" class="form-input-txt">
+			                      <option value="中通">中通</option>
+			                      <option value="园通">园通</option>
+			                      <option value="韵达">韵达</option>
+			                      <option value="天天">天天</option>
+			                      <option value="顺丰">顺丰</option>
+			                      <option value="EMS">EMS</option>
+			                      <option value="申通">申通</option>
+			                      <option value="宅急送">宅急送</option>
+			                      <option value="百世汇通">百世汇通</option>
+			                    </select> -->
+					</div>
+					</p>
+					<p>
+					<div class="form-group">
+						<span>物流编号:</span><input type="text" class="form-input-txt"
+							name="logistics_num" />
+					</div>
+					<label for="" class="label"
+						style="color: red;display: block; margin: 3px 0 15px;">*
+						物流编号必填</label>
+					</p>
+					<p>
+					<div class="form-group b" style="">
+						<input type="button" style="cursor: pointer;"
+							class="sub-btn submitLogistics" value="提  交"> <input
+							type="button" style="cursor: pointer;" class="sub-btn reset"
+							value="重  置">
+					</div>
+					</p>
+					<div class="a" style="display: none;">
+						<a href='javascript:;' class='modify' style='color:#6CB98F;text-decoration:underline;margin-top:100px;'>修改物流信息</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

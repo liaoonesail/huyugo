@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台欢迎页</title>
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/public.css" />
+	<link rel="stylesheet" href="../css/content.css" />
+	
+<script type="text/javascript" src="../js/jquery.min.js"></script></head>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">信息管理</a>><a href="">官网公告</a>><a href="">添加</a></div>
+		<div class="public-content">
+			<div class="public-content-header">
+				<h3>修改网站配置</h3>
+			</div>
+			<div class="public-content-cont">
+			<form action="../../adminposter/update.do" method="post">
+			<div class="form-group">
+					<input type="hidden" name="id" id='id'>
+					<label for="">跳转连接</label>
+					<input class="form-input-txt" type="text" name="url" id='url' value="" />
+				</div>
+				<div class="form-group">
+					<label for="">广告图片</label>
+					<textarea id="editor_id" name="path" id='path' class="form-input-textara" style="width:700px;height:300px;">
+						
+					</textarea>
+				</div>
+				<div class="form-group" style="margin-left:150px;">
+					<input type="submit" class="sub-btn" value="提  交" />
+					<input type="reset" class="sub-btn" value="重  置"></input>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<script src="../kingediter/kindeditor-all-min.js"></script>
+<script src="../js/laydate.js"></script>
+<script>
+var editor;
+	 KindEditor.ready(function(K) {
+		 editor = K.create('textarea[name="path"]', {
+			 resizeType : 1,width:"50%",
+			 allowPreviewEmoticons : false,
+			 items : ['source','multiimage',
+			 'image'],
+			 });
+        });
+		
+  var thisURL = document.URL;    
+  var getval =thisURL.split('?')[1];  
+  var id= getval.split("=")[1];  
+  console.log(id);
+	$.post("/huyugo/adminposter/getid.do",{"id":id},function(data){
+	   console.log("ddddd");
+	   console.log(data);
+	   $("#id").val(data[0].id);
+	   $("#url").val(data[0].url);
+	   editor.html("");
+	   editor.insertHtml("<img src='"+data[0].path+"' alt='' />");
+   	},"json");
+</script>
+</body>
+</html>

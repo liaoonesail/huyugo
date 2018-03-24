@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Integral_shop" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Integral_shop" >
+		insert into integral_shop(integral,goods_id) values(#{integral},#{goods_id})
+	</insert>
+	
+	<delete id="del"  parameterType="int"  >
+		delete  from integral_shop where id=#{id}
+	</delete>
+	<update id="update" parameterType="com.huyu.entity.Integral_shop">
+		update
+			integral_shop
+			set
+			integral=#{integral},
+			goods_id=#{goods_id}
+		where
+			id=#{id} 
+	</update>
+	<select  id="list"  resultType="com.huyu.entity.Integral_shop">
+		select * from integral_shop
+	</select>
+	<select id="getgoods_id" parameterType="int" resultType="com.huyu.entity.Integral_shop">
+		select * from integral_shop where goods_id=#{goods_id}
+	</select>
+</mapper>

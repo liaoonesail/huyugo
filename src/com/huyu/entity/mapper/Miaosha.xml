@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Miaosha" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Miaosha" >
+		insert into miaosha(start_time,end_time,real_price,goods_id) values(#{start_time},#{end_time},#{real_price},#{goods_id})
+	</insert>
+	
+	<delete id="del"  parameterType="int"  >
+		delete  from miaosha where id=#{id}
+	</delete>
+	<update id="update" parameterType="com.huyu.entity.Miaosha">
+		update
+			miaosha
+			set
+			start_time=#{start_time},
+			end_time=#{end_time},
+			real_price=#{real_price},
+			goods_id=#{goods_id}
+		where
+			id=#{id} 
+	</update>
+	<select  id="list"  resultType="com.huyu.entity.Miaosha">
+		select * from miaosha 
+	</select>
+	<select id="getgoods_id" parameterType="int" resultType="com.huyu.entity.Miaosha">
+		select * from miaosha where goods_id=#{goods_id}
+	</select>
+	<select id="getid" parameterType="int" resultType="com.huyu.entity.Miaosha">
+		select * from miaosha where id=#{id}
+	</select>
+	
+</mapper>

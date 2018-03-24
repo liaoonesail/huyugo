@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.User" >
+
+
+	<insert id="reg"  parameterType="com.huyu.entity.User" >
+		insert into user(name,phone,email,password,member,integral,member_grade,dixianjin,d_dixianjin,huyubi,account,superior_id,reg_time,member_time,pension,isfuwu,free) values(#{name},#{phone},#{email},#{password},#{member},#{integral},#{member_grade},#{dixianjin},#{d_dixianjin},#{huyubi},#{account},#{superior_id},#{reg_time},#{member_time},#{pension},0,#{free})
+	</insert>
+	<insert id="add" parameterType="com.huyu.entity.User">
+		insert into user(name,phone,email,password,member,integral,member_grade,dixianjin,d_dixianjin,huyubi,account,superior_id,reg_time,member_time,pension,isfuwu,free) values(#{name},#{phone},#{email},#{password},#{member},#{integral},#{member_grade},#{dixianjin},#{d_dixianjin},#{huyubi},#{account},#{superior_id},#{reg_time},#{member_time},#{pension},0,#{free})
+	</insert>
+	<delete id="del"  parameterType="int"  >
+		delete  from User where id=#{id}
+	</delete>
+	
+	<update id="update" parameterType="com.huyu.entity.User" >
+		update user
+			set 
+			name=#{name},
+			email=#{email},
+			member=#{member},
+			integral=#{integral},
+			member_grade=#{member_grade},
+			dixianjin=#{dixianjin},
+			huyubi=#{huyubi},
+			account=#{account},
+			member_time=#{member_time},
+			pension=#{pension},
+			password=#{password},
+			pensionTime=#{pensionTime},
+			fazhanjin=#{fazhanjin},
+			fazhanStatus=#{fazhanStatus},
+			isfuwu=#{isfuwu},
+			free=#{free}
+		where 
+			id=#{id}
+	</update>
+	<update id="regmember" parameterType="map">
+		update User
+			set
+			member_time=#{member_time},
+			member=1
+		where
+			id=#{id}
+	</update>
+	<update id="addAccount" parameterType="com.huyu.entity.User">
+		update User
+			set
+			account=#{account}
+		where
+			id=#{id}
+	</update>
+	<update id="updatemember_grade" parameterType="map">
+		update User
+			set
+			member_grade=#{grade}
+		where
+			id=#{id}
+	</update>
+	<update id="updatePensionTime" parameterType="com.huyu.entity.User">
+		update User
+			set
+			pensionTime=#{pensionTime}
+		where
+			id=#{id}
+	</update>
+	<update id="update_dixianjin" parameterType="com.huyu.entity.User">
+		update User
+			set
+			dixianjin=#{dixianjin}
+		where
+			id=#{id}
+	</update>
+	<update id="update_account" parameterType="com.huyu.entity.User">
+		update User
+			set
+			account=#{account}
+		where
+			id=#{id}
+	</update>
+	<update id="update_pension" parameterType="com.huyu.entity.User">
+		update User
+			set
+			pension=#{pension}
+		where
+			id=#{id}
+	</update>
+	<update id="updatePassword" parameterType="com.huyu.entity.User">
+		update user
+			set
+			password=#{password}
+		where
+			id=#{id}
+	</update>
+	<select  id="getList" parameterType="map" resultType="com.huyu.entity.User">
+		select * from User
+		<where>
+		  <if test="name!=null">
+		     and name like '%${name}%'
+		  </if>
+		</where>
+		limit #{startRecord},#{pageSize}
+	</select>
+	<select  id="getList2" parameterType="map" resultType="com.huyu.entity.User">
+		select * from (
+			select id,name,age,birthday,sex,hobbies,photopath,rownum r from(
+			select * from student
+			)where name like '%${name}%' and rownum &lt;=#{startRecord}+#{pageSize} order by id) where r &gt; #{startRecord}
+	</select>
+	<select  id="getById" parameterType="int"  resultType="com.huyu.entity.User">
+		select * from User where id=#{id}
+	</select>
+	<select  id="getByName" parameterType="string"  resultType="com.huyu.entity.User">
+		select * from User where name=#{name}
+	</select>
+	<select id="getByPhone" parameterType="string" resultType="com.huyu.entity.User">
+		select * from User where phone=#{phone}
+	</select>
+	<select  id="getCount" parameterType="string"  resultType="int"  >
+		select count(*) from User where   name like '%${name}%' 
+	</select>
+	<select id="supCount" parameterType="int" resultType="int">
+		select count(*) from User where superior_id=#{superior_id}
+	</select>
+	<select id="LowerLevelList" parameterType="map" resultType="com.huyu.entity.User">
+		select * from User where superior_id=#{superior_id} order by id desc limit #{startRecord},#{pageSize}
+	</select>
+	<select id="LowerLevelList2" parameterType="int" resultType="com.huyu.entity.User">
+		select * from User where superior_id=#{superior_id}
+	</select>
+	<select id="viplist" parameterType="map" resultType="com.huyu.entity.User">
+		select * from user where member=1 and member_grade=#{member_grade} and (name like '%${name}%' or phone like '%${name}%') order by id desc limit #{startRecord},#{pageSize}  
+	</select>
+	<select id="countBymember" parameterType="map" resultType="int">
+		select count(*) from user where member=1 and member_grade=#{member_grade} and (name like '%${name}%' or phone like '%${name}%')
+	</select>
+	<select id="noviplist" parameterType="map" resultType="com.huyu.entity.User">
+		select * from user where member=0 and (name like '%${name}%' or phone like '%${name}%') order by id desc limit #{startRecord},#{pageSize}  
+	</select>
+	<select id="countBynormal" parameterType="string" resultType="int">
+		select count(*) from user where  member=0 and (name like '%${value}%' or phone like '%${value}%')
+	</select>
+	<select id="getMember" resultType="com.huyu.entity.Member">
+		select * from member
+	</select>
+	<select id="getPension" resultType="com.huyu.entity.Pension">
+		select * from pension
+	</select>
+	<select id="getByFazhanStatus" resultType="com.huyu.entity.User">
+		select * from user where fazhanStatus=1
+	</select>
+	<select id="LowerLevelListF" parameterType="int" resultType="com.huyu.entity.User">
+		select * from user where superior_id=#{id} and fazhanStatus=1
+	</select>
+</mapper>

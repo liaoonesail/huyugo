@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台欢迎页</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/content.css" />
+    <script  src="../js/jquery.min.js"></script></head>
+<script >
+    $(function(){
+        $.post(
+            "../../adminFazhanOrder/baobiao.do",
+            {},
+            function(data){
+                var html="";
+                $.each(data,function(){
+                    var item = this;
+                    html+="<tr><td><input type='checkbox' /></td><td>"+item.totalpay+"</td><td>"+item.totalreciptA+"</td><td>"+item.totalreciptI+"</td><td>"+item.yestodayreciptA+"</td><td>"+item.yestodayreciptI+"</td><td>"+item.todaypay+"</td><td>"+item.todayreciptA+"</td></tr>";
+                });
+                $("#head").after(html);
+            },
+            "json"
+        );
+    });
+
+    function del(id){
+        if(confirm("确认要删除吗？")){
+            location.href="../../adminpicture/del.do?id="+id+"";
+        }
+    }
+</script>
+<body marginwidth="0" marginheight="0">
+<div class="container">
+    <div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">图片管理</a>><a href="">官网图片</a></div>
+    <div class="public-content">
+        <div class="public-content-header">
+            <h3 style="display: inline-block;">修改网站配置</h3>
+            <div class="public-content-right add">
+                <a href="article_add.html" style="height: 24px; width: 60px;border: 1px solid #ccc;font-size: 12px;text-align:center">添加信息</a>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="public-content-cont two-col">
+            <div class="public-cont-left col-1">
+                <div class="public-cont-title">
+                    <h3>发展金明细</h3>
+                </div>
+                <ul class="public-cate-list">
+                    <li class="public-cate-item"><a href="article_manage.html">发展金明细</a></li>
+                </ul>
+            </div>
+            <table class="public-cont-table col-2" id="table">
+                <tr id="head">
+                    <th style="width:4%">选择</th>
+                    <th style="width:14%">总加盟金额</th>
+                    <th style="width:14%">总分红金额</th>
+                    <th style="width:14%">总分红积分</th>
+                    <th style="width:14%">昨天分红金额</th>
+                    <th style="width:14%">昨天分红积分</th>
+                    <th style="width:14%">当天加盟金额</th>
+                    <th style="width:14%">当天分红金额</th>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

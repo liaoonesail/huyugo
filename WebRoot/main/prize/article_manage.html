@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台欢迎页</title>
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/content.css" />
+<script  src="../js/jquery.min.js"></script></head>
+	<script >
+	
+	$(function(){
+	$.post(
+	"../../adminprize/getprize.do",
+	{},
+	function(data){
+          var html="<tr><td><input type='checkbox' /></td><td>"+1+"</td>"+
+          "<td><span style='color:#27828A'>"+data.prize_1+"</span></td>"+
+          "<td><span style='color:#27828A'>"+data.prize_2+"</span></td>"+
+          "<td><span style='color:#27828A'>"+data.prize_3+"</span></td>"+
+          "<td><span style='color:#27828A'>"+data.prize_4+"</span></td>"+
+          "<td><span style='color:#27828A'>"+data.prize_5+"</span></td>"+
+          "<td><span style='color:#27828A'>"+data.prize_6+"</span></td>"+
+          "<td><div class='table-fun'><a href='article_update.html'>修改</a></td></div></tr>";
+	$("#head").after(html);
+	},
+	"json"
+	);
+	});
+	</script>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">类别管理</a>><a href="">总类别</a></div>
+		<div class="public-content">
+			<div class="public-content-header">
+				<h3 style="display: inline-block;">修改网站配置</h3>
+				<div class="public-content-right add">
+					<a href="article_add.html" style="height: 24px; width: 60px;border: 1px solid #ccc;font-size: 12px;text-align:center">添加信息</a>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="public-content-cont two-col">
+				<div class="public-cont-left col-1">
+					<div class="public-cont-title">
+						<h3>抽奖游戏</h3>
+					</div>
+					<ul class="public-cate-list">
+						<li class="public-cate-item"><a href="article_manage.html">大转盘</a></li>
+					</ul>
+				</div>
+				<table class="public-cont-table col-2" id="table">
+					<tr id="head">
+						<th style="width:5%">标记</th>
+						<th style="width:10%">ID</th>
+						<th style="width:10%">一等奖</th>
+						<th style="width:10%">二等奖</th>
+						<th style="width:10%">三等奖</th>
+						<th style="width:10%">四等奖</th>
+						<th style="width:10%">五等奖</th>
+						<th style="width:10%">六等奖</th>					
+						<th style="width:15%">操作</th>
+					</tr>
+					
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

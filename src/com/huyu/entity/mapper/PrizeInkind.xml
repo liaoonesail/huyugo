@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.PrizeInkind" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.PrizeInkind" >
+		insert into prize_in_kind(prize1,prize2,prize3,prize4,prize5) values(#{prize1},#{prize2},#{prize3},#{prize4},#{prize5})
+	</insert>
+	
+	<delete id="del"  parameterType="int"  >
+		delete  from prize_in_kind
+	</delete>
+	<update id="update" parameterType="com.huyu.entity.PrizeInkind">
+		update
+			prize_in_kind
+			set
+			prize1=#{prize1},
+			prize2=#{prize2},
+			prize3=#{prize3},
+			prize4=#{prize4},
+			prize5=#{prize5}
+		where
+			id=#{id} 
+	</update>
+	<select id="getone" resultType="com.huyu.entity.PrizeInkind">
+		select * from prize_in_kind
+	</select>
+</mapper>

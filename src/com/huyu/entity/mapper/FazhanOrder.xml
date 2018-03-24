@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.FazhanOrder" >
+
+
+    <insert id="add"  parameterType="com.huyu.entity.FazhanOrder" keyProperty="id" useGeneratedKeys="true">
+        insert into fazhanorder(userId, orderNum, status, orderTime, days, fazhanjin, payMoney,yue) values(#{userId},#{orderNum},#{status},#{orderTime},#{days},#{fazhanjin},#{payMoney},#{yue})
+    </insert>
+
+    <delete id="del"  parameterType="int">
+        delete from fazhanorder where id=#{id}
+    </delete>
+
+    <update id="update" parameterType="com.huyu.entity.FazhanOrder" >
+        update fazhanorder
+        set
+        userId=#{userId},
+        orderNum=#{orderNum},
+        status=#{status},
+        orderTime=#{orderTime},
+        days=#{days},
+        fazhanjin=#{fazhanjin},
+        payMoney=#{payMoney},
+        yue=#{yue}
+        where
+        id=#{id}
+    </update>
+
+    <select id="list" resultType="com.huyu.entity.FazhanOrder">
+        select * from fazhanorder
+    </select>
+
+    <select id="getById" parameterType="int"  resultType="com.huyu.entity.FazhanOrder">
+        select * from fazhanorder where id=#{orderId}
+    </select>
+
+    <select id="getByOrderNum" parameterType="string" resultType="com.huyu.entity.FazhanOrder">
+        select * from fazhanorder where orderNum=#{orderNum}
+    </select>
+
+    <select id="getByUserId" parameterType="int" resultType="com.huyu.entity.FazhanOrder">
+        select * from fazhanorder where userId=#{userId} and status=1 and days>0
+    </select>
+    <select id="getListByToday" parameterType="int" resultType="com.huyu.entity.FazhanOrder">
+        select * from fazhanorder where userId=#{userId} and status=1 and STR_TO_DATE(orderTime,'%Y-%m-%d')=DATE_SUB(curdate(),INTERVAL 0 DAY)
+    </select>
+    <select id="getPayTotalByUserId" parameterType="int" resultType="int">
+        select sum(payMoney) from fazhanorder where id=#{userId} and status=1
+    </select>
+    <select id="getFirstById" parameterType="int" resultType="com.huyu.entity.FazhanOrder">
+        select * from (select * from fazhanorder where id=#{id} and status=1 order by id limit 1) a where STR_TO_DATE(orderTime,'%Y-%m-%d')=DATE_SUB(curdate(),INTERVAL 0 DAY)
+    </select>
+    <select id="baobiao" resultType="com.huyu.entity.Baobiao">
+        select a.totalpay,b.todaypay,c.totalreciptA,d.todayreciptA,e.totalreciptI,f.todayreciptI,g.yestodayreciptA,h.yestodayreciptI
+from(select sum(payMoney) totalpay from fazhanorder where status=1)a,
+(select sum(payMoney) todaypay from fazhanorder where status=1 and STR_TO_DATE(orderTime,'%Y-%m-%d')=DATE_SUB(curdate(),INTERVAL 0 DAY))b,
+(select sum(receipt) totalreciptA from receipt_payment where type=1 and way>13)c,
+(select sum(receipt) todayreciptA from receipt_payment where type=1 and way>13 and STR_TO_DATE(date_time,'%Y-%m-%d')=DATE_SUB(curdate(),INTERVAL 0 DAY))d,
+(select sum(receipt) totalreciptI from receipt_payment where type=4 and way>13)e,
+(select sum(receipt) todayreciptI from receipt_payment where type=4 and way>13 and STR_TO_DATE(date_time,'%Y-%m-%d')=DATE_SUB(curdate(),INTERVAL 0 DAY))f,
+(select sum(receipt) yestodayreciptA from receipt_payment where type=1 and way>13 and STR_TO_DATE(date_time,'%Y-%m-%d')=DATE_SUB(curdate(),INTERVAL 1 DAY))g,
+(select sum(receipt) yestodayreciptI from receipt_payment where type=4 and way>13 and STR_TO_DATE(date_time,'%Y-%m-%d')=DATE_SUB(curdate(),INTERVAL 1 DAY))h
+    </select>
+    <select id="count" parameterType="string" resultType="int">
+        select count(*) from fazhanorder where status=1 and days>0
+    </select>
+    <select id="listPage" parameterType="map" resultType="com.huyu.entity.FazhanOrder">
+        select * from fazhanorder where status=1 and days>0 order by id DESC  limit #{startRecord},#{pageSize}
+    </select>
+    <select id="countId" parameterType="int" resultType="int">
+        select count(*) from fazhanorder where status=1 and days>0 and userId=#{userId}
+    </select>
+    <select id="pageList" parameterType="map" resultType="com.huyu.entity.FazhanOrder">
+        select * from fazhanorder where status=1 and days>0 and userId=#{userId} order by id DESC  limit #{startRecord},#{pageSize}
+    </select>
+</mapper>

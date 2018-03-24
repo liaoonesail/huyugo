@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Tuangou" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Tuangou" >
+		insert into Tuangou(activity_time,real_price,goods_id,pay_num) values(#{activity_time},#{real_price},#{goods_id},#{pay_num})
+	</insert>
+	<select id="getid" parameterType="int" resultType="com.huyu.entity.Tuangou">
+		select * from Tuangou where id=#{id}
+	</select>
+	
+	<delete id="del"  parameterType="int"  >
+		delete  from Tuangou where id=#{id}
+	</delete>
+	<update id="update" parameterType="com.huyu.entity.Tuangou">
+		update
+			Tuangou
+			set
+			activity_time=#{activity_time},
+			real_price=#{real_price},
+			goods_id=#{goods_id},
+			pay_num=#{pay_num}
+		where
+			id=#{id} 
+	</update>
+	<select  id="list"  resultType="com.huyu.entity.Tuangou">
+		select * from Tuangou
+	</select>
+	<!-- <select id="listBytoday" resultType="com.huyu.entity.Tuangou">
+		select * from Tuangou where TO_DAYS(activity_time)=TO_DAYS(NOW())
+	</select> -->
+	<select id="listBytoday" resultType="com.huyu.entity.Tuangou">
+		select * from Tuangou
+	</select>
+	<select id="getgoods_id" parameterType="int" resultType="com.huyu.entity.Tuangou">
+		select * from Tuangou where goods_id=#{goods_id}
+	</select>
+<!-- 	<select id="getgoods_id" parameterType="int" resultType="com.huyu.entity.Tuangou">
+		select * from Tuangou where TO_DAYS(activity_time)=TO_DAYS(NOW()) and goods_id=#{goods_id}
+	</select> -->
+</mapper>

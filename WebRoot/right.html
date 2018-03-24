@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<meta name="keywords" content="互余，互余网、互余购、万州商城，直购商城，休闲娱乐" />
+		<meta name="description" content="互余购-综合网购商城、要网购就来互余购，正品低价、品质保障、新型的网购模式，购物模式多样化等" />
+		<title>互余购-综合网购商城</title>
+		<link rel="stylesheet" href="css/Comm.css" />
+		<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+		
+	</head>
+
+	<body>			
+			<!--右边悬浮内容-->
+			<div id="divRighTool" class="quickBack">	
+				<dl class="quick_But">	
+					<dd class="quick_cart" style="">
+					<a id="cara"  href="/huyugo/car/showCarByUser.do" target="_blank" class="quick_cartA">
+						<b>购物车</b>
+						<s></s>
+						<em class="em3">0</em>
+					</a>		
+					</dd>
+					<dd class="quick_service">
+						<a id="btnRigQQ" href="http://wpa.qq.com/msgrd?v=3&uin=762136258&site=qq&menu=yes" target="_blank" class="quick_serviceA">
+							<b>在线客服</b>
+							<s></s>
+						</a>
+					</dd>
+					<dd class="quick_Collection">
+						<a id="btnFavorite" href="javascript:;" class="quick_CollectionA">
+							<b>收藏本站</b>
+							<s></s>
+						</a>
+					</dd>
+					<dd class="quick_Return">
+						<a id="btnGotoTop" href="javascript:;" class="quick_ReturnA">
+							<b>返回顶部</b>
+							<s></s>
+						</a>
+					</dd>
+				</dl>	
+			</div>
+			<!--右边悬浮内容-->		
+		<script type="text/javascript" src="js/right.js" ></script>
+	
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$.ajax({
+					url:'/huyugo/car/getCarNum.do',// 跳转到 action  
+					data:{
+						
+					},  
+					type:'post',  
+					cache:false,  
+					dataType:'html',
+					asyn:true, 
+					success:function(data) {  
+					    $("#divRighTool dl dd a em").html(data);
+				    }
+				});
+		});
+		</script>
+</html>

@@ -1,0 +1,204 @@
+.pimLunBox {
+	position: relative;
+	margin: 10px 20px;
+}
+#star {
+	color: #666;
+	font: 12px/1.5 Arial;
+	position: relative;
+	width: 600px;
+	z-index: 12555;
+	height:88px;
+	margin: 0px 0px;
+}
+*{
+	margin: 0;
+	padding: 0;
+	color: #323232;
+}
+#star ul,
+#star span {
+	float: left;
+	display: inline;
+	height: 19px;
+	line-height: 19px;
+}
+
+#star ul {
+	margin: 0 10px;
+}
+
+#star li {
+	float: left;
+	width: 24px;
+	cursor: pointer;
+	text-indent: -9999px;
+	background: url(../../img/star.png) no-repeat;
+}
+
+#star strong {
+	color: #f60;
+	padding-left: 10px;
+}
+
+#star li.on {
+	background-position: 0 -28px;
+}
+
+#star p {
+	position: absolute;
+	top: 20px;
+	width: 159px;
+	height: 60px;
+	display: none;
+	background: url(../../img/icon.gif) no-repeat;
+	padding: 7px 10px 0;
+}
+
+#star p em {
+	color: #f60;
+	display: block;
+	font-style: normal;
+}
+
+
+#star1 {
+	color: #666;
+	font: 12px/1.5 Arial;
+	position: relative;
+	width: 600px;
+	z-index: 12555;
+	height: 88px;
+	margin: 0px 0px;
+}
+
+#star1 ul,
+#star1 span {
+	float: left;
+	display: inline;
+	height: 19px;
+	line-height: 19px;
+}
+
+#star1 ul {
+	margin: 0 10px;
+}
+
+#star1 li {
+	float: left;
+	width: 24px;
+	cursor: pointer;
+	text-indent: -9999px;
+	background: url(../../img/star.png) no-repeat;
+}
+
+#star1 strong {
+	color: #f60;
+	padding-left: 10px;
+}
+
+#star1 li.on {
+	background-position: 0 -28px;
+}
+
+#star1 p {
+	position: absolute;
+	top: 20px;
+	width: 159px;
+	height: 60px;
+	display: none;
+	background: url(../../img/icon.gif) no-repeat;
+	padding: 7px 10px 0;
+}
+
+#star1 p em {
+	color: #f60;
+	display: block;
+	font-style: normal;
+}
+/**/
+
+
+#star2 {
+    color: #666;
+    font: 12px/1.5 Arial;
+    position: relative;
+    width: 600px;
+    z-index: 12555;
+    height: 88px;
+    margin: 0px 0px;
+}
+
+#star2 ul,
+#star2 span {
+    float: left;
+    display: inline;
+    height: 19px;
+    line-height: 19px;
+}
+
+#star2 ul {
+    margin: 0 10px;
+}
+
+#star2 li {
+    float: left;
+    width: 24px;
+    cursor: pointer;
+    text-indent: -9999px;
+    background: url(../../img/star.png) no-repeat;
+}
+
+#star2 strong {
+    color: #f60;
+    padding-left: 10px;
+}
+
+#star2 li.on {
+    background-position: 0 -28px;
+}
+
+#star2 p {
+    position: absolute;
+    top: 20px;
+    width: 159px;
+    height: 60px;
+    display: none;
+    background: url(../../img/icon.gif) no-repeat;
+    padding: 7px 10px 0;
+}
+
+#star2 p em {
+    color: #f60;
+    display: block;
+    font-style: normal;
+}
+/**/
+
+
+
+
+
+ textarea{
+ 	text-align: left;
+ 	padding: 4px;
+	color: #323232;
+	margin: 10px 0px;
+	border: 2px solid #F5F5F5;
+	width: 300px;
+	height: 160px;
+	outline: none;
+	resize: none;
+}
+.pingLBTnsdd{
+	display: block;
+    position: relative;
+    margin: 20px 0px;
+    width: 130px;
+    color: #fff;
+    text-align: center;
+    line-height: 45px;
+    font-size: 14px;
+    background: #cf6881;
+    cursor: pointer;
+}

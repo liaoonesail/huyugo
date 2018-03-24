@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台欢迎页</title>
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/public.css" />
+	<link rel="stylesheet" href="../css/content.css" />
+	<style type="text/css">
+		.form-group .form-input-txt{
+			width: 8% !important;
+		}
+	</style>
+<script type="text/javascript" src="../js/jquery.min.js"></script></head>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">抽奖管理管理</a>><a href="">大转盘</a>><a href="">奖品管理</a></div>
+		<div class="public-content">
+			<div class="public-content-header">
+				<h3>修改网站配置</h3>
+			</div>
+			<div class="public-content-cont">
+			<form action="" id="pk" onsubmit="return toVaild()">
+			<label for="" style="color: green">抽奖奖品奖励（请填写整数数据！）</label>
+			<input type="hidden" name="id" value="" disabled="disabled">
+			<div class="form-group">
+					<label for="">一等奖</label>
+					<input class="form-input-txt" type="number" id="prize1" name="prize1" value="" disabled="disabled"/>
+				</div>
+			<div class="form-group">
+					<label for="">二等奖</label>
+					<input class="form-input-txt" type="number" id="prize2" name="prize2" value="" disabled="disabled"/>
+				</div>
+			<div class="form-group">
+					<label for="">三等奖</label>
+					<input class="form-input-txt" type="number" id="prize3" name="prize3" value="" disabled="disabled"/>
+				</div>
+			<div class="form-group">
+					<label for="">四等奖</label>
+					<input class="form-input-txt" type="number" id="prize4" name="prize4" value="" disabled="disabled"/>
+				</div>
+			<div class="form-group">
+					<label for="">五等奖</label>
+					<input class="form-input-txt" type="number" id="prize5" name="prize5" value="" disabled="disabled"/>
+				</div>
+				
+				<div class="form-group" style="margin-left: 50px;">
+					<!-- <input type="submit" class="sub-btn" value="更  新" /> -->
+					<a href="javascript:;" class="modify">修改</a>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<script src="../kingediter/kindeditor-all-min.js"></script>
+<script src="../js/laydate.js"></script>
+</body>
+<script type="text/javascript">
+$(function(){
+	$(document).on("click",".save",function(){
+		var data = $("#pk").serialize();
+		var result = ajaxSubmit("../../adminprize/updatepk.do",data,false);
+		if(result == true){
+			window.location.reload();
+		}
+		return false;
+	});
+
+	$(document).ready(function(){
+		var pkObj = ajaxSubmit("../../adminprize/getOne.do",{},false);
+		$("input[name=id]").val(pkObj.id);
+		$("#prize1").val(pkObj.prize1);
+		$("#prize2").val(pkObj.prize2);
+		$("#prize3").val(pkObj.prize3);
+		$("#prize4").val(pkObj.prize4);
+		$("#prize5").val(pkObj.prize5);
+	});
+	
+	$(document).on("click",".modify",function(){
+		$("input").each(function(index,obj){
+			$(obj).removeAttr("disabled");
+		});
+		$(this).html("保存");
+		$(this).addClass("save");
+		$(this).removeClass("modify");
+		return false;
+	});
+	
+	
+	
+/**
+ * ajax方法
+ */
+function ajaxSubmit(url,data,asycn){
+	var result = "";
+	async = asycn==true?true:false;
+	$.ajax({
+		type : "POST",
+		url : url,
+		data:data,
+		async:async,
+		dataType:'json',
+		success : function(data) {
+			result = data;
+		}
+	});
+	return result;
+}
+});
+
+</script>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Egg" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Egg" >
+		insert into Egg(prize1,prize2,prize3,zjl) values(#{prize1},#{prize2},#{prize3},#{zjl})
+	</insert>
+	
+	<delete id="del"  parameterType="int"  >
+		delete  from Egg
+	</delete>
+	<update id="update" parameterType="com.huyu.entity.Egg">
+		update
+			Egg
+			set
+			prize1=#{prize1},
+			prize2=#{prize2},
+			prize3=#{prize3},
+			zjl=#{zjl}
+		where
+			id=#{id} 
+	</update>
+	<select id="getone" resultType="com.huyu.entity.Egg">
+		select * from Egg
+	</select>
+</mapper>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC 
+    "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huyu.entity.Search" >
+
+
+	<insert id="add"  parameterType="com.huyu.entity.Search" >
+		insert into search(display,name) values(#{display},#{name})
+	</insert>
+	
+	<delete id="del"  parameterType="int"  >
+		delete  from search where id=#{id}
+	</delete>
+	
+	<update id="update" parameterType="com.huyu.entity.Search" >
+		update search 
+			set 
+			display=#{display},
+			name=#{name}
+			where 
+				id=#{id}
+	</update>
+	<select  id="getById" parameterType="int"  resultType="com.huyu.entity.Search">
+		select * from search where id=#{id}
+	</select>
+	<select id="list" resultType="com.huyu.entity.Search">
+		select * from search
+	</select>
+	<select id="listByDisplay" parameterType="int" resultType="com.huyu.entity.Search">
+		select * from search where display=#{display}
+	</select>
+</mapper>

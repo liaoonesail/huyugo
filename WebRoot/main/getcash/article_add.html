@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台欢迎页</title>
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/public.css" />
+	<link rel="stylesheet" href="../css/content.css" />
+<script type="text/javascript" src="../js/jquery.min.js"></script></head>
+<script type="text/javascript">
+/*热门搜素的更新*/
+var url = document.URL;
+var index = url.indexOf("=");
+if(index != "-1"){
+	var id = url.substring(index+1, url.length);
+	$.post("../../adminsearch/getid.do",{"id":id},function(res){
+		$("input[name=name]").val(res.name);
+		$("input[name=display]").each(function(index,obj){
+			if($(obj).val() == res.display){
+				$(obj).attr("checked",true);
+			}else{
+				$(obj).removeAttr("checked");
+			}
+		});
+		$("input[name=name]").after("<input type='hidden' name='id' value='"+res.id+"' />");
+		$("form").attr("action","../../adminsearch/update.do");
+	},"json");
+}
+</script>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">热门搜素</a>><a href="">添加关键词</a></div>
+		<div class="public-content">
+			<div class="public-content-header">
+				<h3>修改网站配置</h3>
+			</div>
+			<div class="public-content-cont">
+			<form action="../../adminsearch/add.do" method="post" onsubmit="return Check();">
+			<div class="form-group">
+					<label for="">关键词</label>
+					<input class="form-input-txt" type="text" name="name" value="" />
+				</div>
+				<div class="form-group">
+					<label for="">是否展示</label>
+					<input type="radio" name="display" value="0"/>否
+                    <input type="radio" checked="checked" name="display" value="1"/>是
+				</div>
+				<div class="form-group" style="margin-left:150px;">
+					<input type="submit" class="sub-btn" value="提  交" />
+					<input type="reset" class="sub-btn" value="重  置"></input>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+    /*验证表单数据*/
+	   function Check(){
+		  var name = $("input[name=name]").val();
+		  if(name == ""){
+			  alert("热门关键词不能为空！");
+			  return false;
+		  }
+		  //return true;
+	   }
+	</script>
+
+</body>
+</html>

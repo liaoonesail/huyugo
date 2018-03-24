@@ -1,0 +1,347 @@
+/*面包屑导航*/
+body{
+	background: #fff;
+}
+.crumbs {
+	width: 100%;
+	height: 35px;
+	overflow: hidden;
+	background: #F7F7F7;
+}
+
+.crumbs ul li {
+	float: left;
+	padding: 8px 2px;
+	font-size: 13px;
+	color: #999;
+}
+
+.crumbs ul li a {
+	display: block;
+	font-size: 13px;
+}
+
+.crumbs ul li a:hover {
+	color: #47176D;
+	text-decoration: underline;
+}
+
+
+/*商品详情介绍*/
+
+.detailsList {
+	padding: 10px;
+	position: relative;
+}
+.detailsList h3{
+	padding: 20px  0px;
+}
+
+/**/
+.ListContsmsg{
+	float: right;
+	width: 800px;
+	padding: 10px 10px 10px 30px;
+	margin-top: 4px;
+	background: url(../img/smallImg/sha.png) no-repeat;
+	position: relative;
+}
+.ListContsmsg h3{
+	color: #343434;
+	font-size: 24px;
+	padding: 8px 0px;
+}
+.ListContsmsg p{
+	color: #916551;
+	font-size: 14px;
+	padding-bottom: 6px;
+	border-bottom: 1px dashed #dcdcdc;
+}
+.ListContsmsg  dl dd{
+	font-size: 14px;
+	color: #3d3c3c;
+	padding: 8px 0px;
+}
+.ListContsmsg  dl dd span{
+	color: #fe0072;
+	font-size: 26px;
+}
+.ListContsmsg  dl dd  b{
+	font-weight: normal;
+	color: #ca3737;
+}
+.ListContsmsg  dl dd  input{
+	width: 60px;
+	height: 30px;
+}
+.ListContsmsg button:nth-of-type(1){
+	border: none;
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+	height: 45px;
+	line-height: 45px;
+	padding: 0px 6px;
+	background: #6bd0ff;
+	border-radius: 8px;
+	cursor: pointer;
+	margin-left: 20%;
+}
+.ListContsmsg button:nth-of-type(2){
+	border: none;
+	margin-left: 20px;
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+	height: 45px;
+	line-height: 45px;
+	padding: 0px 10px;
+	background: #e7cdff;
+	border-radius: 8px;
+	cursor: pointer;
+}
+.ListContsmsg  dl dd em{
+	border: 1px solid #E0E0E0;
+	margin-left: 4px;
+	padding: 2px;
+	cursor: pointer;
+}
+.emok{
+	color: #fff;
+	background: #A440FF;
+}
+/*分享*/
+.fenxiang{
+	width: 300px;
+	height: 45px;
+	float: right;
+	line-height: 45px;
+}
+.fenxiang p{
+	font-size: 14px;
+	color: #696969;
+}
+
+.bdshare-button-style0-16 a{
+    float: left;
+    font-size: 12px;
+    padding-left: 17px;
+    line-height: 45px;
+    height: 45px; 
+    margin-right: 4px; 
+}
+.bds_qzone {
+	 background-image: url(../img/icons_0.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-top: 13px;
+    background-position: 0 -52px;
+}
+.bds_sqq {
+	background-image: url(../img/icons_0.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-top: 13px;
+    background-position: 0 -2652px;
+}
+.bds_weixin {
+	background-image: url(../img/icons_0.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-top: 13px;
+    background-position: 0 -1612px;
+}
+.bds_tsina {
+	background-image: url(../img/icons_0.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-top: 13px;
+    background-position: 0 -104px;
+}
+.detailsAll{
+	position: relative;
+	margin-top: 30px;
+}
+.detailsAll .detailsAllLeft{
+	float: left;
+	width: 230px;
+	position: relative;
+	border: 1px solid #E4E4E4;
+}
+.detailsAll .detailsAllLeft h3{
+	background: #D4ADF9;
+    height: 44px;
+    text-align: left;
+    padding-left: 10px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 9px;
+    font-weight: normal;
+}
+.detailsAll .detailsAllLeft ul li{
+	margin: 6px 0px;
+}
+.detailsAll .detailsAllLeft ul li a{
+	width: 230px;
+	overflow: hidden;
+}
+.detailsAll .detailsAllLeft ul li a img{
+	display: block;
+	width: 200px;
+	height: 160px;
+	margin: 6px auto;
+}
+.detailsAll .detailsAllLeft ul li a p{
+	padding: 2px 10px;
+	color: #000000;
+	font-size: 14px;
+	text-align: justify;
+	display: -webkit-box;
+    overflow: hidden;
+    white-space: normal !important;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.detailsAll .detailsAllLeft ul li a dd{
+	padding: 2px 10px;
+	color: #de454a;
+	font-weight: bold;
+	font-size: 18px;
+	text-align: justify;
+	display: -webkit-box;
+    overflow: hidden;
+    white-space: normal !important;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.detailsAll .detailsAllLeft ul li a:hover p {
+   color: #A440FF;
+   text-decoration: underline;
+}
+.detailsAll .detailsAllRight {
+	float: right;
+	width: 1000px;
+	position: relative;
+	overflow: hidden;
+}
+.detailsAll .detailsAllRight h3{
+	background: #D4ADF9;
+    height: 45px;
+    text-align: left;
+    padding-top:10px;
+    padding-left: 10px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 9px;
+    font-weight: normal;
+}
+.detailsAll .detailsAllRight h3 span{
+	display: inline-block;
+	padding:10px 10px;
+	margin-right: 20px;
+	cursor: pointer;
+}
+.detailsAll .detailsAllRight h3 span.active{
+	display: inline-block;
+	color:#D4ADF9;
+	background-color: #fff;
+	cursop:none;
+}
+.detailsAll .detailsAllRight .details-plbox{
+	padding:10px 10px;
+}
+.detailsAll .detailsAllRight .details-plbox p{
+	border-bottom:1px solid #ccc !important;
+}
+.detailsAll .detailsAllRight .details-plbox img.details-plbox-head {
+	width: 60px;
+	height: 60px;
+	min-width: 60px;
+    max-width: 60px;
+    min-height: 60px;
+    margin:0;
+}
+.details-plbox-name{
+	display:inline-block;
+	padding-top: 5px;
+	color: #666;
+	font-size: 14px;
+}
+.details-plbox-left{
+	display:block;
+	width:  60px;
+	float: left;
+	color: #666;
+	font-size: 14px;
+}
+.details-plbox-right{
+	display:block;
+	width:  900px;
+	margin-left: 20px;
+	float: left;
+	color: #666;
+	font-size: 14px;
+}
+.details-plbox-li{
+	padding: 10px 0;
+	border-bottom: 1px solid #eee;
+}
+.clearfix:after {
+  content: " ";
+  display: block;
+  clear: both;
+  height: 0;
+}
+.clearfix {
+  zoom: 1;
+}
+.page-box{
+	padding: 30px 0;
+	text-align: right;
+}
+.page-box span{
+	padding: 5px 10px;
+	margin-left: 1px;
+	background: #fff;
+	font-size: 14px;
+	color: #666;
+	border: 1px solid #ccc;
+	cursor:pointer;
+}
+.page-box span:hover{
+	background: #D4ADF9;
+	border: 1px solid #D4ADF9;
+	color: #fff;
+}
+.page-box span.active{
+	background: #D4ADF9;
+	border: 1px solid #D4ADF9;
+	color: #fff;
+}
+.detailsAll .detailsAllRight p:nth-of-type(1){
+	font-size: 15px;
+	border-bottom: 1px solid silver;
+}
+.detailsAll .detailsAllRight p{
+	line-height: 35px;
+	font-size: 14px;
+	text-align: justify;
+}
+.detailsAll .detailsAllRight img{
+	display: block;
+	width: auto;
+	min-width: 940px;
+	max-width: 1000px;
+	height: auto;
+	min-height: 600px;
+	margin: 0 auto;
+}

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台欢迎页</title>
+	<link rel="stylesheet" href="../css/reset.css" />
+	<link rel="stylesheet" href="../css/content.css" />
+	<link rel="stylesheet" href="../layui/css/layui.css" />
+<script  src="../js/jquery.min.js"></script></head>
+<script  src="../layui/layui.js"></script></head>
+	<script >
+	var type1="";
+	$(function(){
+		/* 回车搜索事件*/
+        $("#search").bind("keypress",function(e){
+            if(e.keyCode == "13"){
+            	var name = $("#search").val();
+            	var member_grade = $(".fontColor").text().substring(3,4);
+            	getTableData(name,1,member_grade);
+            }
+        });
+        var member_grade=0;
+        var thisURL = document.URL;
+        if(thisURL.indexOf("?")>0){
+            var getval =thisURL.split('?')[1];  
+            member_grade= getval.split("=")[1];
+        } 
+        
+        /*默认加载等级为0的第一页数据*/
+        getTableData("",1,0);
+        
+        /*上一页*/
+        $(".prev").click(function(){
+            var currPage = $(".currPage").html().trim();
+            var name = $("#search").val();
+            currPage = Number(currPage);
+            if(currPage == 1){
+                alert("当前已是第一页");
+                return false;
+            }
+            var member_grade = document.URL.substring(document.URL.length-1,document.URL.length);
+            getTableData(name,currPage-1,member_grade);
+        });
+        /*下一页*/
+        $(".next").click(function(){
+            var currPage = $(".currPage").html().trim();
+            var pageCount = $(".countPage").html().trim();
+            var name = $("#search").val();
+            currPage = Number(currPage);
+            pageCount = Number(pageCount);
+            if(currPage == pageCount){
+                alert("当前已是最后一页");
+                return false;
+            }
+            var member_grade = document.URL.substring(document.URL.length-1,document.URL.length);
+            getTableData(name,currPage+1,member_grade);
+        }); 
+        /*等级的点击*/
+        $("li.public-cate-item a").click(function(){
+        	$("ul.public-cate-list").find("li").each(function(index,obj){
+        		$(obj).find("a").removeClass("fontColor");
+        	});
+        	/*样式的显示*/
+            $(this).addClass("fontColor");
+        	$("#search").attr("placeholder","回车搜索 "+$(this).text()+" 的会员");
+        	var member_grade = $(this).text().substring(3,4);
+        	var name = $("#search").val();
+        	/*加载等级为*/
+        	getTableData(name,1,member_grade);
+        	return false;
+        });
+		
+        /*加载表格数据*/
+        function getTableData(name,curpage,member_grade){
+        	$.post(
+       		    "../../adminuser/viplist.do",
+       		    {"name":name,"curpage":curpage,"member_grade":member_grade},
+       		    function(data){
+       		    var html="";
+       		    $(data).each(function(index,object){
+       		        $(object.list).each(function(index,item){
+       		              html+="<tr data-id='"+item.id+"'><td><input type='checkbox' /></td><td>"+(index+1)+"</td><td>"+item.name+"</td><td>"+item.phone+"</td><td><span style='color:#999'>"+item.integral+"</span></td>"+
+       		              "<td><span style='color:#999'>"+item.dixianjin+"</span></td>"+
+       		              "<td><span style='color:#999'>"+item.huyubi+"</span></td>"+
+							  "<td><span style='color:#999'>"+item.fazhanjin+"</span></td>"+
+       		              "<td><span style='color:#999'>"+item.account+"</span></td>"+
+       		               "<td class='td'><span style='color:#999'>"+item.pension+"</span></td>"+
+       		               "<td><span style='color:#999'>"+item.member_time+"</span></td>"+
+       		              "<td><div class='table-fun'><a href='article_update.html?id="+item.id+"'>查看</a><a href='javascript:;' class='logout' data-id="+item.id+">注销</a></td></div></tr>";
+       		         });
+       		    });
+       		        
+       		    $("#head").html(html);
+       		    $(".countPage").html(data[0].page.pageCount);
+                $(".currPage").html(data[0].page.currentPage);
+                $(".pageSize").html(data[0].page.pageSize);
+                $(".countNum").html(data[0].count);
+                if(data[0].count == "0"){
+                	$(".page").css("display","none");
+                	$(".msg").css("display","block");
+                }else{
+                	$(".page").css("display","block");
+                	$(".msg").css("display","none");
+                }
+       		    },"json"
+       		  );
+        }
+	
+	/*注销用户*/
+	$(document).on("click",".logout",function(){
+		var id = $(this).attr("data-id");
+		deleteUser(id);
+	});
+	function deleteUser(id){
+		if(confirm("确定注销该用户？")){
+			$.post("../../adminuser/del.do",{"id":id},function(res){
+				if(res == "true"){
+					alert("用户注销成功！");
+					window.location.reload();
+				}else{
+					alert("操作失败！");
+				}
+			});
+		}else{
+			alert("操作已取消");
+		}
+	}
+	
+	});
+	</script>
+<body marginwidth="0" marginheight="0">
+	<div class="container">
+		<div class="public-nav">您当前的位置：<a href="">管理首页</a>><a href="">会员管理</a>><a href="">vip会员</a></div>
+		<div class="public-content">
+			<div class="public-content-header">
+				<h3 style="display: inline-block;">修改网站配置</h3>
+				 <style>
+                    .searchBox{
+                        position: absolute;
+                        top: -21px;
+                        right: 110px;
+                        width: 280px;
+                    }
+                    .form-input-txt {
+                        width: 100%;
+                        height: 23px;
+                        /* line-height: 6px; */
+                        border-radius: 8px;
+                        border: 1px solid #ccc;
+                        padding-left: 10px;
+                        outline: none;
+                    }
+                 </style>
+				<div class="public-content-right add" style="position: relative;">
+				    <div class="searchBox form-group"><input style="width:100%;" type="text" name="name" id="search" placeholder="回车搜索 vip0 的会员" class="form-input-txt" /></div>
+					<a href="" style="height: 24px; width: 60px;border: 1px solid #ccc;font-size: 12px;text-align:center">添加信息</a>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="public-content-cont two-col">
+				<div class="public-cont-left col-1">
+					<div class="public-cont-title">
+						<h3>等级分类</h3>
+					</div>
+					<ul class="public-cate-list">
+					   <style>
+					       .fontColor{
+					           color:#6bc095;
+					       }
+					   </style>
+						<li class="public-cate-item"><a href="article_manage.html?member_grade=0" class="fontColor">vip0</a></li>
+						<li class="public-cate-item"><a href="article_manage.html?member_grade=1">vip1</a></li>
+						<li class="public-cate-item"><a href="article_manage.html?member_grade=2">vip2</a></li>
+						<li class="public-cate-item"><a href="article_manage.html?member_grade=3">vip3</a></li>
+					</ul>
+				</div>
+				<style>
+	tr:hover{
+		background: #f2f2f2!important;
+		cursor: pointer;
+	}
+</style>
+				<table class="public-cont-table col-2" id="table">
+					<tr>
+						<th style="width:5%">选择</th>
+						<th style="width:3%">ID</th>
+						<th style="width:6%">用户名</th>
+						<th style="width:6%">手机号</th>
+						<th style="width:6%">积分</th>
+						<th style="width:6%">抵现金</th>
+						<th style="width:6%">互余币</th>
+						<th style="width:6%">发展金</th>
+						<th style="width:7%">账户</th>
+						<th style="width:7%" id="pension_head">养老金</th>
+						<th style="width:8%">注册时间</th>			
+						<th style="width:10%">操作</th>
+					</tr>
+					<tbody id="head"></tbody>
+				</table>
+				<style>
+                    .page p{
+                         float: left;
+                         margin-left: 182px;
+                    }
+                    
+                    p a.box{
+                        border: 1px solid #ddd;
+                        color: red;
+                        padding: 0px 10px;
+                    }
+                    .countPage{
+                        color:red;
+                    }
+                    .currPage{
+                        color:red;
+                    }
+                    .pageSize,.countNum{
+                        color:red;
+                    }
+                </style>
+                <div class="msg" style="color:red;display:none;display: block;font-size: 17px;line-height: 34px;">当前没有数据</div>
+                <div class="page">
+                    <p>
+                        <a class="box prev" href="javascript:;">上一页</a>
+                        <a class="box next" href="javascript:;">下一页</a>
+                        <span>总共&nbsp;<span class="countPage">1</span>&nbsp;页,当前第&nbsp;<span class="currPage">0</span>&nbsp;页</span>
+                        <span class="right">每页显示&nbsp;<span class="pageSize">10</span>&nbsp;条数据,总共&nbsp;<span class="countNum">0</span>&nbsp;条数据</span>
+                    </p>
+                </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		layui.use("layer",function(){
+			
+			layer.tips('养老金在这啦！', '#pension_head');
+			$(document).on("click","td",function(){
+				var userId = $(this).parent().attr("data-id");
+				
+				layer.open({
+				      type: 2,
+				      title: '养老金详情',
+				      shadeClose: true,
+				      shade: false,
+				      maxmin: true, //开启最大化最小化按钮
+				      area: ['893px', '600px'],
+				      shade: 0.3,
+				      content: 'pension.html?id='+userId
+			    });
+			});
+			
+		});
+	</script>
+</body>
+</html>

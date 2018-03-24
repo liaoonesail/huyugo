@@ -1,0 +1,306 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+img {
+	border: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+html,
+body {
+	width: 100%;
+	height: auto;
+	background: #fff;
+	min-width: 1030px;
+	position: relative;
+}
+ul li,
+ol li,
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #999;
+}
+
+a {
+	border: none;
+	outline: none;
+}
+::-webkit-scrollbar-track-piece {
+	width: 6px;
+	background-color: #f8f8f8
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+	background-color: #fff
+}
+
+::-webkit-scrollbar-thumb {
+	width: 6px;
+	background-color: #fff
+}
+
+::-webkit-scrollbar-thumb:hover {
+	width: 6px;
+	background-color: #fff
+}
+input {
+	outline: none;
+}
+.ellipsis {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.ellipsis2 {
+	display: -webkit-box;
+	overflow: hidden;
+	white-space: normal !important;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}
+
+.clearfix:after {
+	content: '.';
+	display: block;
+	clear: both;
+	height: 0px;
+	overflow: hidden;
+	visibility: hidden;
+}
+.publicBox2 {
+	width: 1260px;
+	position: relative;
+	overflow: hidden;
+}
+/**/
+.helpTitle{
+	font-weight: bold;
+	font-size: 28px;
+	text-indent: 20px;
+	color: #919191;
+	line-height: 55px;
+	border-bottom: 1px solid #DDD;
+}
+.publicBox2 p{
+	color: #666;
+	font-size: 14px;
+	margin-bottom: 8px;
+	text-indent: 20px;
+	line-height: 28px;
+}
+.LuckGood{
+	position: relative;
+    width: 100%;
+    height: 1152px;
+    overflow: hidden;
+    margin: 0px auto;
+   background: url(../img/xingyuan.png) no-repeat;
+   background-size:100% 100% ;
+}
+.g-lottery-box{
+	position: absolute;
+    width: 470px;
+    height: 470px;
+    left: 50%;
+    top: 19%;
+    margin-left: -230px;
+    background: url(../img/zhuan.png) no-repeat;
+    background-size: 100% 100%;
+    z-index: 8888;
+}
+.g-lottery-img{
+	position: absolute;
+    width: 200px;
+    height: 180px;
+    left: 155px;
+    top: 22px;
+    /* margin-left: -100px; */
+    /* background: url() no-repeat; */
+    background-size: 100% 100%;
+    position: relative;
+}
+.playbtn{
+	position: absolute;
+    width: 200px;
+    height: 180px;
+    left: -21px;
+    top: 122px;
+    background: url(../img/ann.png) no-repeat;
+    background-size: 100% 100%;
+}
+img.guangoodsImg0{
+	display: block;
+	width: 622px;
+	height: 145px;
+	position: absolute;
+	left: 50%;
+	margin-left: -311px;
+	top: 4%;
+	z-index: 555;
+}
+img.guangoodsImg{
+	position: absolute;
+    width: 873px;
+    height: 514px;
+    left: 42%;
+    margin-left: -310px;
+    top: 10%;
+    z-index: 1;
+}
+.guizeBox{
+	position: absolute;
+	z-index: 88888;
+	width: 100%;
+	height: 350px !important;
+	top: 60%;
+	left: 0;
+}
+.guizeBox555{
+	position: relative;
+	width: 800px;
+	height: 350px;
+	background: #732c74;
+	margin: 0 auto;
+	padding: 20px;
+	overflow: hidden;
+}
+.guizeBox555 h2{
+	color: #f2e2b4;
+	line-height: 45px;
+}
+.guizeBox555 P{
+	margin-bottom: 0px;
+	line-height: 20px;
+	text-indent: 0px;
+	text-align: justify;
+	color: #ffed3a;
+	font-size: 12px;
+}
+.guizeBox555 P:nth-of-type(even){
+	color: #f2e2b4;
+}
+.huojiangBox{
+	position: absolute;
+	top: 15%;
+	right: 4%;
+	width: 300px;
+	height: 388px;
+	z-index: 88;
+	overflow: hidden;
+}
+.huojiangBoxTitle{
+	text-align: justify;
+	color: #ffed3a !important;
+	font-size: 22px;
+}
+#buyList{
+	 
+}
+#buyList li{
+	color: #fff;
+	font-size: 14px;
+	text-align: justify;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+}
+.TxListBox{
+	position: absolute;
+	top: 25%;
+	left: 8%;
+	width: 200px;
+	height: 300px;
+	z-index: 886;
+	overflow: hidden;
+}
+.TxListBox111{
+	position: relative;
+	width: 100%;
+	height: 100%;
+    overflow: hidden;
+}
+.TxListBox222 img{
+	float: left;
+	width: 65px;
+	height: 65px;
+	border-radius: 50%;
+	margin: 4px 6px;
+}
+.TxListBox222 span:nth-of-type(1){
+	display: block;
+	float: left;
+	width: 100px;
+	height: 25px;
+	color: #fff;
+	overflow: hidden;
+	margin-top: 15px;
+}
+.TxListBox222 span:nth-of-type(2){
+	display: block;
+	float: left;
+	width: 100px;
+	height: 20px;
+	color: #fff;
+	font-size: 14px;
+	overflow: hidden;
+	 
+}
+.guze222{
+	position: relative;
+	width: 150px;
+	height: 127px;
+	margin: 20px auto;
+	overflow: hidden;
+	background: #8e368e;
+}
+.guze222 h3{
+	text-align: center;
+	color: #fff;
+	border-bottom: 1px solid #fff;
+	line-height: 35px;
+}
+.guze222 p{
+	position: relative;
+	width: 90%;
+	height: 30px;
+	overflow: hidden;
+	text-align: center;
+	font-size: 14px;
+	color: #fff76e;
+	line-height: 30px;
+	background: #6f1922;
+	border-radius: 6px;
+	margin: 10px auto;
+}
+.guze222  a{
+	color: #fff76e;
+	text-align: center;
+	display: block;
+	cursor: pointer;
+	font-size: 14px;
+}
